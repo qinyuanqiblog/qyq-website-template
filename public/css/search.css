@@ -888,7 +888,7 @@ dd {
 }
 
 /* 客服 */
-.footer_kf {height:70px; width:100%; position:fixed; bottom:0; left:0; z-index:8888;/*background: rgba(29,99,197,0.6);*/}
+.footer_kf {height:70px; width:100%; position:fixed; bottom:0; left:0;/*background: rgba(29,99,197,0.6);*/}
 .fd_box02 { margin:0 auto; width:1200px; height:70px; position:relative; bottom:0; padding: 10px 30px; /*border-radius: 70px 70px 0 0; background: rgba(88,130,238, .8);*/}
 .fd_bgc { position: absolute; left: 0; top: 0; bottom: 0; width: 100%; background: #5882ee; opacity: .9; border-radius: 70px 70px 0 0; z-index: -1; }
 .fd_gb { width:20px; height:20px; position:absolute; right:-15px; top:0;}
@@ -953,7 +953,7 @@ border: 1px solid #fff;
  height:400px;
  background: #fff;
  border-radius: .4rem .4rem .4rem .4rem;
- 
+
  overflow: hidden;
 /*  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); */
 -webkit-transform:scale(0.8);
@@ -971,8 +971,8 @@ transform:scale(0.8);
  -o-transition-duration: 0.3s;
  transition-duration: 0.3s;
 }
-.cd-popup-close{ 
- position: absolute;right:10px;top:10px; 
+.cd-popup-close{
+ position: absolute;right:10px;top:10px;
  z-index: 10;width:22px;display: block;font-size:14px;
  line-height: 55px;
 overflow: hidden;

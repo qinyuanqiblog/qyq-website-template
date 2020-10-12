@@ -52,10 +52,10 @@ module.exports = {
         // liveReload: false,
         // host: 'localhost',
         // 让浏览器 overlay 同时显示警告和错误
-        overlay: {
-            warnings: true,
-            errors: true,
-        },
+        // overlay: {
+        //     warnings: true,
+        //     errors: true,
+        // },
         proxy,
     },
     productionSourceMap: false
