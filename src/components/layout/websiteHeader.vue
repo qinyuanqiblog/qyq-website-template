@@ -1,57 +1,84 @@
 <template>
-  <div style="display:none" >
-    <!-- 头部开始 -->
-    <div class="container-fiuled header-con hidden-xs hidden-sm">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-5 p-l-0">
-            <div class="company-name">您好，欢迎访问南宁市庞锐（立师）办公家具有限公司官方网站！</div>
-          </div>
+  <div>
+    <b-container
+      fluid
+      class="nav-top"
+    >
+      <b-container>
+        <b-row>
+          <b-col>您好，欢迎光临xx官网</b-col>
+          <b-col class="text-right">在线电话电话：
+            <span class="nav-top-phone">400-800-1234</span>
+          </b-col>
+        </b-row>
+      </b-container>
+    </b-container>
+    <div class="qyq-navbar">
+      <b-container class="navbar-container">
+        <b-navbar toggleable="lg">
+          <b-navbar-brand href="#">NavBar</b-navbar-brand>
 
-          <div class="col-md-7 hidden-sm hidden-xs p-r-0">
-            <div class="sitexml pull-right">
-              <a href="http://www.nnpangrui.com/region/">企业分站</a> |
-              <a href="http://www.nnpangrui.com/websitemap/">网站地图</a> |
-              <a href="http://www.nnpangrui.com/rss.xml">RSS</a> |
-              <a href="http://www.nnpangrui.com/sitemap.xml">XML</a> |
-              <a
-                href="http://www.nnpangrui.com/admin"
-                class="feedback"
-                target="_blank"
-              >您有<span class="f_count">0</span>条询盘信息！</a>
-            </div>
-          </div>
+          <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-        </div>
-      </div>
-    </div>
-    <div class="container-fiuled hidden-xs hidden-sm">
-      <div class="container header-logo">
-        <div
-          class="col-md-9 p-l-0"
-          style="padding-top:5px;"
-        >
-          <!-- <img
-            src="http://www.nnpangrui.com/template/603_tplstyle_0/images/logo.png"
-            alt=""
-          > -->
-        </div>
-        <div class="col-md-3 header-phone  pull-right">
-          <div
-            class="pull-right size14"
-            style=""
-          ><span class="size28 p-0">0771-5652300 <br>18978919912&#8236;&#8236;</span></div>
-          <img
-            class="pull-left "
-            src="http://www.nnpangrui.com/template/603_tplstyle_0/images/t-dh.png"
-            alt=""
+          <b-collapse
+            id="nav-collapse"
+            is-nav
           >
+            <!-- Right aligned nav items -->
+            <b-navbar-nav class="ml-auto">
+              <div class="navbar-main">
+                <a
+                  class="navbar-main-item"
+                  href=""
+                >网站首页</a>
+                <a
+                  class="navbar-main-item"
+                  href=""
+                >网站首页</a>
+                <a
+                  class="navbar-main-item"
+                  href=""
+                >网站首页</a>
+                <a
+                  class="navbar-main-item"
+                  href=""
+                >网站首页</a>
+                <a
+                  class="navbar-main-item"
+                  href=""
+                >网站首页</a>
+                <a
+                  class="navbar-main-item"
+                  href=""
+                >网站首页</a>
+                <a
+                  class="navbar-main-item"
+                  href=""
+                >网站首页</a>
+                <a
+                  class="navbar-main-item"
+                  href=""
+                >网站首页</a>
+              </div>
 
-        </div>
+              <!-- <b-nav-form>
+                <b-form-input
+                  size="sm"
+                  class="mr-sm-2"
+                  placeholder="Search"
+                ></b-form-input>
+                <b-button
+                  size="sm"
+                  class="my-2 my-sm-0"
+                  type="submit"
+                >Search</b-button>
+              </b-nav-form> -->
 
-      </div>
+            </b-navbar-nav>
+          </b-collapse>
+        </b-navbar>
+      </b-container>
     </div>
-    <!-- 头部结束 -->
   </div>
 </template>
 
@@ -62,11 +89,41 @@ export default {
   data() {
     return {}
   },
-  created() {
-  },
+  created() {},
   methods: {},
 }
 </script>
 
 <style lang="scss" scoped>
+.nav-top {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+  font-size: 12px;
+  &-phone {
+    color: #da251d;
+  }
+}
+.qyq-navbar {
+  .navbar {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .navbar-main {
+    display: flex;
+    &-item {
+      margin: 15px 5px;
+      padding: 7px 15px;
+      color: #777;
+      text-shadow: none;
+      border-radius: 3px;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        color: #fff;
+        background: #ff5555;
+        text-decoration: none;
+      }
+    }
+  }
+}
 </style>

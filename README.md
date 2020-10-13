@@ -22,3 +22,8 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+## 技术选型
+bootstrap-vue [bootstrap-vue](https://bootstrap-vue.org/).
+

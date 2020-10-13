@@ -1,0 +1,156 @@
+// 任意角度的箭头
+// https://juejin.im/post/5a9c99c4f265da23906b7c98
+@mixin rightArrows($width: 15px, $height: 15px, $borderWidth: 4px, $color: #ccc) {
+  display: inline-block;
+  border-top: $borderWidth solid;
+  border-right: $borderWidth solid;
+  width: $width;
+  height: $height;
+  transform: rotate(45deg);
+  color: $color;
+}
+// 单行省略号
+// TODO 实战发现这个鬼好像必须是有宽度才生效 ，恶心哦
+@mixin singleEllipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+// 多少行省略号
+@mixin lineClamp($value: 2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-clamp: $value;
+  -webkit-line-clamp: $value;
+  -webkit-box-orient: vertical;
+}
+// 定位居中对齐
+@mixin absoluteCenter($width: auto, $height: auto) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: $width;
+  height: $height;
+}
+
+// 定位居中对齐
+@mixin borderTop1px($left: 0) {
+  content: ' ';
+  position: absolute;
+  pointer-events: none;
+  box-sizing: border-box;
+  left: $left;
+  right: 0;
+  top: 0;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  border-bottom: 1px solid #ebedf0;
+}
+
+// 半透明布局
+@mixin translucenceLayout($height: 40px, $bg: #000, $color: #f3d2a7, $opacity: 0.5, $fz: 12px) {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: $height;
+  line-height: $height;
+  text-align: center;
+  font-size: $fz;
+  font-weight: bold;
+  color: $color;
+  &-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $bg;
+    opacity: $opacity;
+  }
+  &-text {
+    position: relative;
+    display: inline-block;
+    text-align: left;
+  }
+}
+
+@mixin basePicture($width: 40px, $height: 40px, $radius: 50%, $objectFit: cover){
+  width:$width;
+  height:$height;
+  border-radius:$radius;
+  object-fit: $objectFit;
+}
+@mixin doubleLine($fontSize:14px,$marginBottom:12px,$width: 78px,$height:1px,$color1:#fff,$color2:#ddc3ad){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: $fontSize;
+  margin-bottom: $marginBottom;
+  &:before {
+     content: '';
+    display: inline-block;
+    width: $width;
+    height: $height;
+    background: linear-gradient(to right, $color1, $color2);
+  }
+  &:after {
+     content: '';
+    display: inline-block;
+    width: $width;
+    height: $height;
+    background: linear-gradient(to left, $color1, $color2);
+  }
+  &-text {
+    margin: 0 9px;
+  }
+}
+
+@mixin defaultWhiteButton(){
+  display: block;
+  margin: 30px auto 0;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 4px;
+  width: 92%;
+  border: none;
+  font-size: 16px;
+  color: $mainColor;
+}
+
+@mixin defaultNav(){
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__fixed {
+    position: fixed;
+    top: 0;
+    background-color: #fff;
+    box-shadow: 1px 1px 1px #ccc;
+    .nav-left {
+      color: #000;
+    }
+  }
+  &-left {
+    color: #fff;
+  }
+  &-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 57px;
+    height: 26px;
+    background: linear-gradient(90deg, rgba(241, 218, 194, 1) 0%, rgba(222, 179, 139, 1) 100%);
+    border-radius: 1px;
+    font-size: 12px;
+    color: #704629;
+  }
+}
+

@@ -1,4 +1,5 @@
 let glob = require('glob');
+const path = require('path')
 //配置pages多页面获取当前文件夹下的html和ts
 function getEntry(globPath) {
     let entries = {},
@@ -42,6 +43,22 @@ module.exports = {
     pages: htmls,
     publicPath: './', //  解决打包之后静态文件路径404的问题
     outputDir: 'dist', //  打包后的文件夹名称，默认dist
+    chainWebpack: config => {
+      config.resolve.alias
+        .set('public', path.join(__dirname, 'public'))
+    },
+    css: {
+      loaderOptions: {
+        // api: https://cli.vuejs.org/zh/guide/css.html#%E5%90%91%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8-loader-%E4%BC%A0%E9%80%92%E9%80%89%E9%A1%B9
+        // 引入全局的mixin
+        scss: {
+          prependData: `
+          @import "~public/scss/variable.scss";
+          @import "~public/scss/mixin.scss";
+          `,
+        },
+      },
+    },
     devServer: {
         // open: true, //  npm run serve 自动打开浏览器
         port: 9256,

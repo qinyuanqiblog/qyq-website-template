@@ -1,0 +1,60 @@
+.wm-loading {
+  color: #f8da42;
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+  overflow: hidden;
+  text-rendering: optimizeLegibility;
+  &:after {
+    content: '';
+    background: trasparent;
+    width: 130px;
+    height: 130px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -65px 0 0 -65px;
+    border-radius: 50%;
+    box-shadow: rgba(248, 218, 66, 1) -4px -5px 3px -3px;
+    animation: loading 2s infinite linear;
+  }
+  &-text {
+    font-weight: 300;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    margin: 0 auto;
+    color: #000;
+    position: absolute;
+    display: block;
+    font-size: 18px;
+    animation: text 2s infinite ease-in-out;
+  }
+}
+@keyframes loading {
+  0% {
+    transform: rotateZ(0deg);
+  }
+
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes text {
+  0% {
+    opacity: 0;
+  }
+
+  35% {
+    opacity: 1;
+  }
+
+  65% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
