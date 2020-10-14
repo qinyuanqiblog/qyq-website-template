@@ -27,12 +27,21 @@
       </b-carousel-slide>
     </b-carousel>
     <searchBox />
-
+    <productIntroduce />
+    <productList />
+    <aboutUs />
   </div>
 </template>
 
 <script>
+import { productIntroduce, productList, aboutUs } from '@/components'
 export default {
+  name: 'index',
+  components: {
+    productIntroduce,
+    productList,
+    aboutUs,
+  },
   data() {
     return {
       dismissSecs: 10,

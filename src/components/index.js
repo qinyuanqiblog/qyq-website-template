@@ -4,6 +4,9 @@ import searchBox from './searchBox'
 import contactSidebar from './contactSidebar'
 import contactDialog from './contactDialog'
 import phoneService from './phoneService'
+import productIntroduce from './productIntroduce'
+import productList from './productList'
+import aboutUs from './aboutUs'
 
 export {
   websiteHeader,
@@ -12,4 +15,7 @@ export {
   contactSidebar,
   contactDialog,
   phoneService,
+  productIntroduce,
+  productList,
+  aboutUs,
 }
