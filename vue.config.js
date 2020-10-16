@@ -46,6 +46,7 @@ module.exports = {
     chainWebpack: config => {
       config.resolve.alias
         .set('public', path.join(__dirname, 'public'))
+        .set('assets', path.join(__dirname, '/src/assets'))
     },
     css: {
       loaderOptions: {

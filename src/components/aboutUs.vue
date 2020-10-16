@@ -1,34 +1,45 @@
 <template>
-  <div class="bbb section-wrapper section-wrapper--gray section-wrapper--lg">
-    <div class="container">
-      <div class="row justify-content-center mb-5">
-        <div class="col-md-12 col-lg-8 col-centered text-center">
-          <h3 class="s-subtitle-top textcolor">Hope does not have a finish line</h3>
-          <h3 class="s-title">We make the best strategies for you</h3>
-          <p class="s-subtitle s-subtitle--simetric">Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud.</p>
-        </div>
-      </div>
-      <div class="row mt-5">
-        <div class="col-md-12 col-lg-4">
-          <div class="infobox s-pdl-30 s-pdr-30"><i class="icon-user-2"></i>
-            <h4>Work with us</h4>
-            <p>Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href="#">Read More</a>
-          </div>
-        </div>
-        <div class="col-md-12 col-lg-4">
-          <div class="infobox s-pdl-30 s-pdr-30"><i class="icon-worldwide"></i>
-            <h4 class="s-mrb-30 s-mrt-40">Our process</h4>
-            <p>Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href="#">Read More</a>
-          </div>
-        </div>
-        <div class="col-md-12 col-lg-4">
-          <div class="infobox s-pdl-30 s-pdr-30"><i class="icon-transfer-3"></i>
-            <h4 class="s-mrb-30 s-mrt-40">How we help</h4>
-            <p>Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href="#">Read More</a>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div>
+    <section class="case">
+      <b-container>
+        <h3 class="text-center mt-5 mb-5">案例</h3>
+        <b-row>
+          <b-col cols="3">
+            <div class="case-item">
+              <img
+                src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1602756906531&di=3d5e17a06b43dd48d9d2cb2f180738cc&imgtype=0&src=http%3A%2F%2F05imgmini.eastday.com%2Fmobile%2F20190704%2F20190704074010_0a2d3bf280b0a3df5ec289cbc8ab223c_1.jpeg"
+                class="case-item-picture"
+                alt=""
+              >
+              <p class="case-item-text">搞死你丫的搞死你丫的搞死你丫的搞死你丫的搞死你丫的搞死你丫的搞死你丫的搞死你丫的搞死你丫的搞死你丫的搞死你丫的搞死你丫的搞死你丫的搞死你丫的搞死你丫的搞死你丫的</p>
+            </div>
+          </b-col>
+        </b-row>
+      </b-container>
+    </section>
+    <section class="brand mt-5">
+      <b-container>
+        <h3 class="text-center mb-5">案例</h3>
+        <b-row>
+          <b-col>
+            <img
+              class="brand-picture"
+              src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1602756906531&di=3d5e17a06b43dd48d9d2cb2f180738cc&imgtype=0&src=http%3A%2F%2F05imgmini.eastday.com%2Fmobile%2F20190704%2F20190704074010_0a2d3bf280b0a3df5ec289cbc8ab223c_1.jpeg"
+            />
+          </b-col>
+          <b-col class="brand-content">
+            <h5>465asfd</h5>
+            <p class="brand-text">
+              广东雅洁五金有限公司（简称雅洁五金），始于1990年，近30年的传承与发展，专注高 端五金制品研发与生产。是一家集研发、生产、销售为一体的综合型企业，旗下拥有智能 安防、机械门锁、卫浴五金、门用五金、家具五金5大品类，旗舰店、专卖店和专柜遍及 中国市场，强大的销售网点覆盖中国90%的地级以上城市。同时远销欧美、中东和东南亚 等50多个国家和地区。
+              雅洁五金位于中国广东佛山，占地面积近120000平方米。
+            </p>
+          </b-col>
+        </b-row>
+      </b-container>
+    </section>
+    <section class="news">
+      <b-container></b-container>
+    </section>
   </div>
 </template>
 
@@ -45,69 +56,95 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.bbb{
-  background-color: #fafafa;
+.case {
+  &-title {
+    padding: 20px 0;
+  }
+  &-item {
+    padding: 0 0 5px;
+    box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    &-picture {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+    &-text {
+      padding: 15px 10px 0;
+      font-size: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      line-height: 1.5;
+      height: 60px;
+      @include lineClamp(3);
+    }
+  }
 }
-.infobox {
-  background: #fff;
-  border-bottom: 2px solid #fff;
-  text-align: center;
-  box-shadow: 0 4px 4px rgba(221, 215, 215, 0.12);
-  padding-top: 45px;
-  padding-bottom: 45px;
-  transition: 0.3s;
-}
+.brand {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60px;
+  // padding-bottom: 10px;
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    content: '';
+    background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1602756906531&di=3d5e17a06b43dd48d9d2cb2f180738cc&imgtype=0&src=http%3A%2F%2F05imgmini.eastday.com%2Fmobile%2F20190704%2F20190704074010_0a2d3bf280b0a3df5ec289cbc8ab223c_1.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(10px);
+    transform: scale(1.2);
+    overflow: hidden;
+  }
+  // &::after {
+  //    content: '';
+  //   position: absolute;
+  //   top: 0;
+  //   right: 0;
+  //   bottom: 0;
+  //   left: 0;
+  //   background: rgba(0, 0, 0, 0.5);
+  // }
 
-.infobox:hover {
-  border-bottom: 2px solid #0067da;
-  -webkit-box-shadow: 2px 1px 25px 5px rgba(166, 166, 166, 0.2);
-  box-shadow: 2px 1px 25px 5px rgba(166, 166, 166, 0.2);
+  &-picture {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+  }
+  &-text {
+  }
+  &-content {
+    background-color: #fff;
+    line-height: 2;
+    margin-left: -15px;
+    position: relative;
+    &::after {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: '';
+      height: 1px;
+      background-color: #000;
+    }
+  }
 }
-
-.infobox:hover i {
-  color: #0067da;
-}
-
-.infobox i {
-  display: block;
-  color: #b0b0b0;
-  font-size: 65px;
-  transition: 0.3s;
-  margin-bottom: 25px;
-}
-
-.infobox h4 {
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 22px;
-  color: #000;
-  margin: 15px 0;
-}
-
-.infobox p {
-  font-weight: normal;
-  font-size: 15px;
-  line-height: 1.7;
-  color: rgba(0, 0, 0, 0.5);
-}
-
-.infobox a {
-  display: inline-flex;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 50px;
-  align-items: center;
-  color: #0067da;
-  border: 1px solid #f0f0f0;
-  height: 40px;
-  transition: 0.3s;
-  padding: 0 15px;
-  margin-top: 10px;
-}
-
-.infobox a:hover {
-  color: #fff;
-  background: #0067da;
-  border-color: #0067da;
+.news {
+  background-color: #f5f5f5;
+  &-item {
+    &-content {
+      padding:42px 25px;
+    }
+    &-picture {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+  }
 }
 </style>

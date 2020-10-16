@@ -1,0 +1,61 @@
+<template>
+  <section class="faith">
+    <b-container>
+      <b-row class="faith-item">
+        <b-col>我们的信条 满意至上</b-col>
+        <b-col class="d-flex justify-content-end">
+          <span class="faith-button">我要咨询</span>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col class="faith-text">售前有预案，售中有效率，售后有跟踪</b-col>
+        <b-col class="d-flex justify-content-end">
+          <span class="faith-button">在线咨询</span>
+        </b-col>
+      </b-row>
+    </b-container>
+  </section>
+</template>
+
+<script>
+export default {
+  name: 'faithIntroduce',
+  components: {},
+  data() {
+    return {}
+  },
+  created() {},
+  methods: {},
+}
+</script>
+
+<style lang="scss" scoped>
+.faith {
+  background-image: url('~public/images/faith/faith.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 280px;
+  color: #fff;
+  overflow: hidden;
+  &-item {
+    margin-top: 80px;
+    margin-bottom: 20px;
+    font-size: 26px;
+  }
+  &-text {
+    font-size: 30px;
+    color: red;
+  }
+  &-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+
+    background-color: red;
+    border-radius: 30px;
+  }
+}
+</style>

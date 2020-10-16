@@ -1,7 +1,7 @@
 <template>
   <b-container class="product-list mt-lg-5">
-     <h3 class="text-center">案例展示</h3>
-    <b-row >
+    <h3 class="text-center">案例展示</h3>
+    <b-row>
       <b-col>
         <img
           class="product-list-picture"

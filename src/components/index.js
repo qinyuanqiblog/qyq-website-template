@@ -7,6 +7,7 @@ import phoneService from './phoneService'
 import productIntroduce from './productIntroduce'
 import productList from './productList'
 import aboutUs from './aboutUs'
+import faithIntroduce from './faithIntroduce'
 
 export {
   websiteHeader,
@@ -18,4 +19,5 @@ export {
   productIntroduce,
   productList,
   aboutUs,
+  faithIntroduce,
 }

@@ -29,18 +29,22 @@
     <searchBox />
     <productIntroduce />
     <productList />
+    <faithIntroduce/>
     <aboutUs />
+
+    <div style="height:200px"></div>
   </div>
 </template>
 
 <script>
-import { productIntroduce, productList, aboutUs } from '@/components'
+import { productIntroduce, productList, aboutUs ,faithIntroduce} from '@/components'
 export default {
   name: 'index',
   components: {
     productIntroduce,
     productList,
     aboutUs,
+    faithIntroduce,
   },
   data() {
     return {
@@ -75,4 +79,5 @@ export default {
     object-fit: cover;
   }
 }
+
 </style>
