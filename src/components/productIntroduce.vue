@@ -1,18 +1,9 @@
 <template>
-  <section class="section-white small-padding-bottom">
+  <section class="product-introduce pt-5 pb-5 text-center">
     <!--begin container-->
     <div class="container">
       <!--begin row-->
-      <div class="row margin-bottom-10">
-        <!--begin col-md-12-->
-        <div class="col-md-12 text-center">
-          <h2 class="section-title">Amazing Features</h2>
-          <p class="section-subtitle">There are many variations of passages of Lorem Ipsum available, but the majority<br>have suffered alteration, by injected humour, or new randomised words.</p>
-        </div>
-        <!--end col-md-12-->
-      </div>
-      <!--end row-->
-      <!--begin row-->
+      <h3 class="pb-5">产品特色</h3>
       <div class="row">
         <!--begin col-sm-4-->
         <div class="col-sm-4 features-item"><img
@@ -65,10 +56,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.services-pic{
-  width:120px;
+.product-introduce {
+  background-color: #f5f5f5;
+}
+.services-pic {
+  width: 120px;
   height: 120px;
   border-radius: 50%;
-  margin:auto;
+  margin: auto;
 }
 </style>

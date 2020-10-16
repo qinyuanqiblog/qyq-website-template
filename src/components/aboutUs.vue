@@ -1,8 +1,8 @@
 <template>
   <div>
-    <section class="case">
+    <section class="case pt-5 pb-5">
       <b-container>
-        <h3 class="text-center mt-5 mb-5">案例</h3>
+        <h3 class="text-center">产品案例</h3>
         <b-row>
           <b-col cols="3">
             <div class="case-item">
@@ -17,9 +17,9 @@
         </b-row>
       </b-container>
     </section>
-    <section class="brand mt-5">
+    <section class="brand">
       <b-container>
-        <h3 class="text-center mb-5">案例</h3>
+        <h3 class="text-center mb-5">品牌文化</h3>
         <b-row>
           <b-col>
             <img
@@ -38,7 +38,52 @@
       </b-container>
     </section>
     <section class="news">
-      <b-container></b-container>
+      <b-container>
+        <h3 class="mb-5 text-center">新闻</h3>
+        <b-row>
+          <b-col class="news-item mr-3">
+            <div class="news-item-content">
+              <h5>打发打发啊司法所大萨达</h5>
+              <p class="mt-3 mb-3">大发来端口放假啊快乐圣诞节发卡拉就是叼了副科级阿卡里数据发拉可视对讲风流夸堕髻阿里可视对讲卡顿</p>
+              <p>阿斯顿发生</p>
+            </div>
+            <img
+              class="news-item-picture"
+              src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1602756906531&di=3d5e17a06b43dd48d9d2cb2f180738cc&imgtype=0&src=http%3A%2F%2F05imgmini.eastday.com%2Fmobile%2F20190704%2F20190704074010_0a2d3bf280b0a3df5ec289cbc8ab223c_1.jpeg"
+              alt=""
+            >
+          </b-col>
+          <b-col class="news-item mr-3">
+            <div class="news-item-content">
+              <h5>打发打发啊司法所大萨达</h5>
+              <p class="mt-3 mb-3">大发来端口放假啊快乐圣诞节发卡拉就是叼了副科级阿卡里数据发拉可视对讲风流夸堕髻阿里可视对讲卡顿</p>
+              <p>阿斯顿发生</p>
+            </div>
+            <img
+              class="news-item-picture"
+              src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1602756906531&di=3d5e17a06b43dd48d9d2cb2f180738cc&imgtype=0&src=http%3A%2F%2F05imgmini.eastday.com%2Fmobile%2F20190704%2F20190704074010_0a2d3bf280b0a3df5ec289cbc8ab223c_1.jpeg"
+              alt=""
+            >
+          </b-col>
+          <b-col class="news-item">
+            <ul class="news-item-content">
+              <li class="news-item-content-current"><a
+                  class="news-item-content-current-link"
+                  href=""
+                >让梦想起飞——XXX五金领航机场产品集成服务XXX五金领航机场产品集成服务</a></li>
+              <li class="news-item-content-current"><a
+                  class="news-item-content-current-link"
+                  href=""
+                >让梦想起飞——XXX五金领航机场产品集成服务XXX五金领航机场产品集成服务</a></li>
+              <li class="news-item-content-current"><a
+                  class="news-item-content-current-link"
+                  href=""
+                >让梦想起飞——XXX五金领航机场产品集成服务XXX五金领航机场产品集成服务</a></li>
+            </ul>
+          </b-col>
+          <!-- <b-col cols="5"></b-col> -->
+        </b-row>
+      </b-container>
     </section>
   </div>
 </template>
@@ -57,6 +102,8 @@ export default {
 
 <style lang="scss" scoped>
 .case {
+  background-color: #f5f5f5;
+
   &-title {
     padding: 20px 0;
   }
@@ -136,9 +183,39 @@ export default {
 }
 .news {
   background-color: #f5f5f5;
+  overflow: hidden;
+  padding: 45px 0;
   &-item {
+    background-color: #fff;
+    border-radius: 4px;
     &-content {
-      padding:42px 25px;
+      padding: 42px 10px;
+      &-current {
+        position: relative;
+        transition: all 0.36s;
+        margin: 10px 0;
+        @include lineClamp(1);
+        padding-left: 15px;
+        &:hover {
+          transform: translateX(10px);
+        }
+        &::before {
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translate(0, -50%);
+          content: '';
+          width: 5px;
+          height: 5px;
+          background-color: red;
+          border-radius: 50%;
+        }
+        &-link {
+          text-decoration: none;
+          overflow: hidden;
+          color: #000;
+        }
+      }
     }
     &-picture {
       width: 100%;

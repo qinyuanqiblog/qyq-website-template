@@ -1,6 +1,6 @@
 <template>
-  <b-container class="product-list mt-lg-5">
-    <h3 class="text-center">案例展示</h3>
+  <b-container class="product-list mt-lg-5 mb-5">
+    <h3 class="text-center">产品展示</h3>
     <b-row>
       <b-col>
         <img
@@ -65,8 +65,9 @@ export default {
 <style lang="scss" scoped>
 .product-list {
   &-picture {
-    width: 200px;
+    width: 100%;
     height: 200px;
+
   }
 }
 </style>

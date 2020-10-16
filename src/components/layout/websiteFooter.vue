@@ -1,5 +1,5 @@
 <template>
-  <div class="footer-box ">
+  <div class="footer-box">
     <div class="f_one">
       <!--布局框架 4-4-4 代码开始-->
       <div class="container">
@@ -71,4 +71,136 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+/*底部*/
+.footer-box {
+    background: #000000;
+}
+
+.f_one {
+    background: #000;
+    padding: 28px 0 23px;
+}
+
+.lx p {
+    color: #fff;
+    font-size: 14px;
+    line-height: 30px;
+}
+
+.lx p .fa {
+    padding-right: 10px;
+}
+
+.footers .f1 {
+    margin-top: 5px;
+    width: 29%;
+    padding: 12px 0px;
+}
+
+.col-md-5.column.lx {
+    padding: 0 0 0 45px;
+    border-right: 1px solid #444;
+    border-left: 1px solid #444;
+}
+
+.footers .f3 {
+    padding: 0 0 0 25px;
+}
+
+.footers .f3 .ema_1 {
+    float: left;
+}
+
+.footers .f3 .ema_1 img {
+    width: 45%;
+}
+
+.footers .f3 .ema_1 p {
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    margin: 13px 0 0px 14px;
+    line-height: 35px;
+}
+
+.footers .f1 h3 {
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.footers .f1 img {
+    margin: 15px 9px 0 0;
+}
+
+.txt1 .fa {
+    font-size: 52px;
+    color: #fff;
+    margin-right: 30px;
+    margin-top: 28px;
+}
+
+.txt1 h3 {
+    color: #fff;
+    float: left;
+    font-size: 32px;
+    font-weight: bold;
+    font-family: SimHei;
+    margin: 0;
+}
+
+.d-an {
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.d-an a {
+    color: #fff;
+    border: 1px solid #757575;
+    width: 206px;
+    height: 37px;
+    line-height: 35px;
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.d-an a:hover {
+    color: #fff;
+    background-color: #99272f;
+    border-color: #b7333c;
+    display: block;
+}
+
+.ema_1 .ewmb-1 {
+    color: #fff;
+    margin-top: 32px;
+    line-height: 24px;
+    margin-left: 20px;
+    float: left;
+}
+
+.ema_1 .ewmb-2 {
+    float: right;
+}
+
+.f_two {
+    background: #000;
+    border-top: 1px solid #444;
+    font-size: 14px;
+    color: #c3c3c3;
+    line-height: 50px;
+}
+
+.copyright {
+    font-size: 14px;
+    color: #fff;
+}
+
+.themain {
+    line-height: 24px;
+}
 </style>
