@@ -15,6 +15,8 @@ Vue.use(BootstrapVueIcons)
 Vue.use(VBHoverPlugin)
 Vue.use(VBToggle)
 
+window.sessionStorage.userId = 1
+
 // 全局注册组件
 Vue.component(
   'websiteHeader', websiteHeader

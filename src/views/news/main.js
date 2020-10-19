@@ -24,6 +24,7 @@ Vue.component(
   'searchBox', searchBox
 )
 
+
 Vue.config.productionTip = false
 
 new Vue({

@@ -27,130 +27,28 @@
             <!-- Right aligned nav items -->
             <b-navbar-nav class="ml-auto">
               <ul class="navbar-main">
-                <li class="navbar-main-item">
+                <li
+                  v-for="(item, index) in menuInfo"
+                  :key="index"
+                  class="navbar-main-item"
+                >
                   <a
                     class="navbar-main-item-link"
-                    href=""
-                  >网站首页</a>
-                  <ul class="navbar-main-item-menu">
-                    <li>
+                    :href="item.href"
+                  >{{ item.name }}</a>
+                  <ul
+                    v-if="item.newsMenu"
+                    class="navbar-main-item-menu"
+                  >
+                    <li
+                      v-for="(current, currentIndex) in menuInfo"
+                      :key="currentIndex"
+                    >
                       <a
                         class="navbar-main-item-menu-link"
-                        href="404.html"
-                      >404</a>
+                        :href="current.href"
+                      >{{ current.name }}</a>
                     </li>
-                    <li> <a
-                        class="navbar-main-item-menu-link"
-                        href="404.html"
-                      >404</a></li>
-                  </ul>
-                </li>
-                <li class="navbar-main-item">
-                  <a
-                    class="navbar-main-item-link"
-                    href=""
-                  >网站首页</a>
-                  <ul class="navbar-main-item-menu">
-                    <li>
-                      <a
-                        class="navbar-main-item-menu-link"
-                        href="404.html"
-                      >404</a>
-                    </li>
-                    <li> <a
-                        class="navbar-main-item-menu-link"
-                        href="404.html"
-                      >404</a></li>
-                  </ul>
-                </li>
-                <li class="navbar-main-item">
-                  <a
-                    class="navbar-main-item-link"
-                    href=""
-                  >网站首页</a>
-                  <ul class="navbar-main-item-menu">
-                    <li>
-                      <a
-                        class="navbar-main-item-menu-link"
-                        href="404.html"
-                      >404</a>
-                    </li>
-                    <li> <a
-                        class="navbar-main-item-menu-link"
-                        href="404.html"
-                      >404</a></li>
-                  </ul>
-                </li>
-                <li class="navbar-main-item">
-                  <a
-                    class="navbar-main-item-link"
-                    href=""
-                  >网站首页</a>
-                  <ul class="navbar-main-item-menu">
-                    <li>
-                      <a
-                        class="navbar-main-item-menu-link"
-                        href="404.html"
-                      >404</a>
-                    </li>
-                    <li> <a
-                        class="navbar-main-item-menu-link"
-                        href="404.html"
-                      >404</a></li>
-                  </ul>
-                </li>
-                <li class="navbar-main-item">
-                  <a
-                    class="navbar-main-item-link"
-                    href=""
-                  >网站首页</a>
-                  <ul class="navbar-main-item-menu">
-                    <li>
-                      <a
-                        class="navbar-main-item-menu-link"
-                        href="404.html"
-                      >404</a>
-                    </li>
-                    <li> <a
-                        class="navbar-main-item-menu-link"
-                        href="404.html"
-                      >404</a></li>
-                  </ul>
-                </li>
-                <li class="navbar-main-item">
-                  <a
-                    class="navbar-main-item-link"
-                    href=""
-                  >网站首页</a>
-                  <ul class="navbar-main-item-menu">
-                    <li>
-                      <a
-                        class="navbar-main-item-menu-link"
-                        href="404.html"
-                      >404</a>
-                    </li>
-                    <li> <a
-                        class="navbar-main-item-menu-link"
-                        href="404.html"
-                      >404</a></li>
-                  </ul>
-                </li>
-                <li class="navbar-main-item">
-                  <a
-                    class="navbar-main-item-link"
-                    href=""
-                  >网站首页</a>
-                  <ul class="navbar-main-item-menu">
-                    <li>
-                      <a
-                        class="navbar-main-item-menu-link"
-                        href="404.html"
-                      >404</a>
-                    </li>
-                    <li> <a
-                        class="navbar-main-item-menu-link"
-                        href="404.html"
-                      >404</a></li>
                   </ul>
                 </li>
               </ul>
@@ -163,14 +61,25 @@
 </template>
 
 <script>
+import { systemApi } from '@/api'
 export default {
   name: 'websiteHeader',
   components: {},
   data() {
-    return {}
+    return {
+      menuInfo: [],
+    }
   },
-  created() {},
-  methods: {},
+  created() {
+    this.getMenu()
+  },
+  methods: {
+    getMenu() {
+      systemApi.menuTree().then((res = {}) => {
+        this.menuInfo = res
+      })
+    },
+  },
 }
 </script>
 
@@ -205,7 +114,7 @@ export default {
       &-link {
         display: block;
         width: 118px;
-        margin:  5px;
+        margin: 5px;
         padding: 7px 15px;
         color: #777;
         text-shadow: none;

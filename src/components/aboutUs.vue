@@ -28,10 +28,11 @@
             />
           </b-col>
           <b-col class="brand-content">
-            <h5>465asfd</h5>
+            <h5 class="">465asfd</h5>
             <p class="brand-text">
-              广东雅洁五金有限公司（简称雅洁五金），始于1990年，近30年的传承与发展，专注高 端五金制品研发与生产。是一家集研发、生产、销售为一体的综合型企业，旗下拥有智能 安防、机械门锁、卫浴五金、门用五金、家具五金5大品类，旗舰店、专卖店和专柜遍及 中国市场，强大的销售网点覆盖中国90%的地级以上城市。同时远销欧美、中东和东南亚 等50多个国家和地区。
-              雅洁五金位于中国广东佛山，占地面积近120000平方米。
+              福滨红木家具主营越南黄花梨、大红酸枝、缅甸草花梨、小叶紫檀红木家具、豪华电动餐桌、火锅桌专业定制，是红木古典家具知名品牌。产品品种齐全、品质可靠，造型典雅高贵，定位大众市场，致力于让高档家居走进普通百姓家。
+
+              本厂拥有流的技工人才。和先进的生产设备，是一家集设计开发、生产制造、销售及售后服务于一体的红木古典家具厂家。本企业精选优质名贵木材，每一件产品从设计、开料、木工、雕花、打磨再到油漆，都经过严格的操作程序，精雕细琢、典雅大方。产品主要分为客厅、餐厅、套房、书房等系列，传统与现代相结合的风格，深得广大客户依赖和喜爱。本厂秉承“为商以德、诚信为本;谋利有度、货真价实”的经营理念，在未来发展的道路上，将继续深入市场，进一步了解市场需求，研究市场发展趋势。
             </p>
           </b-col>
         </b-row>
@@ -67,18 +68,14 @@
           </b-col>
           <b-col class="news-item">
             <ul class="news-item-content">
-              <li class="news-item-content-current"><a
+              <li
+                v-for="(item, index) in insidePageData.newsData"
+                :key="index"
+                class="news-item-content-current"
+              ><a
                   class="news-item-content-current-link"
                   href=""
-                >让梦想起飞——XXX五金领航机场产品集成服务XXX五金领航机场产品集成服务</a></li>
-              <li class="news-item-content-current"><a
-                  class="news-item-content-current-link"
-                  href=""
-                >让梦想起飞——XXX五金领航机场产品集成服务XXX五金领航机场产品集成服务</a></li>
-              <li class="news-item-content-current"><a
-                  class="news-item-content-current-link"
-                  href=""
-                >让梦想起飞——XXX五金领航机场产品集成服务XXX五金领航机场产品集成服务</a></li>
+                >{{ item.describes }}</a></li>
             </ul>
           </b-col>
           <!-- <b-col cols="5"></b-col> -->
@@ -89,13 +86,21 @@
 </template>
 
 <script>
+import { systemApi } from '@/api'
 export default {
   name: 'aboutUs',
   components: {},
   data() {
-    return {}
+    return {
+      insidePageData: {},
+      list:[]
+    }
   },
-  created() {},
+  created() {
+    systemApi.insidePageData().then((res = {}) => {
+      this.insidePageData = res
+    })
+  },
   methods: {},
 }
 </script>
@@ -157,19 +162,26 @@ export default {
   //   left: 0;
   //   background: rgba(0, 0, 0, 0.5);
   // }
-
   &-picture {
     width: 100%;
     height: 400px;
     object-fit: cover;
   }
   &-text {
+    margin-top:20px;
+    color: #666;
+    height: 300px;
+    overflow: hidden;
   }
   &-content {
+    font-size: 14px;
     background-color: #fff;
     line-height: 2;
     margin-left: -15px;
     position: relative;
+    padding: 30px 30px;
+    max-height: 400px;
+    overflow: hidden;
     &::after {
       position: absolute;
       right: 0;
