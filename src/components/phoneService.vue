@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <section>
     <a
       href="javascript:void(0)"
       class="fd_left icon_keifu"
@@ -23,7 +23,10 @@
             <div class="fd_gb"><a
                 href="javascript:void(0)"
                 class="keifu_close"
-              ><img @click="showBar = false" src="https://g.gxlesou.com/static/getcustomer/images/gb.png"></a></div>
+              ><img
+                  @click="showBar = false"
+                  src="https://g.gxlesou.com/static/getcustomer/images/gb.png"
+                ></a></div>
             <div class="fd_tu">
               <div class="fd_img"><img src="https://g.gxlesou.com/static/getcustomer/images/pic1.png"></div>
               <p>无论何时何地，我们都会<span>立即安排</span>公司专员<span>免费</span>一对一与您沟通</p>
@@ -41,7 +44,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -55,19 +58,19 @@ export default {
   },
   created() {},
   methods: {
-    toggle(){
+    toggle() {
       console.log(66666)
       this.showBar = !this.showBar
-    }
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-.icon_keifu{
+.icon_keifu {
   position: fixed;
-  bottom:20px;
-  left:0;
+  bottom: 20px;
+  left: 0;
   z-index: 2;
 }
 </style>

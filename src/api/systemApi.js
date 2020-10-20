@@ -4,11 +4,11 @@ const defaultPrefix = '/system'
 const userId = window.sessionStorage.userId
 export default {
   // 添加留言
-  addMessage(data = {}) {
+  addMessage(params = {}) {
     return request({
       url: `${defaultPrefix}/news/api/addMessage`,
       method: 'post',
-      data,
+      params,
     })
   },
   // 查文章列表（即栏目下的文章）， {根据栏目查, 传 栏目menuId,modelType 1，单页，2新闻，3，产品 分页：每页条数pageSize 页数pageNum } 说明：单页模型返回一条或没有，新闻模型和产品模型返回多条或没有

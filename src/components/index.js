@@ -1,6 +1,7 @@
 import websiteHeader from './layout/websiteHeader'
 import websiteFooter from './layout/websiteFooter'
 import websiteSideBar from './layout/websiteSideBar'
+import websiteNews from './layout/websiteNews'
 import searchBox from './searchBox'
 import contactSidebar from './contactSidebar'
 import contactDialog from './contactDialog'
@@ -14,6 +15,7 @@ export {
   websiteHeader,
   websiteFooter,
   websiteSideBar,
+  websiteNews,
   searchBox,
   contactSidebar,
   contactDialog,

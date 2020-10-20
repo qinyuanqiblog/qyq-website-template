@@ -100,6 +100,7 @@
 </template>
 
 <script>
+import { systemApi } from '@/api'
 // import {
 //   websiteFooter,
 //   phoneService,
@@ -116,25 +117,25 @@ export default {
   // },
   data() {
     return {
-      dismissSecs: 10,
-      dismissCountDown: 0,
-      showDismissibleAlert: false,
-      slide: 0,
-      sliding: null,
+      detailData: {},
     }
   },
+  created() {
+    this.init()
+  },
   methods: {
-    countDownChanged(dismissCountDown) {
-      this.dismissCountDown = dismissCountDown
+    init() {
+      this.getDetailInfo()
     },
-    showAlert() {
-      this.dismissCountDown = this.dismissSecs
-    },
-    onSlideStart() {
-      this.sliding = true
-    },
-    onSlideEnd() {
-      this.sliding = false
+    getDetailInfo() {
+      const ajaxData = {
+        articleId:'',
+        modelType:'',
+        userId: window.sessionStorage.userId,
+      }
+      systemApi.detailsPageData(ajaxData).then((res = {}) => {
+        this.detailData = res|| {}
+      })
     },
   },
 }
@@ -347,36 +348,159 @@ export default {
   transform: scale(1.1);
 }
 
-.newp-list ul{ padding-top: 15px;}
-.newp-list li{ position: relative; transition: all 0.6s; }
-.newp-list li a{ display: block; overflow: hidden; clear: both; padding: 20px 0; border-bottom: 1px solid #F5F5F5;}
-.newp-list .time{ width: 60px; height: 60px; /*border-left: 1px solid #F5F5F5; border-right: 1px solid #F5F5F5;*/ background: #DE0024;
-position: absolute; top: 20px; left: 0; z-index: 33;}
-.newp-list strong{ display: block; font-size: 20px; text-align: center; color: #fff; padding-top: 5px;}
-.newp-list span{ display: block; color: #fff; font-size: 16px; text-align: center;}
-.newp-list figure img,.newp-list figure{ width: 260px; height: 150px; overflow: hidden; transition: all 0.6s;}
-.newp-list li:hover figure img{ transform: scale(1.1);}
-.newp-list figcaption{ width: 650px; padding-left: 30px;}
-.newp-list figcaption h2{ white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 16px; color: #000;
-margin-top: 10px; font-weight: bold;}
-.newp-list figcaption p{ line-height: 30px; height: 60px; overflow: hidden; font-size: 14px; color: #666; margin-top: 10px;}
-.newp-list figcaption i{ background: url(~public/images/arrow-right.png) no-repeat right center; padding-right: 40px;
-font-size: 14px; display: inline-block; color: #000; margin-top: 20px;}
-.newp-list li:hover{ transform: translateX(10px);}
-.newp-list li:hover h2{ color: #DE0024;}
+.newp-list ul {
+  padding-top: 15px;
+}
+.newp-list li {
+  position: relative;
+  transition: all 0.6s;
+}
+.newp-list li a {
+  display: block;
+  overflow: hidden;
+  clear: both;
+  padding: 20px 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+.newp-list .time {
+  width: 60px;
+  height: 60px; /*border-left: 1px solid #F5F5F5; border-right: 1px solid #F5F5F5;*/
+  background: #de0024;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  z-index: 33;
+}
+.newp-list strong {
+  display: block;
+  font-size: 20px;
+  text-align: center;
+  color: #fff;
+  padding-top: 5px;
+}
+.newp-list span {
+  display: block;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+}
+.newp-list figure img,
+.newp-list figure {
+  width: 260px;
+  height: 150px;
+  overflow: hidden;
+  transition: all 0.6s;
+}
+.newp-list li:hover figure img {
+  transform: scale(1.1);
+}
+.newp-list figcaption {
+  width: 650px;
+  padding-left: 30px;
+}
+.newp-list figcaption h2 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 16px;
+  color: #000;
+  margin-top: 10px;
+  font-weight: bold;
+}
+.newp-list figcaption p {
+  line-height: 30px;
+  height: 60px;
+  overflow: hidden;
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
+}
+.newp-list figcaption i {
+  background: url(~public/images/arrow-right.png) no-repeat right center;
+  padding-right: 40px;
+  font-size: 14px;
+  display: inline-block;
+  color: #000;
+  margin-top: 20px;
+}
+.newp-list li:hover {
+  transform: translateX(10px);
+}
+.newp-list li:hover h2 {
+  color: #de0024;
+}
 
-.detailp-cont{ padding-top: 30px;}
-.news-detail h2{  font-size: 22px; font-weight: bold; color: #000; text-align: center; }
-.news-detail .fabu{ text-align: center;  border-bottom: 1px solid #F5F5F5; padding-bottom: 20px;}
-.news-detail .fabu span{ display: inline-block; padding:10px; font-size: 14px; color: #666; }
-.news-detail p{ line-height: 36px; margin:10px 0; text-indent: 1em; font-size: 14px; color: #333; }
-.news-detail p img{ margin:auto; display: block; max-width: 100%; }
-.fenpian{ margin-top: 25px; border-top: 1px solid #f9f9f9; padding-top: 20px; position: relative; }
-.fenpian span{ font-size: 14px;  color: #000 !important; display: inline-block; float: left; margin:0 15px 0 0 !important; padding:0 !important; vertical-align: middle;}
-.fenpian p{ float: left;  }
-.fenpian>div{ padding:10px 0;}
-.fenpian p a{ font-size: 14px; color: #555; display: block;  line-height: 1; transition: all 0.6s;}
-.fenpian div:hover a{ color: #DE0024; }
-.fenpian .fanhui{ display: block; position: absolute; right: 10px; background: #DE0024; color: #fff; padding:10px 25px; border-radius: 10px;
-top: 35px;}
+.detailp-cont {
+  padding-top: 30px;
+}
+.news-detail h2 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+}
+.news-detail .fabu {
+  text-align: center;
+  border-bottom: 1px solid #f5f5f5;
+  padding-bottom: 20px;
+}
+.news-detail .fabu span {
+  display: inline-block;
+  padding: 10px;
+  font-size: 14px;
+  color: #666;
+}
+.news-detail p {
+  line-height: 36px;
+  margin: 10px 0;
+  text-indent: 1em;
+  font-size: 14px;
+  color: #333;
+}
+.news-detail p img {
+  margin: auto;
+  display: block;
+  max-width: 100%;
+}
+.fenpian {
+  margin-top: 25px;
+  border-top: 1px solid #f9f9f9;
+  padding-top: 20px;
+  position: relative;
+}
+.fenpian span {
+  font-size: 14px;
+  color: #000 !important;
+  display: inline-block;
+  float: left;
+  margin: 0 15px 0 0 !important;
+  padding: 0 !important;
+  vertical-align: middle;
+}
+.fenpian p {
+  float: left;
+}
+.fenpian > div {
+  padding: 10px 0;
+}
+.fenpian p a {
+  font-size: 14px;
+  color: #555;
+  display: block;
+  line-height: 1;
+  transition: all 0.6s;
+}
+.fenpian div:hover a {
+  color: #de0024;
+}
+.fenpian .fanhui {
+  display: block;
+  position: absolute;
+  right: 10px;
+  background: #de0024;
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 10px;
+  top: 35px;
+}
 </style>

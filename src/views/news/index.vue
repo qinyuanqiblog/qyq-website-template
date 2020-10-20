@@ -102,7 +102,7 @@
                         <span>十二月</span>
                       </div>
                       <figure class="fl"><img
-                          src="img/tu6.jpg"
+                          src="http://www.gxyhfz.com/template/894_tplstyle_816_794/images/n_img02.jpg"
                           alt=""
                         ></figure>
                       <figcaption class="fl">

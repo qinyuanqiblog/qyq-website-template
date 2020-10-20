@@ -36,29 +36,17 @@
             </div>
             <div class="col-md-5 column lx">
               <div class="text-white">
-                <i class="fa fa-bank"></i>{{ baseInfo.company }}<br>
+                <i class="fa fa-bank"></i>{{ baseInfo.name }}<br>
                 <i class="fa fa-phone-square"></i>电话：{{ baseInfo.phone }}<br>
                 <i
                   class="fa fa-envelope-o"
                   aria-hidden="true"
                 ></i>邮箱：{{ baseInfo.email }} <br>
                 <i class="fa fa-map-signs"></i>
-                <div
-                  v-for="(item, index) in baseInfo.address"
-                  :key="index"
-                >{{ item }}</div>
               </div>
             </div>
             <div class="col-md-3">
               <div class="ema_1 row">
-                <div class="col-md-6">
-                  <img
-                    class="ewmb-2"
-                    :src="baseInfo.qrcode"
-                    alt="二维码"
-                  >
-                  <p class="mt-2">手机二维码</p>
-                </div>
                 <div class="col-md-6">
                   <img
                     class="ewmb-2"
@@ -78,7 +66,7 @@
         <div class="container">
           <div class="row clearfix">
             <div class="col-md-12 text-center">
-              <p class="copyright">Copyright ©http://www.gxyhfz.com/ 广西运合服装有限公司 欢迎来电咨询！</p>
+              <p class="copyright">Copyright ©{{ baseInfo.officialWebsite }} {{ baseInfo.name }}</p>
             </div>
             <div class="col-md-12 police">
             </div>
@@ -100,7 +88,7 @@ export default {
     return {
       friendData: {},
       baseInfo: {
-        company: '820532952@qq.com',
+        name: '820532952@qq.com',
         email: '820532952@qq.com',
         phone: '18172043800',
         address: [

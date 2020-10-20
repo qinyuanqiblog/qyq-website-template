@@ -27,9 +27,8 @@
     <productList ref="productList" />
     <faithIntroduce />
     <aboutUs />
-    asdf
-    <websiteFooter />
-    <phoneService />
+    <websiteNews ref="websiteNews" />
+    <websiteFooter ref="websiteFooter" />
     <contactDialog />
     <contactSidebar />
 
@@ -43,9 +42,9 @@ import {
   aboutUs,
   faithIntroduce,
   websiteFooter,
-  phoneService,
   contactDialog,
   contactSidebar,
+  websiteNews,
 } from '@/components'
 import { systemApi } from '@/api'
 export default {
@@ -56,9 +55,9 @@ export default {
     aboutUs,
     faithIntroduce,
     websiteFooter,
-    phoneService,
     contactDialog,
     contactSidebar,
+    websiteNews,
   },
   data() {
     return {
@@ -88,12 +87,15 @@ export default {
     getBaseInfo() {
       systemApi.info().then((res = {}) => {
         this.baseInfo = res
+        this.$refs.websiteFooter.baseInfo = res.info || {}
+
       })
     },
     getIndexInfo() {
       systemApi.index({ userId: this.userId }).then((res = {}) => {
         this.productData = res
         this.$refs.productList.list = res.productAll || []
+        this.$refs.websiteNews.list = res.newsClass || []
       })
     },
     showAlert() {

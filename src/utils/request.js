@@ -69,16 +69,9 @@ service.interceptors.response.use(
     }
     // if the custom code is not 20000, it is judged as an error.
     if (parseInt(res.code) !== 0) {
-      if (typeof res.errorDesc === 'string' && res.errorDesc.length > 10) {
-        // Toast(res.errorDesc)
-      } else {
-        // Toast({
-        //   duration: 4000,
-        //   message: res.errorDesc || '系统繁忙，请稍候再试~',
-        //   icon: 'close',
-        // })
-      }
+      alert(response.data.msg)
       const { config = {} } = response || {}
+      debugger
       const error = {
         data: response.data,
         status: response.status,

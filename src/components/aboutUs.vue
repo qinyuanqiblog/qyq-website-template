@@ -194,6 +194,7 @@ export default {
   }
 }
 .news {
+  display: none;
   background-color: #f5f5f5;
   overflow: hidden;
   padding: 45px 0;

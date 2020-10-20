@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './index.vue'
 import { BootstrapVue, BootstrapVueIcons, VBHoverPlugin, VBToggle } from 'bootstrap-vue'
-
+require('../../../websiteConfig.js')
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 // 全局组件
@@ -14,6 +14,7 @@ Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 Vue.use(VBHoverPlugin)
 Vue.use(VBToggle)
+
 
 // 全局注册组件
 Vue.component(
