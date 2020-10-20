@@ -3,18 +3,23 @@
     <b-row>
       <b-col>
         <span class="font-weight-bold">热门关键词：</span>
-        <span class="ml-1">111</span>
-        <span class="ml-1">111</span>
-        <span class="ml-1">111</span>
-        <span class="ml-1">111</span>
+        <a
+          class="ml-1"
+          v-for="(item, index) in list"
+          :key="index"
+        >{{ item }}</a>
       </b-col>
       <b-col class="d-flex">
         <div class="search-bar ml-auto">
           <input
+            v-model="keyword"
             type="text"
             class="search-bar-input"
           />
-          <span class="search-bar-button">搜索</span>
+          <span
+            @click="searchFn()"
+            class="search-bar-button"
+          >搜索</span>
         </div>
       </b-col>
     </b-row>
@@ -23,14 +28,27 @@
 </template>
 
 <script>
+import { systemApi } from '@/api'
 export default {
   name: 'searchBox',
   components: {},
   data() {
-    return {}
+    return {
+      keyword: '',
+      list: ['垃圾', '11', '22', '33'],
+    }
   },
   created() {},
-  methods: {},
+  methods: {
+    searchFn() {
+      const ajaxData = {
+        keyword: this.keyword,
+      }
+      systemApi.search(ajaxData).then(() => {
+
+      })
+    },
+  },
 }
 </script>
 

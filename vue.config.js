@@ -27,8 +27,8 @@ function getEntry(globPath) {
 let htmls = getEntry('./src/views/**/*.');
 console.log(htmls)
 const proxy = {
-    '/social-gateway': {
-        target: 'http://192.168.1.86:2222',
+    '/': {
+        target: 'http://211.149.157.233:9090/',
         secure: true,
         changeOrigin: true,
         // pathRewrite: {

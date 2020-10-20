@@ -1,15 +1,14 @@
 import axios from 'axios'
-import store from '@/store'
-import { Toast } from 'vant'
-import VueEnv from '../../vue-env'
-import webCommonFn from '@/utils/web-com-fn'
+// import store from '@/store'
+// import { Toast } from 'vant'
+// import VueEnv from '../../vue-env'
 // create an axios instance
 const service = axios.create({
   // baseURL: process.env.VUE_APP_BASE_API, // url = base url + request url
   // 个人不喜欢维护.env 等文件，所以就把他们都丢到一个js文件里面去做处理
-  baseURL: VueEnv.baseURL, // url = base url + request url
+  baseURL: '', // url = base url + request url
   withCredentials: true, // send cookies when cross-domain requests
-  timeout: (VueEnv.axiosConfig && VueEnv.axiosConfig.timeout) || 10000, // request timeout
+  timeout: 10000, // request timeout
 })
 
 let requestCount = 0
@@ -21,32 +20,17 @@ service.interceptors.request.use(
     const { loadingFlag = true } = config.headers || {}
     // console.log('loadingFlag', loadingFlag)
     if (loadingFlag) {
-      Toast.loading({
-        duration: 0,
-        message: '加载中...',
-        forbidClick: true,
-      })
+      // Toast.loading({
+      //   duration: 0,
+      //   message: '加载中...',
+      //   forbidClick: true,
+      // })
     }
     requestCount++
-    // console.log(requestCount, 'start')
-    // do something before request is sent
-    // 设置请求头
-    const requestHeader = store.state['user-state'].requestHeader || {}
-    let deviceInfoObj = JSON.parse(JSON.stringify(requestHeader))
-    // 请求头不能直接传中文
-    for (const item in deviceInfoObj) {
-      if (typeof deviceInfoObj[item] === 'string') {
-        deviceInfoObj[item] = encodeURIComponent(deviceInfoObj[item])
-      }
-    }
 
     // axios 配置 https://www.kancloud.cn/yunye/axios/234845
     // 删除这个标识，不上传给后台
     delete config.headers.loadingFlag
-    config.headers = {
-      ...config.headers,
-      ...deviceInfoObj,
-    }
     config.validateStatus = function(status) {
       // return status >= 200 && status < 300; // 默认的
       return (status >= 200 && status < 300) || status == 400
@@ -76,38 +60,23 @@ service.interceptors.response.use(
     requestCount--
     const res = response.data
     if (res.status === 400) {
-      Toast({
-        duration: 4000,
-        message: '参数错误',
-        icon: 'close',
-      })
+      // Toast({
+      //   duration: 4000,
+      //   message: '参数错误',
+      //   icon: 'close',
+      // })
       return Promise.reject(res)
     }
     // if the custom code is not 20000, it is judged as an error.
-    if (parseInt(res.resultCode) !== 1) {
+    if (parseInt(res.code) !== 0) {
       if (typeof res.errorDesc === 'string' && res.errorDesc.length > 10) {
-        Toast(res.errorDesc)
+        // Toast(res.errorDesc)
       } else {
-        Toast({
-          duration: 4000,
-          message: res.errorDesc || '系统繁忙，请稍候再试~',
-          icon: 'close',
-        })
-      }
-      if (res.errorCode === 'SC-300007' || res.errorCode === 'SC-300008') {
-        if (webCommonFn.isTSSApp()) {
-          window.goOutTimer = setTimeout(() => {
-            webCommonFn.callNative('logout', {}, () => {
-              console.log('调用native退出登录方法')
-            })
-          }, 2000)
-        } else {
-           let url =  sessionStorage.getItem('shareUrl') || ''
-           if(!url){
-             return false
-           }
-           location.href = location.origin + location.pathname + '#/downloadApp?url=' + encodeURIComponent(url)
-        }
+        // Toast({
+        //   duration: 4000,
+        //   message: res.errorDesc || '系统繁忙，请稍候再试~',
+        //   icon: 'close',
+        // })
       }
       const { config = {} } = response || {}
       const error = {
@@ -125,7 +94,7 @@ service.interceptors.response.use(
       return Promise.reject(error)
     } else {
       if (requestCount <= 0) {
-        Toast.clear()
+        // Toast.clear()
       }
       if (Object.keys(res).includes('data')) {
         return res.data
@@ -139,7 +108,7 @@ service.interceptors.response.use(
     // 请求超时 和 后台http 状态码不是 200 304 400 的时候就走这里
     console.log('%c xhr response error ==> ', 'color:red', error) // for debug
     if (requestCount <= 0) {
-      Toast.clear()
+      // Toast.clear()
     }
     console.log('%c error.config.url ==>', 'color:red', error.config.url)
     console.log(
@@ -151,13 +120,13 @@ service.interceptors.response.use(
     if (error.config.url && error.config.url.indexOf('common/recordActionLog.json') !== -1) {
       console.log('日志接口不报错~')
     } else if (typeof error.errorDesc === 'string' && error.errorDesc.length > 10) {
-      Toast(error.errorDesc)
+      // Toast(error.errorDesc)
     } else {
-      Toast({
-        duration: 4000,
-        message: error.errorDesc || '系统繁忙，请稍候再试~',
-        icon: 'close',
-      })
+      // Toast({
+      //   duration: 4000,
+      //   message: error.errorDesc || '系统繁忙，请稍候再试~',
+      //   icon: 'close',
+      // })
     }
 
     return Promise.reject(error)
