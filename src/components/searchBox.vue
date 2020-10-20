@@ -15,6 +15,7 @@
             v-model="keyword"
             type="text"
             class="search-bar-input"
+            placeholder="输入关键词"
           />
           <span
             @click="searchFn()"
@@ -60,24 +61,27 @@ export default {
   color: #fff;
   display: flex;
   &-input:focus {
-    border-color: var(--blue);
+    // border-color: var(--blue);
   }
   &-input {
-    width: 200px;
-    height: 35px;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border: 1px solid red;
+    width: 290px;
+    height: 40px;
+    padding:0 20px;
+    // border-top-left-radius: 20px;
+    // border-bottom-left-radius: 20px;
+    // border: 1px solid red;
+    border: none;
     outline: none;
+    background-color:#f5f5f5;
   }
   &-button {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 35px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
+    width: 60px;
+    height: 40px;
+    // border-top-right-radius: 20px;
+    // border-bottom-right-radius: 20px;
     background-color: red;
     font-size: 14px;
   }
