@@ -94,7 +94,7 @@ export default {
     getIndexInfo() {
       systemApi.index({ userId: this.userId }).then((res = {}) => {
         this.productData = res
-        this.$refs.productList.list = res.productAll || []
+        this.$refs.productList.list = res.productAll.splice(0, 9) || []
         this.$refs.websiteNews.list = res.newsClass || []
       })
     },

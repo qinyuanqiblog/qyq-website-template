@@ -38,7 +38,7 @@
               style="overflow:hidden"
               class="d-flex justify-content-between"
             >
-              <a :href="`/detail.html?type=${childItem.type}`">{{ childItem.title }}</a>
+              <a :href="`/detail.html?modelType=${childItem.modelType}&articleId=${childItem.id}`">{{ childItem.title }}</a>
               <span class="text-right">{{ childItem.createTime }}</span>
             </li>
           </ul>

@@ -63,12 +63,13 @@
             <div class="mainbox">
               <div class="detailp-cont">
                 <div class="news-detail">
-                  <h2> DOMOTEX asia：山水盛宴，久盛以最佳姿态完美谢幕——久盛地板有限公司 </h2>
-                  <div class="fabu"><span>发布人：张三那</span><span>时间：2016-05-12</span><span>浏览次数：233次</span></div>
+                  <h2>{{ detailData.currentArticle.title }}</h2>
+                  <div class="fabu">
+                    <!-- <span>发布人：张三那</span> -->
+                    <span>时间：{{ detailData.currentArticle.createTime }}</span><span>浏览次数：{{ detailData.currentArticle.viewCount }}次</span>
+                  </div>
                   <div>
-                    <p> 设计美学，展现品牌追求此次展会久盛将自然山水搬进建筑内，借用设计的力量，把产品与抽象的健康环保理念以 设计美学，展现品牌追求此次展会久盛将自然山水搬进建筑内，借用设计的力量，把产品与抽象的健康环保理念以
-                      设计美学，展现品牌追求此次展会久盛将自然山水搬进建筑内，借用设计的力量，把产品与抽象的健康环保理念以
-                      设计美学，展现品牌追求此次展会久盛将自然山水搬进建筑内，借用设计的力量，把产品与抽象的健康环保理念以 设计美学，展现品牌追求此次展会久盛将自然山水搬进建筑内，借用设计的力量，把产品与抽象的健康环保理念以 </p>
+                    <div v-html="detailData.currentArticle.content"> </div>
 
                     <p><img
                         src="img/banner.png"
@@ -77,16 +78,22 @@
                   </div>
                 </div>
                 <div class="fenpian">
-                  <div class="clearfix"><span>上一篇：</span>
-                    <p><a href="#">第三方就可是大家分开第三方就可是大家分开</a></p>
+                  <div
+                    v-if="detailData.up && detailData.up[0]"
+                    class="clearfix"
+                  ><span>上一篇：</span>
+                    <p><a :href="`/detail.html?modelType=${ detailData.up[0].modelType}&articleId=${ detailData.up[0].id}`">{{ detailData.up[0].title }}</a></p>
                   </div>
-                  <div class="clearfix"><span>下一篇：</span>
-                    <p><a href="#">第三方就可是大家分开第三方就可是大家分开</a></p>
+                  <div
+                    v-if="detailData.next && detailData.next.title"
+                    class="clearfix"
+                  ><span>下一篇：</span>
+                    <p><a :href="`/detail.html?modelType=${ detailData.next.modelType}&articleId=${ detailData.next.id}`">{{ detailData.next.title }}</a></p>
                   </div>
-                  <a
+                  <!-- <a
                     href=""
                     class="fanhui"
-                  >返回</a>
+                  >返回</a> -->
                 </div>
               </div>
             </div>
@@ -127,14 +134,54 @@ export default {
     init() {
       this.getDetailInfo()
     },
+    /**
+     * 获取特定字符的字符串
+     * @param  {string}  key query中的字段
+     * @param  {object}  url / url 的查选字符串，默认值是 location.search
+     * @return {string}  query中的字段的对应值
+     */
+    getQuery(key, url) {
+      var search = url || location.search
+      //如果查询的第一个字符是 ？  就去掉
+      if (search[0] == '?') {
+        search = search.substring(1)
+      } else {
+        search = search.split('?')[1]
+      }
+      // 如果 没有 ？ 就直接返回 undefined
+      if (!search) {
+        return undefined
+      }
+      var searchArr = search.split('&')
+      var searchObj = {}
+      var temp
+      for (var i = 0, len = searchArr.length; i < len; i++) {
+        temp = searchArr[i].split('=')
+        if (temp[0] in searchObj) {
+          if (Array.isArray(searchObj[temp[0]])) {
+            searchObj[temp[0]].push(temp[1])
+          } else {
+            searchObj[temp[0]] = [searchObj[temp[0]], temp[1]]
+          }
+        } else {
+          searchObj[temp[0]] = temp[1]
+        }
+      }
+      if (typeof key === 'string') {
+        return searchObj[key.trim()]
+      } else {
+        return searchObj
+      }
+    },
     getDetailInfo() {
+      const { articleId, modelType } = this.getQuery(null)
       const ajaxData = {
-        articleId:'',
-        modelType:'',
+        articleId,
+        modelType,
         userId: window.sessionStorage.userId,
       }
       systemApi.detailsPageData(ajaxData).then((res = {}) => {
-        this.detailData = res|| {}
+        this.detailData = res || {}
       })
     },
   },

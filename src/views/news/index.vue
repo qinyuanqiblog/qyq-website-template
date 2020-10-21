@@ -58,163 +58,49 @@
             <div class="mainbox">
               <div class="breadcrumb d-flex justify-content-between">
                 <div>
-                  <h3>机械设备<b></b></h3>
+                  <h3>新闻中心<b></b></h3>
                 </div>
                 <div>
-                  <a href=""><img
+                  <a href="/index.html"><img
                       src="~public/images/home.png"
                       alt=""
                     >网站首页</a>&gt;
-                  <a href="">新闻中心</a>
+                  <a href="/news.html">新闻中心</a>
                 </div>
               </div>
               <div class="newp-list">
                 <ul>
-                  <li>
-                    <a href="">
-                      <div class="fl time">
-                        <strong>8</strong>
-                        <span>十二月</span>
-                      </div>
-                      <figure class="fl"><img
-                          src="img/tu6.jpg"
-                          alt=""
-                        ></figure>
-                      <figcaption class="fl">
-                        <h2>始于1990年，近30年的传承与发展，专注高 端五金制品研发
-                          与生产。是一家集研发、生产、销售为一体的综合型企业，旗下拥
-                          有智能 安防、机械门锁、卫浴五金、门用五金、家具五金5大品类，旗舰
-                        </h2>
-                        <p>
-                          专注高 端五金制品研发与生产。是一家集研发、生产、销售为一体的综合型企业，
-                          旗下拥有智能 安防、机械门锁、卫浴五金、门用五金、家
-                          具五金5大品类，旗舰店、专卖店和专柜遍及 中国市场，强大的销售网点覆盖
-                          中国90%的地级以上城市。同时远销欧美、中东和东南亚 等50多个国家和地区。
-                        </p>
-                        <i>查看详细</i>
-                      </figcaption>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <div class="fl time">
-                        <strong>8</strong>
-                        <span>十二月</span>
-                      </div>
-                      <figure class="fl"><img
-                          src="http://www.gxyhfz.com/template/894_tplstyle_816_794/images/n_img02.jpg"
-                          alt=""
-                        ></figure>
-                      <figcaption class="fl">
-                        <h2>始于1990年，近30年的传承与发展，专注高 端五金制品研发
-                          与生产。是一家集研发、生产、销售为一体的综合型企业，旗下拥
-                          有智能 安防、机械门锁、卫浴五金、门用五金、家具五金5大品类，旗舰
-                        </h2>
-                        <p>
-                          专注高 端五金制品研发与生产。是一家集研发、生产、销售为一体的综合型企业，
-                          旗下拥有智能 安防、机械门锁、卫浴五金、门用五金、家
-                          具五金5大品类，旗舰店、专卖店和专柜遍及 中国市场，强大的销售网点覆盖
-                          中国90%的地级以上城市。同时远销欧美、中东和东南亚 等50多个国家和地区。
-                        </p>
-                        <i>查看详细</i>
-                      </figcaption>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <div class="fl time">
-                        <strong>8</strong>
-                        <span>十二月</span>
-                      </div>
-                      <figure class="fl"><img
-                          src="img/tu6.jpg"
-                          alt=""
-                        ></figure>
-                      <figcaption class="fl">
-                        <h2>始于1990年，近30年的传承与发展，专注高 端五金制品研发
-                          与生产。是一家集研发、生产、销售为一体的综合型企业，旗下拥
-                          有智能 安防、机械门锁、卫浴五金、门用五金、家具五金5大品类，旗舰
-                        </h2>
-                        <p>
-                          专注高 端五金制品研发与生产。是一家集研发、生产、销售为一体的综合型企业，
-                          旗下拥有智能 安防、机械门锁、卫浴五金、门用五金、家
-                          具五金5大品类，旗舰店、专卖店和专柜遍及 中国市场，强大的销售网点覆盖
-                          中国90%的地级以上城市。同时远销欧美、中东和东南亚 等50多个国家和地区。
-                        </p>
-                        <i>查看详细</i>
-                      </figcaption>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <div class="fl time">
-                        <strong>8</strong>
-                        <span>十二月</span>
-                      </div>
-                      <figure class="fl"><img
-                          src="img/tu6.jpg"
-                          alt=""
-                        ></figure>
-                      <figcaption class="fl">
-                        <h2>始于1990年，近30年的传承与发展，专注高 端五金制品研发
-                          与生产。是一家集研发、生产、销售为一体的综合型企业，旗下拥
-                          有智能 安防、机械门锁、卫浴五金、门用五金、家具五金5大品类，旗舰
-                        </h2>
-                        <p>
-                          专注高 端五金制品研发与生产。是一家集研发、生产、销售为一体的综合型企业，
-                          旗下拥有智能 安防、机械门锁、卫浴五金、门用五金、家
-                          具五金5大品类，旗舰店、专卖店和专柜遍及 中国市场，强大的销售网点覆盖
-                          中国90%的地级以上城市。同时远销欧美、中东和东南亚 等50多个国家和地区。
-                        </p>
-                        <i>查看详细</i>
-                      </figcaption>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <div class="fl time">
-                        <strong>8</strong>
-                        <span>十二月</span>
-                      </div>
-                      <figure class="fl"><img
-                          src="img/tu6.jpg"
-                          alt=""
-                        ></figure>
-                      <figcaption class="fl">
-                        <h2>始于1990年，近30年的传承与发展，专注高 端五金制品研发
-                          与生产。是一家集研发、生产、销售为一体的综合型企业，旗下拥
-                          有智能 安防、机械门锁、卫浴五金、门用五金、家具五金5大品类，旗舰
-                        </h2>
-                        <p>
-                          专注高 端五金制品研发与生产。是一家集研发、生产、销售为一体的综合型企业，
-                          旗下拥有智能 安防、机械门锁、卫浴五金、门用五金、家
-                          具五金5大品类，旗舰店、专卖店和专柜遍及 中国市场，强大的销售网点覆盖
-                          中国90%的地级以上城市。同时远销欧美、中东和东南亚 等50多个国家和地区。
-                        </p>
-                        <i>查看详细</i>
-                      </figcaption>
+                  <li
+                    v-for="(item, index) in articleList"
+                    :key="index"
+                  >
+                    <a :href="`/detail.html?modelType=${item.modelType}&articleId=${item.id}`">
+                      <b-row align-v="center">
+                        <b-col
+                          cols="2"
+                          class="time"
+                        >
+                          <strong>8</strong>
+                          <span>十二月</span>
+                        </b-col>
+                        <b-col>
+                          <figcaption>
+                            <h2>{{ item.title }}</h2>
+                            <div class="item-describes" v-html="item.content"></div>
+                          </figcaption>
+                        </b-col>
+                      </b-row>
+
                     </a>
                   </li>
                 </ul>
                 <div class="pager">
-                  <a class="a1">12条</a>
-                  <a
-                    href=""
-                    class="a1"
-                  >&lt;&lt;</a>
-                  <a
-                    href=""
-                    class="current"
-                  >1</a>
-                  <a href="">2</a>
-                  <a href="">3</a>
-                  <a href="">4</a>
-                  <a href="">5</a>
-                  <a href="">6</a>
-                  <a
-                    href=""
-                    class="a1"
-                  >&gt;&gt;</a>
+                  <b-pagination
+                    @change="onPagination"
+                    v-model="currentPage"
+                    :total-rows="totalRows"
+                    :per-page="perPage"
+                  ></b-pagination>
                 </div>
               </div>
 
@@ -229,41 +115,41 @@
 </template>
 
 <script>
-// import {
-//   websiteFooter,
-//   phoneService,
-//   contactDialog,
-//   contactSidebar,
-// } from '@/components'
+import { systemApi } from '@/api'
 export default {
   name: 'newsIndex',
-  // components: {
-  //   websiteFooter,
-  //   phoneService,
-  //   contactDialog,
-  //   contactSidebar,
-  // },
   data() {
     return {
-      dismissSecs: 10,
-      dismissCountDown: 0,
-      showDismissibleAlert: false,
-      slide: 0,
-      sliding: null,
+      articleList: [],
+      totalRows: 10,
+      perPage: 10,
+      currentPage: 1,
     }
   },
+  created() {
+    this.init()
+  },
   methods: {
-    countDownChanged(dismissCountDown) {
-      this.dismissCountDown = dismissCountDown
+    init() {
+      this.getArticleList()
     },
-    showAlert() {
-      this.dismissCountDown = this.dismissSecs
+    onPagination(currentPage) {
+      this.currentPage = currentPage
+      this.getArticleList()
     },
-    onSlideStart() {
-      this.sliding = true
-    },
-    onSlideEnd() {
-      this.sliding = false
+    getArticleList() {
+      const ajaxData = {
+        menuId: '10158',
+        modelType: '2',
+        pageNum: this.currentPage,
+        pageSize: this.perPage,
+        userId: window.sessionStorage.userId,
+      }
+      systemApi.articleList(ajaxData).then((res = {}) => {
+        this.totalRows = res.total
+        // this.perPage = res.total/this.pageSize
+        this.articleList = res.rows || []
+      })
     },
   },
 }
@@ -487,24 +373,19 @@ export default {
   display: block;
   overflow: hidden;
   clear: both;
-  padding: 20px 0;
   border-bottom: 1px solid #f5f5f5;
 }
 .newp-list .time {
   width: 60px;
   height: 60px; /*border-left: 1px solid #F5F5F5; border-right: 1px solid #F5F5F5;*/
   background: #de0024;
-  position: absolute;
-  top: 20px;
-  left: 0;
-  z-index: 33;
+  // position: absolute;
 }
 .newp-list strong {
   display: block;
   font-size: 20px;
   text-align: center;
   color: #fff;
-  padding-top: 5px;
 }
 .newp-list span {
   display: block;
@@ -523,8 +404,12 @@ export default {
   transform: scale(1.1);
 }
 .newp-list figcaption {
-  width: 500px;
-  padding-left: 30px;
+  padding: 10px 30px;
+}
+.newp-list a {
+  &:hover {
+    text-decoration: none;
+  }
 }
 .newp-list figcaption h2 {
   white-space: nowrap;
@@ -542,6 +427,7 @@ export default {
   font-size: 14px;
   color: #666;
   margin-top: 10px;
+  @include lineClamp;
 }
 .newp-list figcaption i {
   background: url(~public/images/arrow-right.png) no-repeat right center;
@@ -630,5 +516,11 @@ export default {
   padding: 10px 25px;
   border-radius: 10px;
   top: 35px;
+}
+.item-describes{
+  line-height: 2;
+  @include lineClamp(2);
+  font-size:14px;
+  color:#666;
 }
 </style>
