@@ -30,7 +30,14 @@ export default {
   name: 'websiteChildHeader',
   components: {},
   data() {
-    return {}
+    return {
+      bannerList: [
+        {
+          name: 111,
+          image: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3468384679,3521528174&fm=26&gp=0.jpg',
+        },
+      ],
+    }
   },
   created() {},
   methods: {},

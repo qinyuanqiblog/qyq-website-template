@@ -1,163 +1,52 @@
 <template>
   <div>
-    <b-container
-      fluid
-      class="nav-top"
+    <div
+      v-for="(item, index) in list"
+      :key="index"
+      :class="{
+        'div1': item.showType === 'menu',
+        'div3': item.showType === 'list',
+      }"
     >
-      <b-container>
-        <b-row>
-          <b-col>您好，欢迎光临xx官网</b-col>
-          <b-col class="text-right">在线电话电话：
-            <span class="nav-top-phone">400-800-1234</span>
-          </b-col>
-        </b-row>
-      </b-container>
-    </b-container>
-    <div class="qyq-navbar">
-      <b-container class="navbar-container">
-        <b-navbar toggleable="lg">
-          <b-navbar-brand href="#">NavBar</b-navbar-brand>
-
-          <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-
-          <b-collapse
-            id="nav-collapse"
-            is-nav
+      <template v-if="item.showType === 'menu'">
+        <div class="casetit">
+          <slot name="title">
+            <h3>产品中心<b>PRODUCT CENTER</b></h3>
+          </slot>
+        </div>
+        <ul class="ul1">
+          <li
+            v-for="(childItem, childIndex) in item.childrenList"
+            :key="childIndex"
           >
-            <!-- Right aligned nav items -->
-            <b-navbar-nav class="ml-auto">
-              <ul class="navbar-main">
-                <li class="navbar-main-item">
-                  <a
-                    class="navbar-main-item-link"
-                    href=""
-                  >网站首页</a>
-                  <ul class="navbar-main-item-menu">
-                    <li>
-                      <a
-                        class="navbar-main-item-menu-link"
-                        href="404.html"
-                      >404</a>
-                    </li>
-                    <li> <a
-                        class="navbar-main-item-menu-link"
-                        href="404.html"
-                      >404</a></li>
-                  </ul>
-                </li>
-                <li class="navbar-main-item">
-                  <a
-                    class="navbar-main-item-link"
-                    href=""
-                  >网站首页</a>
-                  <ul class="navbar-main-item-menu">
-                    <li>
-                      <a
-                        class="navbar-main-item-menu-link"
-                        href="404.html"
-                      >404</a>
-                    </li>
-                    <li> <a
-                        class="navbar-main-item-menu-link"
-                        href="404.html"
-                      >404</a></li>
-                  </ul>
-                </li>
-                <li class="navbar-main-item">
-                  <a
-                    class="navbar-main-item-link"
-                    href=""
-                  >网站首页</a>
-                  <ul class="navbar-main-item-menu">
-                    <li>
-                      <a
-                        class="navbar-main-item-menu-link"
-                        href="404.html"
-                      >404</a>
-                    </li>
-                    <li> <a
-                        class="navbar-main-item-menu-link"
-                        href="404.html"
-                      >404</a></li>
-                  </ul>
-                </li>
-                <li class="navbar-main-item">
-                  <a
-                    class="navbar-main-item-link"
-                    href=""
-                  >网站首页</a>
-                  <ul class="navbar-main-item-menu">
-                    <li>
-                      <a
-                        class="navbar-main-item-menu-link"
-                        href="404.html"
-                      >404</a>
-                    </li>
-                    <li> <a
-                        class="navbar-main-item-menu-link"
-                        href="404.html"
-                      >404</a></li>
-                  </ul>
-                </li>
-                <li class="navbar-main-item">
-                  <a
-                    class="navbar-main-item-link"
-                    href=""
-                  >网站首页</a>
-                  <ul class="navbar-main-item-menu">
-                    <li>
-                      <a
-                        class="navbar-main-item-menu-link"
-                        href="404.html"
-                      >404</a>
-                    </li>
-                    <li> <a
-                        class="navbar-main-item-menu-link"
-                        href="404.html"
-                      >404</a></li>
-                  </ul>
-                </li>
-                <li class="navbar-main-item">
-                  <a
-                    class="navbar-main-item-link"
-                    href=""
-                  >网站首页</a>
-                  <ul class="navbar-main-item-menu">
-                    <li>
-                      <a
-                        class="navbar-main-item-menu-link"
-                        href="404.html"
-                      >404</a>
-                    </li>
-                    <li> <a
-                        class="navbar-main-item-menu-link"
-                        href="404.html"
-                      >404</a></li>
-                  </ul>
-                </li>
-                <li class="navbar-main-item">
-                  <a
-                    class="navbar-main-item-link"
-                    href=""
-                  >网站首页</a>
-                  <ul class="navbar-main-item-menu">
-                    <li>
-                      <a
-                        class="navbar-main-item-menu-link"
-                        href="404.html"
-                      >404</a>
-                    </li>
-                    <li> <a
-                        class="navbar-main-item-menu-link"
-                        href="404.html"
-                      >404</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </b-navbar-nav>
-          </b-collapse>
-        </b-navbar>
-      </b-container>
+            <a :href="`/detail.html?modelType=${ childItem.modelType}&articleId=${ childItem.id}`"><i></i>{{ childItem.title }}</a>
+          </li>
+        </ul>
+      </template>
+
+      <template v-if="item.showType === 'list'">
+        <div class="div3-box">
+          <h2>{{ item.title }}</h2>
+          <ul class="ul3">
+            <li
+              v-for="(childItem, childIndex) in item.childrenList"
+              :key="childIndex"
+            >
+              <a :href="`/detail.html?modelType=${ childItem.modelType}&articleId=${ childItem.id}`"><i></i>{{ childItem.title }}</a>
+            </li>
+          </ul>
+        </div>
+      </template>
+    </div>
+
+    <div class="div2">
+      <div class="div2-box">
+        <h2>联系我们</h2>
+        <div class="phone">18278802174</div>
+        <p>
+          XXX五金期待您的来电！
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -167,7 +56,9 @@ export default {
   name: 'websiteHeader',
   components: {},
   data() {
-    return {}
+    return {
+      list: [],
+    }
   },
   created() {},
   methods: {},
@@ -175,74 +66,115 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.nav-top {
-  padding: 10px 0;
-  border-bottom: 1px solid #eee;
-  margin-bottom: 20px;
-  font-size: 12px;
-  &-phone {
-    color: #da251d;
-  }
+.casepage .case-left .div1 {
+  background: #fff;
 }
-.qyq-navbar {
-  .navbar {
-    padding: 0;
-  }
-  .navbar-main {
-    display: flex;
-    .navbar-main-item-menu {
-      display: none;
-      position: absolute;
-      top: 68px;
-      box-shadow: none;
-      text-transform: capitalize;
-      border-top: solid 2px #ff5555;
-      left: 50%;
-      transform: translate(-50%);
-      margin: 0;
-      background-color: #fff;
-      z-index: 10;
-      &-link {
-        display: block;
-        width: 118px;
-        margin:  5px;
-        padding: 7px 15px;
-        color: #777;
-        text-shadow: none;
-        border-radius: 3px;
-        transition: all 0.3s ease-in-out;
-        &:hover {
-          background: #ff5555;
-          color: #fff;
-        }
-      }
-    }
-    &-item {
-      position: relative;
-      text-shadow: none;
-      transition: all 0.3s ease-in-out;
-      // background: #000;
-      &-link {
-        display: block;
-        padding: 7px 15px;
-        margin: 15px 5px;
-        border-radius: 3px;
-      }
-      &:hover {
-        text-decoration: none;
-        .navbar-main-item-menu {
-          display: block;
-        }
-        .navbar-main-item-link {
-          background: #ff5555;
-          color: #fff;
-        }
-      }
-      a {
-        color: #777;
-        text-decoration: none;
-      }
-    }
-  }
+.casepage .case-left .div2,
+.casepage .case-left .div3 {
+  background: #fff;
+  margin-bottom: 25px;
+}
+.casepage .case-left .div3 li {
+  transition: all 0.6s;
+}
+.casepage .case-left .div3 li a {
+  display: block;
+  color: #333;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 10px 0;
+  transition: all 0.6s;
+}
+.casepage .case-left .div3 li i {
+  display: inline-block;
+  height: 5px;
+  width: 5px;
+  border-radius: 100%;
+  background: #de0024;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.casepage .casetit {
+  background: #de0024;
+  padding: 30px;
+}
+.casepage .casetit h3 {
+  font-weight: bold;
+  color: #fff;
+  font-size: 22px;
+  text-align: left;
+}
+.casepage .casetit h3 b {
+  display: block;
+  font-weight: normal;
+  font-family: 'times new roman';
+  font-size: 16px;
+  padding-top: 10px;
+}
+.casepage .ul1 li {
+  transition: all 0.36s;
+}
+.casepage .ul1 li a {
+  display: block;
+  padding: 10px 0;
+  font-size: 15px;
+  color: #333;
+  transition: all 0.6s;
+  overflow: hidden;
+  clear: both;
+}
+.casepage .ul1 a i {
+  background: url(~public/images/gengduo.png) no-repeat center;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  float: right;
+  margin-top: 5px;
+  background-size: 100% 100%;
+}
+.casepage .ul1 {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.casepage .ul1 li:hover {
+  transform: translateX(10px);
+}
+.casepage .ul1 li:hover a {
+  color: #de0024;
+}
+.casepage .div2-box h2,
+.casepage .div3-box h2 {
+  font-size: 20px;
+  font-weight: bold;
+  padding-bottom: 15px;
+}
+.casepage .div2-box img {
+  width: 150px;
+}
+.casepage .div2-box,
+.casepage .div3-box {
+  padding-left: 30px;
+  padding: 30px;
+}
+.casepage .div2-box .phone {
+  font-size: 24px;
+  font-weight: bold;
+  color:#dc3545;
+}
+.casepage .div2-box p {
+  font-size: 14px;
+  color: #333;
+  padding-top: 10px;
+}
+.casepage .div3-box li:hover a {
+  color: #de0024;
+}
+.casepage .div3-box li:hover {
+  transform: translateX(5px);
 }
 </style>

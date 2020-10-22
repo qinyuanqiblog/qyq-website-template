@@ -4,7 +4,7 @@
       <b-col>
         <span class="font-weight-bold">热门关键词：</span>
         <a
-          class="ml-1"
+          class="ml-1 mr-2"
           v-for="(item, index) in list"
           :key="index"
         >{{ item }}</a>
@@ -36,7 +36,7 @@ export default {
   data() {
     return {
       keyword: '',
-      list: ['垃圾', '11', '22', '33'],
+      list: [],
     }
   },
   created() {},
@@ -45,9 +45,7 @@ export default {
       const ajaxData = {
         keyword: this.keyword,
       }
-      systemApi.search(ajaxData).then(() => {
-
-      })
+      systemApi.search(ajaxData).then(() => {})
     },
   },
 }
@@ -66,13 +64,13 @@ export default {
   &-input {
     width: 290px;
     height: 40px;
-    padding:0 20px;
+    padding: 0 20px;
     // border-top-left-radius: 20px;
     // border-bottom-left-radius: 20px;
     // border: 1px solid red;
     border: none;
     outline: none;
-    background-color:#f5f5f5;
+    background-color: #f5f5f5;
   }
   &-button {
     display: flex;

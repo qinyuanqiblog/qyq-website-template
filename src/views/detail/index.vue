@@ -1,5 +1,6 @@
 <template>
   <div>
+    <websiteChildHeader />
     <div class="casepage">
       <b-container>
         <b-row>
@@ -7,57 +8,7 @@
             cols="3"
             class="case-left"
           >
-            <div class="div1">
-              <div class="casetit">
-                <h3>产品中心<b>PRODUCT CENTER</b></h3>
-              </div>
-              <ul class="ul1">
-                <li><a href="">手动工具 <i></i></a></li>
-                <li><a href="">机械设备 <i></i></a></li>
-                <li><a href="">焊接器材 <i></i></a></li>
-                <li><a href="">建筑机械 <i></i></a></li>
-                <li><a href="">劳保用品 <i></i></a></li>
-                <li><a href="">起重器材 <i></i></a></li>
-                <li><a href="">电动工具 <i></i></a></li>
-                <li><a href="">低压电器 <i></i></a></li>
-                <li><a href="">刀量模具 <i></i></a></li>
-                <li><a href="">其他类 <i></i></a></li>
-              </ul>
-            </div>
-            <div class="div3">
-              <div class="div3-box">
-                <h2>热门新闻</h2>
-                <ul class="ul3">
-                  <li>
-                    <a href=""><i></i>专注高 端五金制品研发</a>
-                  </li>
-                  <li>
-                    <a href=""><i></i>专注高 端五金制品研发</a>
-                  </li>
-                  <li>
-                    <a href=""><i></i>专注高 端五金制品研发</a>
-                  </li>
-                  <li>
-                    <a href=""><i></i>专注高 端五金制品研发</a>
-                  </li>
-                  <li>
-                    <a href=""><i></i>专注高 端五金制品研发</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="div2">
-              <div class="div2-box">
-                <h2>联系我们</h2>
-                <img
-                  src="img/num2.png"
-                  alt=""
-                >
-                <p>
-                  XXX五金期待您的来电！
-                </p>
-              </div>
-            </div>
+            <websiteSideBar ref="websiteSideBar" />
           </b-col>
           <b-col class="case-right ml-1">
             <div class="mainbox">
@@ -102,84 +53,38 @@
 
       </b-container>
     </div>
+    <websiteFooter ref="websiteFooter" />
   </div>
 </template>
 
 <script>
 import { systemApi } from '@/api'
-// import {
-//   websiteFooter,
-//   phoneService,
-//   contactDialog,
-//   contactSidebar,
-// } from '@/components'
+import { getQuery } from '@/utils'
 export default {
   name: 'indexDetail',
-  // components: {
-  //   websiteFooter,
-  //   phoneService,
-  //   contactDialog,
-  //   contactSidebar,
-  // },
   data() {
     return {
-      detailData: {},
-      bannerList: [
-        {
-          name: 111,
-          image: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3468384679,3521528174&fm=26&gp=0.jpg',
-        },
-      ],
+      detailData: {
+        currentArticle: {},
+        next: {},
+        up: {},
+      },
     }
   },
-  created() {
+  mounted() {
     this.init()
   },
   methods: {
     init() {
       this.getDetailInfo()
     },
-    /**
-     * 获取特定字符的字符串
-     * @param  {string}  key query中的字段
-     * @param  {object}  url / url 的查选字符串，默认值是 location.search
-     * @return {string}  query中的字段的对应值
-     */
-    getQuery(key, url) {
-      var search = url || location.search
-      //如果查询的第一个字符是 ？  就去掉
-      if (search[0] == '?') {
-        search = search.substring(1)
-      } else {
-        search = search.split('?')[1]
-      }
-      // 如果 没有 ？ 就直接返回 undefined
-      if (!search) {
-        return undefined
-      }
-      var searchArr = search.split('&')
-      var searchObj = {}
-      var temp
-      for (var i = 0, len = searchArr.length; i < len; i++) {
-        temp = searchArr[i].split('=')
-        if (temp[0] in searchObj) {
-          if (Array.isArray(searchObj[temp[0]])) {
-            searchObj[temp[0]].push(temp[1])
-          } else {
-            searchObj[temp[0]] = [searchObj[temp[0]], temp[1]]
-          }
-        } else {
-          searchObj[temp[0]] = temp[1]
-        }
-      }
-      if (typeof key === 'string') {
-        return searchObj[key.trim()]
-      } else {
-        return searchObj
-      }
+    getBaseInfo() {
+      systemApi.info().then((res = {}) => {
+        this.$refs.websiteFooter.baseInfo = res.info || {}
+      })
     },
     getDetailInfo() {
-      const { articleId, modelType } = this.getQuery(null)
+      const { articleId, modelType } = getQuery(null)
       const ajaxData = {
         articleId,
         modelType,
@@ -187,6 +92,18 @@ export default {
       }
       systemApi.detailsPageData(ajaxData).then((res = {}) => {
         this.detailData = res || {}
+        const list = []
+        list.push({
+          title: res.newsTitle,
+          childrenList: (res.newsData && res.newsData.splice(0, 9)) || [],
+          showType: 'menu',
+        })
+        list.push({
+          title: res.productTitle,
+          childrenList: (res.productData && res.productData.splice(0, 9)) || [],
+          showType: 'list',
+        })
+        this.$refs.websiteSideBar.list = list
       })
     },
   },
@@ -200,158 +117,12 @@ export default {
 .casepage .case-left {
   // width: 220px;
 }
-.casepage .case-left .div1 {
-  background: #fff;
-}
-.casepage .case-left .div2,
-.casepage .case-left .div3 {
-  background: #fff;
-  margin-top: 25px;
-}
-.casepage .case-left .div3 li {
-  transition: all 0.6s;
-}
-.casepage .case-left .div3 li a {
-  display: block;
-  color: #333;
-  font-size: 14px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding: 10px 0;
-  transition: all 0.6s;
-}
-.casepage .case-left .div3 li i {
-  display: inline-block;
-  height: 5px;
-  width: 5px;
-  border-radius: 100%;
-  background: #de0024;
-  vertical-align: middle;
-  margin-right: 10px;
-}
 .casepage .case-right {
   background: #fff;
   // width: 600px;
 }
-.casepage .casetit {
-  background: #de0024;
-  padding: 30px;
-}
-.casepage .casetit h3 {
-  font-weight: bold;
-  color: #fff;
-  font-size: 22px;
-  text-align: left;
-}
-.casepage .casetit h3 b {
-  display: block;
-  font-weight: normal;
-  font-family: 'times new roman';
-  font-size: 16px;
-  padding-top: 10px;
-}
-.casepage .ul1 li {
-  transition: all 0.36s;
-}
-.casepage .ul1 li a {
-  display: block;
-  padding: 10px 0;
-  font-size: 15px;
-  color: #333;
-  transition: all 0.6s;
-  overflow: hidden;
-  clear: both;
-}
-.casepage .ul1 a i {
-  background: url(~public/images/gengduo.png) no-repeat center;
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  float: right;
-  margin-top: 5px;
-  background-size: 100% 100%;
-}
-.casepage .ul1 {
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-.casepage .ul1 li:hover {
-  transform: translateX(10px);
-}
-.casepage .ul1 li:hover a {
-  color: #de0024;
-}
-.casepage .div2-box h2,
-.casepage .div3-box h2 {
-  font-size: 20px;
-  font-weight: bold;
-  padding-bottom: 15px;
-}
-.casepage .div2-box img {
-  width: 150px;
-}
-.casepage .div2-box,
-.casepage .div3-box {
-  padding-left: 30px;
-  padding: 30px;
-}
-.casepage .div2-box p {
-  font-size: 14px;
-  color: #333;
-  padding-top: 10px;
-}
-.casepage .div3-box li:hover a {
-  color: #de0024;
-}
-.casepage .div3-box li:hover {
-  transform: translateX(5px);
-}
 .casepage .mainbox {
   padding: 20px 30px;
-}
-.breadcrumb {
-  border-bottom: 1px solid #f5f5f5;
-  position: relative;
-  height: 50px;
-}
-.breadcrumb h3 {
-  font-size: 16px;
-  color: #000;
-  height: 40px;
-  line-height: 40px;
-  font-weight: bold;
-}
-.breadcrumb h3 b {
-  display: block;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  background: #de0024;
-  height: 1px;
-  width: 70px;
-}
-.breadcrumb div.fr a {
-  display: inline-block;
-  color: #333;
-  font-size: 14px;
-  margin: 0 5px;
-  height: 40px;
-  line-height: 40px;
-}
-.breadcrumb div.fr img {
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 10px;
-}
-.breadcrumb div.fr {
-  color: #666;
-}
-.breadcrumb div.fr a:hover,
-.breadcrumb div.fr a.on {
-  color: #de0024;
 }
 .caesp-list ul {
   padding-top: 25px;
@@ -495,6 +266,7 @@ export default {
   text-align: center;
   border-bottom: 1px solid #f5f5f5;
   padding-bottom: 20px;
+  margin-bottom: 40px;
 }
 .news-detail .fabu span {
   display: inline-block;

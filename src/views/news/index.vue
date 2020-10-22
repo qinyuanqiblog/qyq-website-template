@@ -1,5 +1,6 @@
 <template>
   <div>
+    <websiteChildHeader />
     <div class="casepage">
       <b-container>
         <b-row>
@@ -7,52 +8,9 @@
             cols="3"
             class="case-left"
           >
-            <div class="div1">
-              <div class="casetit">
-                <h3>新闻中心<b>PRODUCT CENTER</b></h3>
-              </div>
-              <ul class="ul1">
-                <li><a href="">每日动态 <i></i></a></li>
-                <li><a href="">公司新闻 <i></i></a></li>
-                <li><a href="">行业动态 <i></i></a></li>
-                <li><a href="">专业知识 <i></i></a></li>
-              </ul>
-            </div>
-            <div class="div3">
-
-              <div class="div3-box">
-                <h2>热门新闻</h2>
-                <ul class="ul3">
-                  <li>
-                    <a href=""><i></i>专注高 端五金制品研发</a>
-                  </li>
-                  <li>
-                    <a href=""><i></i>专注高 端五金制品研发</a>
-                  </li>
-                  <li>
-                    <a href=""><i></i>专注高 端五金制品研发</a>
-                  </li>
-                  <li>
-                    <a href=""><i></i>专注高 端五金制品研发</a>
-                  </li>
-                  <li>
-                    <a href=""><i></i>专注高 端五金制品研发</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="div2">
-              <div class="div2-box">
-                <h2>联系我们</h2>
-                <img
-                  src="img/num2.png"
-                  alt=""
-                >
-                <p>
-                  XXX五金期待您的来电！
-                </p>
-              </div>
-            </div>
+            <websiteSideBar>
+              <h3 slot="title">新闻中心<b>PRODUCT CENTER</b></h3>
+            </websiteSideBar>
           </b-col>
           <b-col class="case-right ml-1">
             <div class="mainbox">
@@ -86,7 +44,10 @@
                         <b-col>
                           <figcaption>
                             <h2>{{ item.title }}</h2>
-                            <div class="item-describes" v-html="item.content"></div>
+                            <div
+                              class="item-describes"
+                              v-html="item.content"
+                            ></div>
                           </figcaption>
                         </b-col>
                       </b-row>
@@ -278,6 +239,8 @@ export default {
   border-bottom: 1px solid #f5f5f5;
   position: relative;
   height: 50px;
+  background: none;
+
 }
 .breadcrumb h3 {
   font-size: 16px;
@@ -285,6 +248,8 @@ export default {
   height: 40px;
   line-height: 40px;
   font-weight: bold;
+  position: relative;
+  left: -10px;
 }
 .breadcrumb h3 b {
   display: block;
@@ -517,10 +482,10 @@ export default {
   border-radius: 10px;
   top: 35px;
 }
-.item-describes{
+.item-describes {
   line-height: 2;
   @include lineClamp(2);
-  font-size:14px;
-  color:#666;
+  font-size: 14px;
+  color: #666;
 }
 </style>

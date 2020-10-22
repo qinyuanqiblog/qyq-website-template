@@ -22,7 +22,7 @@
         >
       </b-carousel-slide>
     </b-carousel>
-    <searchBox />
+    <searchBox ref="searchBox" />
     <productIntroduce />
     <productList ref="productList" />
     <faithIntroduce />
@@ -36,14 +36,7 @@
 </template>
 
 <script>
-import {
-  productIntroduce,
-  productList,
-  aboutUs,
-  faithIntroduce,
-  contactDialog,
-  contactSidebar,
-} from '@/components'
+import { productIntroduce, productList, aboutUs, faithIntroduce, contactDialog, contactSidebar } from '@/components'
 import { systemApi } from '@/api'
 export default {
   name: 'index',
@@ -61,7 +54,6 @@ export default {
       sliding: null,
       userId: window.sessionStorage.userId,
       productData: {},
-      baseInfo: {},
       menuInfo: {},
       bannerList: [],
     }
@@ -82,9 +74,8 @@ export default {
     },
     getBaseInfo() {
       systemApi.info().then((res = {}) => {
-        this.baseInfo = res
+        this.$refs.searchBox.list = res.info.keyword && res.info.keyword.split('|').splice(0,4) || []
         this.$refs.websiteFooter.baseInfo = res.info || {}
-
       })
     },
     getIndexInfo() {
@@ -107,5 +98,4 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-
 </style>
