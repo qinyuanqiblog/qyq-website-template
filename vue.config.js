@@ -25,7 +25,6 @@ function getEntry(globPath) {
     return entries;
 }
 let htmls = getEntry('./src/views/**/*.');
-console.log(htmls)
 const proxy = {
     '/': {
         target: 'http://211.149.157.233:9090/',

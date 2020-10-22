@@ -4,26 +4,28 @@ import { BootstrapVue, BootstrapVueIcons, VBHoverPlugin, VBToggle } from 'bootst
 require('../../../websiteConfig.js')
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-// 全局组件
-import { websiteHeader, searchBox } from '@/components'
-// todo 有空看下为啥不行 难受😣
-// debugger
-// const requireComponent = require.context('../../components', false, /\w+\.(vue|js)$/);
-// alert(JSON.stringify(requireComponent))
+
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 Vue.use(VBHoverPlugin)
 Vue.use(VBToggle)
 
 
-// 全局注册组件
-Vue.component(
-  'websiteHeader', websiteHeader
-)
-// 全局注册组件
-Vue.component(
-  'searchBox', searchBox
-)
+// 自动注册全局注册组件
+// @copyFrom: https://www.jianshu.com/p/cb09318c5de0
+const requireComponent = require.context('../../components/layout', false, /\.vue$/);
+requireComponent.keys().forEach(fileName => {
+  // 获取组件配置
+  const componentConfig = requireComponent(fileName);
+  // 剥去文件名开头的 `./` 和`.vue`结尾的扩展名
+  const componentName = fileName.replace(/^\.\//,'').replace(/\.vue$/,'');
+  // 全局注册组件
+  Vue.component(
+      componentName.replace(/\//,'-'),
+      componentConfig.default || componentConfig
+  )
+})
+
 
 Vue.config.productionTip = false
 

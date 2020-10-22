@@ -41,10 +41,8 @@ import {
   productList,
   aboutUs,
   faithIntroduce,
-  websiteFooter,
   contactDialog,
   contactSidebar,
-  websiteNews,
 } from '@/components'
 import { systemApi } from '@/api'
 export default {
@@ -54,10 +52,8 @@ export default {
     productList,
     aboutUs,
     faithIntroduce,
-    websiteFooter,
     contactDialog,
     contactSidebar,
-    websiteNews,
   },
   data() {
     return {
@@ -111,11 +107,5 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.swipe {
-  &-picture {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-  }
-}
+
 </style>
