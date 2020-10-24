@@ -7,6 +7,7 @@
           class="ml-1 mr-2"
           v-for="(item, index) in list"
           :key="index"
+          :href="`search.html?keyword=${encodeURIComponent(item)}`"
         >{{ item }}</a>
       </b-col>
       <b-col class="d-flex">
@@ -29,7 +30,6 @@
 </template>
 
 <script>
-import { systemApi } from '@/api'
 export default {
   name: 'searchBox',
   components: {},
@@ -42,10 +42,7 @@ export default {
   created() {},
   methods: {
     searchFn() {
-      const ajaxData = {
-        keyword: this.keyword,
-      }
-      systemApi.search(ajaxData).then(() => {})
+      window.location.href = `search.html?keyword=${encodeURIComponent(this.keyword)}`
     },
   },
 }
@@ -73,6 +70,7 @@ export default {
     background-color: #f5f5f5;
   }
   &-button {
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;

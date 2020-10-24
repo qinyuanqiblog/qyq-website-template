@@ -42,7 +42,7 @@
       <b-container>
         <h3 class="mb-5 text-center">新闻</h3>
         <b-row>
-          <b-col class="news-item mr-3">
+          <!-- <b-col class="news-item mr-3">
             <div class="news-item-content">
               <h5>打发打发啊司法所大萨达</h5>
               <p class="mt-3 mb-3">大发来端口放假啊快乐圣诞节发卡拉就是叼了副科级阿卡里数据发拉可视对讲风流夸堕髻阿里可视对讲卡顿</p>
@@ -65,7 +65,7 @@
               src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1602756906531&di=3d5e17a06b43dd48d9d2cb2f180738cc&imgtype=0&src=http%3A%2F%2F05imgmini.eastday.com%2Fmobile%2F20190704%2F20190704074010_0a2d3bf280b0a3df5ec289cbc8ab223c_1.jpeg"
               alt=""
             >
-          </b-col>
+          </b-col> -->
           <b-col class="news-item">
             <ul class="news-item-content">
               <li
@@ -93,7 +93,7 @@ export default {
   data() {
     return {
       insidePageData: {},
-      list:[]
+      list: [],
     }
   },
   created() {
@@ -101,12 +101,15 @@ export default {
       this.insidePageData = res
     })
   },
-  methods: {},
+  methods: {
+
+  },
 }
 </script>
 
 <style lang="scss" scoped>
 .case {
+  display: none;
   background-color: #f5f5f5;
 
   &-title {
@@ -168,7 +171,7 @@ export default {
     object-fit: cover;
   }
   &-text {
-    margin-top:20px;
+    margin-top: 20px;
     color: #666;
     height: 300px;
     overflow: hidden;

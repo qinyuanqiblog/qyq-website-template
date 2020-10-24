@@ -25,11 +25,11 @@
     <searchBox ref="searchBox" />
     <productIntroduce />
     <productList ref="productList" />
-    <faithIntroduce />
+    <faithIntroduce @onShowContactDialog="onShowContactDialog" />
     <aboutUs />
     <websiteNews ref="websiteNews" />
     <websiteFooter ref="websiteFooter" />
-    <contactDialog />
+    <contactDialog ref="contactDialog" />
     <contactSidebar />
 
   </div>
@@ -74,7 +74,7 @@ export default {
     },
     getBaseInfo() {
       systemApi.info().then((res = {}) => {
-        this.$refs.searchBox.list = res.info.keyword && res.info.keyword.split('|').splice(0,4) || []
+        this.$refs.searchBox.list = (res.info.keyword && res.info.keyword.split('|').splice(0, 4)) || []
         this.$refs.websiteFooter.baseInfo = res.info || {}
       })
     },
@@ -85,8 +85,19 @@ export default {
         this.$refs.websiteNews.list = res.newsClass || []
       })
     },
-    showAlert() {
-      this.dismissCountDown = this.dismissSecs
+    onShowContactDialog(type = 'contact') {
+      switch (type) {
+        case 'contact':
+          this.$refs.contactDialog.show = true
+
+          break
+        case 'phone':
+          this.$refs.contactDialog.showPhoneBar = true
+          break
+        default:
+          console.log('默认啥都没处理~')
+          break
+      }
     },
     onSlideStart() {
       this.sliding = true

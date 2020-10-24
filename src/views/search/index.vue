@@ -1,19 +1,21 @@
 <template>
   <div>
-    <websiteChildHeader />
+    <websiteChildHeader :showSearchBox="false" />
     <articleList
       :ajaxData="ajaxData"
       :ajaxNameFn="ajaxNameFn"
+      :successHandle="successHandle"
     />
+
   </div>
 </template>
 
 <script>
 import { systemApi } from '@/api'
-import { articleList } from '@/components'
 import { getQuery } from '@/utils'
+import { articleList } from '@/components'
 export default {
-  name: 'newsIndex',
+  name: 'searchIndex',
   components: {
     articleList,
   },
@@ -30,12 +32,18 @@ export default {
   methods: {
     init() {
       const json = getQuery(null)
-      const { menuId = '10158', modelType = '2' } = json || {}
+      const keyword = decodeURIComponent(json.keyword)
+      this.keyword = keyword
       this.ajaxData = {
-        menuId,
-        modelType,
+        keyword,
       }
-      this.ajaxNameFn = systemApi.articleList
+      this.ajaxNameFn = systemApi.search
+    },
+    successHandle(res) {
+      const news = res.news || []
+      const products = res.products || []
+      this.searchInfo = res
+      return news.concat(products)
     },
   },
 }

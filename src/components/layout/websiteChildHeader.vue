@@ -21,7 +21,7 @@
         >
       </b-carousel-slide>
     </b-carousel>
-    <searchBox />
+    <searchBox v-if="showSearchBox" />
   </div>
 </template>
 
@@ -29,6 +29,12 @@
 export default {
   name: 'websiteChildHeader',
   components: {},
+  props: {
+    showSearchBox: {
+      type: Boolean,
+      default: true,
+    },
+  },
   data() {
     return {
       bannerList: [

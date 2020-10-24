@@ -4,13 +4,19 @@
       <b-row class="faith-item">
         <b-col>我们的信条 满意至上</b-col>
         <b-col class="d-flex justify-content-end">
-          <span class="faith-button">我要咨询</span>
+          <span
+            @click="showContactDialog()"
+            class="faith-button"
+          >我要咨询</span>
         </b-col>
       </b-row>
       <b-row>
         <b-col class="faith-text">售前有预案，售中有效率，售后有跟踪</b-col>
         <b-col class="d-flex justify-content-end">
-          <span class="faith-button">在线咨询</span>
+          <span
+            @click="showContactDialog('phone')"
+            class="faith-button"
+          >在线咨询</span>
         </b-col>
       </b-row>
     </b-container>
@@ -25,7 +31,11 @@ export default {
     return {}
   },
   created() {},
-  methods: {},
+  methods: {
+    showContactDialog(type = 'contact') {
+      this.$emit('onShowContactDialog', type)
+    },
+  },
 }
 </script>
 
@@ -53,6 +63,7 @@ export default {
     width: 200px;
     height: 50px;
     font-size: 20px;
+    cursor: pointer;
 
     background-color: red;
     border-radius: 30px;

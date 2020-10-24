@@ -16,7 +16,7 @@
       </a>
       <!-- 手机栏目 -->
       <div
-        v-show="showBar"
+        v-show="showPhoneBar"
         class="footer_kf keifu_box"
       >
         <div class="fd_box">
@@ -27,7 +27,7 @@
                   href="javascript:void(0)"
                   class="keifu_close"
                 ><img
-                    @click="showBar = false"
+                    @click="showPhoneBar = false"
                     src="https://g.gxlesou.com/static/getcustomer/images/gb.png"
                   ></a></div>
               <div class="fd_tu">
@@ -110,7 +110,6 @@
         </div><a
           @click="closeDialog()"
           class="cd-popup-close"
-          href="#0"
         >x</a>
       </div>
     </section>
@@ -155,7 +154,7 @@ export default {
   data() {
     return {
       show: false,
-      showBar: false,
+      showPhoneBar: false,
       form: {
         name: '',
         phone: '',
@@ -169,21 +168,20 @@ export default {
     submit() {
       systemApi.addMessage(this.form).then(() => {
         alert('提交成功，稍后会有客服联系您，请您耐心等待')
-        this.form = {
-          name: '',
-          phone: '',
-          content: '',
-          userId: window.sessionStorage.userId,
-        }
         this.closeDialog()
       })
     },
     closeDialog() {
       this.show = false
+      this.form = {
+        name: '',
+        phone: '',
+        content: '',
+        userId: window.sessionStorage.userId,
+      }
     },
     toggle() {
-      console.log(66666)
-      this.showBar = !this.showBar
+      this.showPhoneBar = !this.showPhoneBar
     },
   },
 }
