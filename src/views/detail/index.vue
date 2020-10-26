@@ -1,6 +1,6 @@
 <template>
   <div>
-    <websiteChildHeader />
+    <websiteHeader />
     <div class="casepage">
       <b-container>
         <b-row>
@@ -60,8 +60,10 @@
 <script>
 import { systemApi } from '@/api'
 import { getQuery } from '@/utils'
+import { commonMixin } from '@/mixins'
 export default {
   name: 'indexDetail',
+   mixins: [commonMixin],
   data() {
     return {
       detailData: {
@@ -92,18 +94,6 @@ export default {
       }
       systemApi.detailsPageData(ajaxData).then((res = {}) => {
         this.detailData = res || {}
-        const list = []
-        list.push({
-          title: res.newsTitle,
-          childrenList: (res.newsData && res.newsData.splice(0, 9)) || [],
-          showType: 'menu',
-        })
-        list.push({
-          title: res.productTitle,
-          childrenList: (res.productData && res.productData.splice(0, 9)) || [],
-          showType: 'list',
-        })
-        this.$refs.websiteSideBar.list = list
       })
     },
   },

@@ -167,7 +167,11 @@ export default {
   methods: {
     submit() {
       systemApi.addMessage(this.form).then(() => {
-        alert('提交成功，稍后会有客服联系您，请您耐心等待')
+        this.$bvToast.toast('提交成功，稍后会有客服联系您，请您耐心等待', {
+          title: `提示`,
+          solid: true,
+          variant: 'success',
+        })
         this.closeDialog()
       })
     },

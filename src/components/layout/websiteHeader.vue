@@ -6,9 +6,9 @@
     >
       <b-container>
         <b-row>
-          <b-col>您好，欢迎光临xx官网</b-col>
+          <b-col>您好，欢迎光临{{ companyInfo.name }}官网</b-col>
           <b-col class="text-right">在线电话电话：
-            <span class="nav-top-phone">400-800-1234</span>
+            <span class="nav-top-phone">{{ companyInfo.phone }}</span>
           </b-col>
         </b-row>
       </b-container>
@@ -16,7 +16,7 @@
     <div class="qyq-navbar">
       <b-container class="navbar-container">
         <b-navbar toggleable="lg">
-          <b-navbar-brand href="#">NavBar</b-navbar-brand>
+          <b-navbar-brand href="#">{{  companyInfo.name }}</b-navbar-brand>
 
           <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -57,6 +57,27 @@
         </b-navbar>
       </b-container>
     </div>
+    <b-carousel
+      id="carousel-fade"
+      style="text-shadow: 0px 0px 2px #000"
+      fade
+      controls
+      indicators
+      class="swipe"
+    >
+      <b-carousel-slide
+        v-for="(item, index) in bannerList"
+        :key="index"
+        :caption="item.name"
+      >
+        <img
+          slot="img"
+          class="swipe-picture"
+          :src="item.image"
+          alt=""
+        >
+      </b-carousel-slide>
+    </b-carousel>
   </div>
 </template>
 
@@ -68,15 +89,26 @@ export default {
   data() {
     return {
       menuInfo: [],
+      bannerList: [],
+      companyInfo:  {},
     }
   },
   created() {
-    this.getMenu()
+    this.init()
   },
   methods: {
+    init() {
+      this.getMenu()
+      this.getBannerList()
+    },
     getMenu() {
       systemApi.menuTree().then((res = {}) => {
         this.menuInfo = res
+      })
+    },
+    getBannerList() {
+      systemApi.bannerList().then((res = {}) => {
+        this.bannerList = res.banners || {}
       })
     },
   },

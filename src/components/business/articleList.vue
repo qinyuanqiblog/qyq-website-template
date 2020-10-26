@@ -55,6 +55,7 @@
               </ul>
               <div class="pager">
                 <b-pagination
+                  v-show="list.length"
                   @change="onPagination"
                   v-model="currentPage"
                   :total-rows="totalRows"

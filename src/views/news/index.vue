@@ -1,6 +1,6 @@
 <template>
   <div>
-    <websiteChildHeader />
+    <websiteHeader />
     <articleList
       :ajaxData="ajaxData"
       :ajaxNameFn="ajaxNameFn"

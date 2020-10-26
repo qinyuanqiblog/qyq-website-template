@@ -16,8 +16,8 @@ function getEntry(globPath) {
         entries[tmp[1]] = {
             entry,
             //  当前目录没有有html则以共用的public/index.html作为模板
-            // template: htmls[tmp[1]] ? htmls[tmp[1]] : 'index.html',
-            template: 'public/index.html',
+            template: htmls[tmp[1]] ? htmls[tmp[1]] : 'index.html',
+            // template: 'public/index.html',
             //  以文件夹名称.html作为访问地址
             filename: tmp[1] + '.html'
         };

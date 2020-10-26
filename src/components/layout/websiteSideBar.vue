@@ -19,7 +19,7 @@
             v-for="(childItem, childIndex) in item.childrenList"
             :key="childIndex"
           >
-            <a :href="`/detail.html?modelType=${ childItem.modelType}&articleId=${ childItem.id}`"><i></i>{{ childItem.title }}</a>
+            <a :href="`/detail.html?modelType=${ childItem.modelType}&articleId=${ childItem.id}`"><i></i>{{ childItem.name }}</a>
           </li>
         </ul>
       </template>
@@ -42,9 +42,9 @@
     <div class="div2">
       <div class="div2-box">
         <h2>联系我们</h2>
-        <div class="phone">18278802174</div>
+        <div class="phone">{{ contact.phone }}</div>
         <p>
-          XXX五金期待您的来电！
+          {{ contact.name }}
         </p>
       </div>
     </div>
@@ -58,6 +58,7 @@ export default {
   data() {
     return {
       list: [],
+      contact: [],
     }
   },
   created() {},

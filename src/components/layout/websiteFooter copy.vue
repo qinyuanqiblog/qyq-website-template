@@ -36,22 +36,13 @@
             </div>
             <div class="col-md-5 column lx">
               <div class="text-white">
-                <p><i class="fa fa-bank"></i>{{ baseInfo.name }}</p>
-                <p><i class="fa fa-phone-square"></i>电话：{{ baseInfo.phone }}</p>
-                <p>
-                  <i
-                    class="fa fa-envelope-o"
-                    aria-hidden="true"
-                  ></i>地址：{{ baseInfo.email }}
-                  <i class="fa fa-map-signs"></i>
-                </p>
-                <p>
-                  <i
-                    class="fa fa-envelope-o"
-                    aria-hidden="true"
-                  ></i>邮箱：{{ baseInfo.email }}
-                  <i class="fa fa-map-signs"></i>
-                </p>
+                <i class="fa fa-bank"></i>{{ baseInfo.name }}<br>
+                <i class="fa fa-phone-square"></i>电话：{{ baseInfo.phone }}<br>
+                <i
+                  class="fa fa-envelope-o"
+                  aria-hidden="true"
+                ></i>邮箱：{{ baseInfo.email }} <br>
+                <i class="fa fa-map-signs"></i>
               </div>
             </div>
             <div class="col-md-3">
@@ -62,11 +53,7 @@
                     :src="baseInfo.qrcode"
                     alt="二维码"
                   >
-                  <p class="mt-2">微信二维码</p>
-                </div>
-                <div class="col-md-6">
-                  <p class="mt-4"> 扫描左侧二维码</p>
-                  手机访问更方便
+                  <p class="mt-2">手机二维码</p>
                 </div>
               </div>
             </div>
@@ -80,14 +67,13 @@
           <div class="row clearfix">
             <div class="col-md-12 text-center">
               <p class="copyright">Copyright ©{{ baseInfo.officialWebsite }} {{ baseInfo.name }}</p>
-              <p>文章素材及部分图片来源于网络，版本归原来作者所有，如有侵权，请联系删除。
-              </p>
-              <p>技术支持：悦耀网络</p>
+            </div>
+            <div class="col-md-12 police">
             </div>
           </div>
         </div>
-      </div>
 
+      </div>
     </div>
   </div>
 </template>
@@ -242,7 +228,7 @@ export default {
   border-top: 1px solid #444;
   font-size: 14px;
   color: #c3c3c3;
-  padding-top: 10px;
+  line-height: 50px;
 }
 
 .copyright {

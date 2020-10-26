@@ -1,6 +1,6 @@
 <template>
   <div>
-    <websiteChildHeader :showSearchBox="false" />
+    <websiteHeader :showSearchBox="false" />
     <articleList
       :ajaxData="ajaxData"
       :ajaxNameFn="ajaxNameFn"

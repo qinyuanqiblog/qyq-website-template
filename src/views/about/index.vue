@@ -1,6 +1,5 @@
 <template>
   <div class="about">
-    <!-- <websiteChildHeader /> -->
     <websiteHeader />
     <div class="about-main">
       <div class=" container">
@@ -110,14 +109,16 @@ export default {
     }
   },
   mounted() {
+
     this.init()
   },
   methods: {
     init() {
       this.getArticleList()
-      this.baiduMapSetting()
+      // this.baiduMapSetting()
     },
     baiduMapSetting() {
+
       setTimeout(() => {
         var map = new window.BMapGL.Map('container')
         var point = new window.BMapGL.Point(116.404, 39.915)
