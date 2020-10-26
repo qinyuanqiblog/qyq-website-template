@@ -42,10 +42,11 @@
     <div class="div2">
       <div class="div2-box">
         <h2>联系我们</h2>
-        <div class="phone">{{ contact.phone }}</div>
-        <p>
-          {{ contact.name }}
-        </p>
+        <div
+          class="div2-box-item"
+          v-for="(item, index) in contactUsData"
+          :key="index"
+        >{{ item }}</div>
       </div>
     </div>
   </div>
@@ -58,7 +59,7 @@ export default {
   data() {
     return {
       list: [],
-      contact: [],
+      contactUsData: [],
     }
   },
   created() {},
@@ -165,12 +166,20 @@ export default {
 .casepage .div2-box .phone {
   font-size: 24px;
   font-weight: bold;
-  color:#dc3545;
+  color: #dc3545;
 }
 .casepage .div2-box p {
   font-size: 14px;
   color: #333;
   padding-top: 10px;
+}
+.div2-box-item {
+  &:first-of-type {
+    font-weight: bold;
+    font-size: 14px;
+  }
+  font-size: 12px;
+  margin-bottom: 10px;
 }
 .casepage .div3-box li:hover a {
   color: #de0024;

@@ -92,14 +92,16 @@
 
       </div>
     </div>
-    <websiteFooter />
+    <websiteFooter ref="websiteFooter" />
   </div>
 </template>
 
 <script>
-import { systemApi } from '@/api'
+// import { systemApi } from '@/api'
+import { commonMixin } from '@/mixins'
 export default {
   name: 'aboutIndex',
+  mixins: [commonMixin],
   data() {
     return {
       articleList: [],
@@ -109,16 +111,13 @@ export default {
     }
   },
   mounted() {
-
     this.init()
   },
   methods: {
     init() {
-      this.getArticleList()
       // this.baiduMapSetting()
     },
     baiduMapSetting() {
-
       setTimeout(() => {
         var map = new window.BMapGL.Map('container')
         var point = new window.BMapGL.Point(116.404, 39.915)
@@ -145,24 +144,6 @@ export default {
       //   },
       //   '北京市'
       // )
-    },
-    onPagination(currentPage) {
-      this.currentPage = currentPage
-      this.getArticleList()
-    },
-    getArticleList() {
-      const ajaxData = {
-        menuId: '10158',
-        modelType: '2',
-        pageNum: this.currentPage,
-        pageSize: this.perPage,
-        userId: window.sessionStorage.userId,
-      }
-      systemApi.articleList(ajaxData).then((res = {}) => {
-        this.totalRows = res.total
-        // this.perPage = res.total/this.pageSize
-        this.articleList = res.rows || []
-      })
     },
   },
 }

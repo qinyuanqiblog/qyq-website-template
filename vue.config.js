@@ -43,7 +43,8 @@ const proxy = {
 }
 module.exports = {
     pages: htmls,
-    publicPath: './', //  解决打包之后静态文件路径404的问题
+    // publicPath: '/0001',
+    publicPath: './',
     outputDir: 'dist', //  打包后的文件夹名称，默认dist
     assetsDir: 'static',
     chainWebpack: config => {

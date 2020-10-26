@@ -90,7 +90,6 @@ export default {
       const ajaxData = {
         articleId,
         modelType,
-        userId: window.sessionStorage.userId,
       }
       systemApi.detailsPageData(ajaxData).then((res = {}) => {
         this.detailData = res || {}

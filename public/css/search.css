@@ -770,7 +770,9 @@ dd {
 }
 
 /* 客服 */
-.footer_kf {height:70px; width:100%; position:fixed; bottom:0; left:0;/*background: rgba(29,99,197,0.6);*/}
+.footer_kf {
+  display:none;
+  height:70px; width:100%; position:fixed; bottom:0; left:0;/*background: rgba(29,99,197,0.6);*/}
 .fd_box02 { margin:0 auto; width:1200px; height:70px; position:relative; bottom:0; padding: 10px 30px; /*border-radius: 70px 70px 0 0; background: rgba(88,130,238, .8);*/}
 .fd_bgc { position: absolute; left: 0; top: 0; bottom: 0; width: 100%; background: #5882ee; opacity: .9; border-radius: 70px 70px 0 0; z-index: -1; }
 .fd_gb { width:20px; height:20px; position:absolute; right:-15px; top:0;}
@@ -782,7 +784,7 @@ dd {
 .fd_left { display:block; width:141px; height:120px; position:fixed; left:0; bottom:10px; background:url(images/db_img08.png) no-repeat left top;}
 .yqlj_box a { display:block; float:left; padding:0 10px; height:26px; line-height:26px; color:#666; margin:0 10px 5px 5px}
 .yqlj_box a:hover { color:#f31c1c;}
-.icon_keifu{display: block;width:108px;border-radius: 0 50px 50px 0;background:#1d63c5;font-size: 18px;line-height: 22px;color: #fff;padding:7px 10px;height: 60px;}
+.icon_keifu{display: none;width:108px;border-radius: 0 50px 50px 0;background:#1d63c5;font-size: 18px;line-height: 22px;color: #fff;padding:7px 10px;height: 60px;}
 .icon_keifu:hover { color: #fff; }
 .icon_keifu img{width:45px;float: right;}
 .icon_keifu p{float: left;}

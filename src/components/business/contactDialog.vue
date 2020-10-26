@@ -5,7 +5,6 @@
       <a
         href="javascript:void(0)"
         class="fd_left icon_keifu"
-        style="display: block;"
         @click="toggle()"
       >
         <p>免费<br>通话</p><img
@@ -159,7 +158,6 @@ export default {
         name: '',
         phone: '',
         content: '',
-        userId: window.sessionStorage.userId,
       },
     }
   },
@@ -181,7 +179,6 @@ export default {
         name: '',
         phone: '',
         content: '',
-        userId: window.sessionStorage.userId,
       }
     },
     toggle() {

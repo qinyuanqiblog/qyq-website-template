@@ -32,7 +32,6 @@ export default {
     return {
       slide: 0,
       sliding: null,
-      userId: window.sessionStorage.userId,
       productData: {},
       menuInfo: {},
     }
@@ -46,7 +45,7 @@ export default {
       this.getBaseInfo()
     },
     getIndexInfo() {
-      systemApi.index({ userId: this.userId }).then((res = {}) => {
+      systemApi.index().then((res = {}) => {
         this.productData = res
         this.$refs.productList.list = res.productAll.splice(0, 9) || []
         this.$refs.websiteNews.list = res.newsClass || []

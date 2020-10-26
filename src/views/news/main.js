@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import App from './index.vue'
 import { BootstrapVue, BootstrapVueIcons, VBHoverPlugin, VBToggle } from 'bootstrap-vue'
-require('../../../websiteConfig.js')
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
@@ -28,6 +27,7 @@ requireComponent.keys().forEach(fileName => {
 
 
 Vue.config.productionTip = false
+
 
 new Vue({
   render: h => h(App),

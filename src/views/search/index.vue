@@ -6,7 +6,7 @@
       :ajaxNameFn="ajaxNameFn"
       :successHandle="successHandle"
     />
-
+    <websiteFooter ref="websiteFooter" />
   </div>
 </template>
 
@@ -14,8 +14,10 @@
 import { systemApi } from '@/api'
 import { getQuery } from '@/utils'
 import { articleList } from '@/components'
+import { commonMixin } from '@/mixins'
 export default {
   name: 'searchIndex',
+  mixins: [commonMixin],
   components: {
     articleList,
   },

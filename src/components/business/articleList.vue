@@ -6,7 +6,7 @@
           cols="3"
           class="case-left"
         >
-          <websiteSideBar>
+          <websiteSideBar ref="websiteSideBar">
             <h3 slot="title">新闻中心<b>PRODUCT CENTER</b></h3>
           </websiteSideBar>
         </b-col>
@@ -115,7 +115,6 @@ export default {
       const ajaxData = {
         pageNum: this.currentPage,
         pageSize: this.perPage,
-        userId: window.sessionStorage.userId,
         ...this.ajaxData,
       }
       this.ajaxNameFn(ajaxData)

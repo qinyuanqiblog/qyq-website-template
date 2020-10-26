@@ -44,7 +44,7 @@ export default {
           this.$refs.websiteNews.contact = res || []
         }
         this.companyInfo = res
-        window.sessionStorage.companyInfo = info
+        window.sessionStorage.companyInfo = JSON.stringify(info)
       })
     },
     getInsidePageData() {
@@ -63,6 +63,7 @@ export default {
             showType: 'list',
           })
           this.$refs.websiteSideBar.list = list
+          this.$refs.websiteSideBar.contactUsData = res.contactUsData.split('\n')
         }
 
       })

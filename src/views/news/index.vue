@@ -5,6 +5,7 @@
       :ajaxData="ajaxData"
       :ajaxNameFn="ajaxNameFn"
     />
+    <websiteFooter ref="websiteFooter" />
   </div>
 </template>
 
@@ -12,8 +13,10 @@
 import { systemApi } from '@/api'
 import { articleList } from '@/components'
 import { getQuery } from '@/utils'
+import { commonMixin } from '@/mixins'
 export default {
   name: 'newsIndex',
+  mixins: [commonMixin],
   components: {
     articleList,
   },

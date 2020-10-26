@@ -1,7 +1,8 @@
 
 import request from '@/utils/request'
 const defaultPrefix = '/system'
-const userId = window.sessionStorage.userId
+import vueEnv from '../../../vue-env'
+const userId = vueEnv.userId
 export default {
   // 添加留言
   addMessage(params = {}) {
@@ -16,7 +17,7 @@ export default {
     return request({
       url: `${defaultPrefix}/news/api/articleList`,
       method: 'get',
-      params,
+      params: Object.assign({ userId }, params),
     })
   },
   // 轮播图列表
@@ -32,7 +33,7 @@ export default {
     return request({
       url: `${defaultPrefix}/news/api/detailsPageData`,
       method: 'get',
-      params,
+      params: Object.assign({ userId }, params),
     })
   },
   // 友情链接链表
@@ -48,7 +49,7 @@ export default {
     return request({
       url: `${defaultPrefix}/news/api/index`,
       method: 'get',
-      params,
+      params: Object.assign({ userId }, params),
     })
   },
   // 基本信息
@@ -80,7 +81,7 @@ export default {
     return request({
       url: `${defaultPrefix}/news/api/search`,
       method: 'get',
-      params,
+      params: Object.assign({ userId }, params),
     })
   },
   // 未读留言总数，必须传的参数：所属用户 userId
