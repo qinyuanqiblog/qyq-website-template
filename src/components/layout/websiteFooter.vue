@@ -24,10 +24,10 @@
         <div class="container">
           <div class="row clearfix">
             <div class="col-md-4 column txt1">
-              <i
-                class="fa fa-volume-control-phone pull-left"
-                aria-hidden="true"
-              ></i>
+              <b-icon
+                class="fa-phone"
+                icon="telephone-fill"
+              ></b-icon>
               <div class="d-an"><a
                   href="http://www.gxyhfz.com/lxwm/"
                   target=""
@@ -36,21 +36,33 @@
             </div>
             <div class="col-md-5 column lx">
               <div class="text-white">
-                <p><i class="fa fa-bank"></i>{{ baseInfo.name }}</p>
-                <p><i class="fa fa-phone-square"></i>电话：{{ baseInfo.phone }}</p>
                 <p>
-                  <i
-                    class="fa fa-envelope-o"
-                    aria-hidden="true"
-                  ></i>地址：{{ baseInfo.email }}
-                  <i class="fa fa-map-signs"></i>
+                  <b-icon
+                    class="fa-icon"
+                    icon="person-fill"
+                  ></b-icon>
+                  {{ baseInfo.name }}
                 </p>
                 <p>
-                  <i
-                    class="fa fa-envelope-o"
-                    aria-hidden="true"
-                  ></i>邮箱：{{ baseInfo.email }}
-                  <i class="fa fa-map-signs"></i>
+                  <b-icon
+                    class="fa-icon"
+                    icon="phone-fill"
+                  ></b-icon>
+                  电话：{{ baseInfo.phone }}
+                </p>
+                <p>
+                  <b-icon
+                    class="fa-icon"
+                    icon="bag-fill"
+                  ></b-icon>
+                  地址：{{ baseInfo.address }}
+                </p>
+                <p>
+                  <b-icon
+                    class="fa-icon bi-envelope b-icon bi"
+                    icon="wallet-fill"
+                  ></b-icon>
+                  邮箱：{{ baseInfo.email }}
                 </p>
               </div>
             </div>
@@ -181,23 +193,33 @@ export default {
 .footers .f1 img {
   margin: 15px 9px 0 0;
 }
-
-.txt1 .fa {
-  font-size: 52px;
-  color: #fff;
-  margin-right: 30px;
-  margin-top: 28px;
+.txt1 {
+  position: relative;
+  h3 {
+    color: #fff;
+    float: left;
+    font-size: 32px;
+    font-weight: bold;
+    font-family: SimHei;
+    margin: 0;
+  }
+  .fa {
+    font-size: 52px;
+    color: #fff;
+    margin-right: 30px;
+    margin-top: 28px;
+  }
+  .fa-phone {
+    position: absolute;
+    top: 35px;
+    left: -70px;
+    font-size: 50px;
+    color: #fff;
+  }
 }
-
-.txt1 h3 {
-  color: #fff;
-  float: left;
-  font-size: 32px;
-  font-weight: bold;
-  font-family: SimHei;
-  margin: 0;
+.fa-icon{
+  margin-right: 10px;
 }
-
 .d-an {
   float: left;
   margin-top: 10px;

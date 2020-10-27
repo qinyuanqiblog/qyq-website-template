@@ -6,9 +6,7 @@
           cols="3"
           class="case-left"
         >
-          <websiteSideBar ref="websiteSideBar">
-            <h3 slot="title">新闻中心<b>PRODUCT CENTER</b></h3>
-          </websiteSideBar>
+          <slot name="left"></slot>
         </b-col>
         <b-col class="case-right ml-1">
           <div class="mainbox">
@@ -17,53 +15,86 @@
                 <h3>新闻中心<b></b></h3>
               </div>
               <div>
-                <a href="/index.html"><img
+                <a href="index.html">
+                  <img
                     src="~public/images/home.png"
                     alt=""
-                  >网站首页</a>&gt;
-                <a href="/news.html">新闻中心</a>
+                  >
+                  网站首页
+                </a>
+                &gt;
+                <span>新闻中心</span>
               </div>
             </div>
-            <div class="newp-list">
-              <ul>
-                <li
-                  v-for="(item, index) in list"
-                  :key="index"
-                >
-                  <a :href="`/detail.html?modelType=${item.modelType}&articleId=${item.id}`">
-                    <b-row align-v="center">
-                      <b-col
-                        cols="2"
-                        class="time"
+            <!-- 有数据的时候又分为产品和新闻 -->
+            <template v-if="list.length">
+              <template v-if="showType === 'news'">
+                <div class="newp-list">
+                  <ul>
+                    <li
+                      v-for="(item, index) in list"
+                      :key="index"
+                    >
+                      <a :href="`detail.html?modelType=${item.modelType}&articleId=${item.id}`">
+                        <b-row align-v="center">
+                          <b-col
+                            cols="2"
+                            class="time"
+                          >
+                            <strong>{{ item._day }}</strong>
+                            <span>{{ item._month | monthFilter }}月</span>
+                          </b-col>
+                          <b-col>
+                            <figcaption>
+                              <h2>{{ item.title }}</h2>
+                              <div
+                                class="item-describes"
+                                v-html="item.content"
+                              ></div>
+                            </figcaption>
+                          </b-col>
+                        </b-row>
+
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </template>
+              <template v-if="showType === 'product'">
+                <div class="row projects-list">
+                  <div
+                    v-for="(item, index) in list"
+                    :key="index"
+                    class="col-sm-3 col-xs-12 item"
+                  >
+                    <a
+                      :href="`product.html?menuId=${item.id}&modelType=${item.modelType}`"
+                      class="image-popup"
+                    >
+                      <img
+                        class="gallery-image"
+                        :src="item.image"
                       >
-                        <strong>8</strong>
-                        <span>十二月</span>
-                      </b-col>
-                      <b-col>
-                        <figcaption>
-                          <h2>{{ item.title }}</h2>
-                          <div
-                            class="item-describes"
-                            v-html="item.content"
-                          ></div>
-                        </figcaption>
-                      </b-col>
-                    </b-row>
-
-                  </a>
-                </li>
-              </ul>
-              <div class="pager">
-                <b-pagination
-                  v-show="list.length"
-                  @change="onPagination"
-                  v-model="currentPage"
-                  :total-rows="totalRows"
-                  :per-page="perPage"
-                ></b-pagination>
-              </div>
+                      <div class="item-text">{{ item.title }}</div>
+                    </a>
+                  </div>
+                </div>
+              </template>
+            </template>
+            <!-- 没有的时候给个提示 -->
+            <div v-if="!list.length">
+              没有更多数据了
             </div>
-
+            <!-- 分页 -->
+            <div class="pager">
+              <b-pagination
+                v-show="list.length"
+                @change="onPagination"
+                v-model="currentPage"
+                :total-rows="totalRows"
+                :per-page="perPage"
+              ></b-pagination>
+            </div>
           </div>
         </b-col>
       </b-row>
@@ -95,6 +126,72 @@ export default {
       type: [String, Function],
       default: '',
     },
+    showType: {
+      type: String,
+      default: 'news',
+    },
+    config: {
+      type: Object,
+      default() {
+        return {
+          title: {
+            name: '新闻中心',
+            text: 'NEWS CENTER',
+          },
+          breadcrumb:{
+
+          }
+        }
+      },
+    },
+  },
+  filters: {
+    monthFilter(val) {
+      let text = ''
+      switch (val) {
+        case '01':
+          text = '一'
+          break
+        case '02':
+          text = '二'
+          break
+        case '03':
+          text = '三'
+          break
+        case '04':
+          text = '四'
+          break
+        case '05':
+          text = '五'
+          break
+        case '06':
+          text = '六'
+          break
+        case '07':
+          text = '七'
+          break
+        case '08':
+          text = '八'
+          break
+        case '09':
+          text = '九'
+          break
+        case '10':
+          text = '十'
+          break
+        case '11':
+          text = '十一'
+          break
+        case '12':
+          text = '十二'
+          break
+
+        default:
+          console.log('默认啥都没处理~')
+          break
+      }
+      return text
+    },
   },
   data() {
     return {
@@ -122,9 +219,25 @@ export default {
           this.totalRows = res.total
           if (this.successHandle) {
             const array = this.successHandle(res) || []
+            array.forEach(v => {
+              if (v.createTime) {
+                const newArray = v.createTime.substring(0, 10).split('-')
+                v._year = newArray[0]
+                v._month = newArray[1]
+                v._day = newArray[2]
+              }
+            })
             this.list = array
             return false
           }
+          res.rows.forEach(v => {
+            if (v.createTime) {
+              const newArray = v.createTime.substring(0, 10).split('-')
+              v._year = newArray[0]
+              v._month = newArray[1]
+              v._day = newArray[2]
+            }
+          })
           this.list = res.rows
         })
         .catch(err => {
@@ -508,5 +621,20 @@ export default {
   @include lineClamp(2);
   font-size: 14px;
   color: #666;
+}
+
+.projects-list {
+  .item {
+    margin-bottom: 20px;
+    &-text {
+      text-align: center;
+      margin-top: 10px;
+    }
+  }
+  .gallery-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
 }
 </style>

@@ -5,7 +5,7 @@
     <productIntroduce />
     <productList ref="productList" />
     <faithIntroduce @onShowContactDialog="onShowContactDialog" />
-    <aboutUs  ref="aboutUs"/>
+    <aboutUs ref="aboutUs" />
     <websiteNews ref="websiteNews" />
     <websiteFooter ref="websiteFooter" />
     <contactDialog ref="contactDialog" />
@@ -42,7 +42,6 @@ export default {
   methods: {
     init() {
       this.getIndexInfo()
-      this.getBaseInfo()
     },
     getIndexInfo() {
       systemApi.index().then((res = {}) => {

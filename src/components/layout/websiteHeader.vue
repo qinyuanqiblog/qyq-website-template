@@ -41,7 +41,7 @@
                     class="navbar-main-item-menu"
                   >
                     <li
-                      v-for="(current, currentIndex) in menuInfo"
+                      v-for="(current, currentIndex) in item.newsMenu"
                       :key="currentIndex"
                     >
                       <a

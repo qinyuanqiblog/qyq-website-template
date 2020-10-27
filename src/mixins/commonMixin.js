@@ -10,6 +10,10 @@ export default {
             content:'福滨红木家具主营越南黄花梨、大红酸枝、缅甸草花梨、小叶紫檀红木家具、豪华电动餐桌、火锅桌专业定制，是红木古典家具知名品牌。产品品种齐全、品质可靠，造型典雅高贵，定位大众市场，致力于让高档家居走进普通百姓家。本厂拥有流的技工人才。和先进的生产设备，是一家集设计开发、生产制造、销售及售后服务于一体的红木古典家具厂家。本企业精选优质名贵木材，每一件产品从设计、开料、木工、雕花、打磨再到油漆，都经过严格的操作程序，精雕细琢、典雅大方。产品主要分为客厅、餐厅、套房、书房等系列，传统与现代相结合的风格，深得广大客户依赖和喜爱。本厂秉承“为商以德、诚信为'
           }
         },
+        websiteFooter:{
+          address:'南宁市西乡塘区永宁村委会里坡',
+          email: '820532952@qq.com',
+        }
       }
     }
   },
@@ -24,7 +28,8 @@ export default {
     getBaseInfo() {
       systemApi.info().then((res = {}) => {
         const info = res.info || {}
-        info.email = '820532952?@qq.com'
+        info.email = this.websiteConfig.websiteFooter.email
+        info.address = this.websiteConfig.websiteFooter.address
         if(this.$refs.websiteHeader){
           this.$refs.websiteHeader.companyInfo = info
         }

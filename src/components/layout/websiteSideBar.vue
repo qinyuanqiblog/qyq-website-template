@@ -16,14 +16,31 @@
         </div>
         <ul class="ul1">
           <li
+            class="ul1-item"
             v-for="(childItem, childIndex) in item.childrenList"
             :key="childIndex"
           >
-            <a :href="`/detail.html?modelType=${ childItem.modelType}&articleId=${ childItem.id}`"><i></i>{{ childItem.name }}</a>
+            <a :href="`product.html?modelType=${ childItem.modelType}&menuId=${ childItem.id}`">
+              <i v-if="childItem.haveChild !== '0'"></i>
+              {{ childItem.name }}
+            </a>
+            <ul class="ul1-child">
+              <li
+                v-for="(secondItem, secondIndex) in childItem.newsMenu"
+                :key="secondIndex"
+              >
+                <a
+                  class="ul1-child-link"
+                  :href="`product.html?modelType=${ secondItem.modelType}&menuId=${ secondItem.id}`"
+                >
+                  <i v-if="secondItem.haveChild !== '0'"></i>
+                  {{ secondItem.name }}
+                </a>
+              </li>
+            </ul>
           </li>
         </ul>
       </template>
-
       <template v-if="item.showType === 'list'">
         <div class="div3-box">
           <h2>{{ item.title }}</h2>
@@ -32,13 +49,12 @@
               v-for="(childItem, childIndex) in item.childrenList"
               :key="childIndex"
             >
-              <a :href="`/detail.html?modelType=${ childItem.modelType}&articleId=${ childItem.id}`"><i></i>{{ childItem.title }}</a>
+              <a :href="`detail.html?modelType=${ childItem.modelType}&articleId=${ childItem.id}`"><i></i>{{ childItem.title }}</a>
             </li>
           </ul>
         </div>
       </template>
     </div>
-
     <div class="div2">
       <div class="div2-box">
         <h2>联系我们</h2>
@@ -54,7 +70,7 @@
 
 <script>
 export default {
-  name: 'websiteHeader',
+  name: 'websiteSideBar',
   components: {},
   data() {
     return {
@@ -148,6 +164,35 @@ export default {
 }
 .casepage .ul1 li:hover a {
   color: #de0024;
+}
+.ul1-item {
+  position: relative;
+  &:hover {
+    color:red;
+    .ul1-child {
+      display: block;
+    }
+  }
+}
+.ul1-child {
+  display: none;
+  position: absolute;
+  margin-left: 200px;
+  // right: -200px;
+  background-color: #fff;
+  &-link {
+    width: 118px;
+    margin: 5px;
+    padding: 7px 15px;
+    color: #777;
+    text-shadow: none;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      background: #ff5555;
+      color: #fff;
+    }
+  }
 }
 .casepage .div2-box h2,
 .casepage .div3-box h2 {

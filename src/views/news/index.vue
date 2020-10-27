@@ -1,10 +1,16 @@
 <template>
   <div>
-    <websiteHeader />
+    <websiteHeader ref="websiteHeader" />
     <articleList
       :ajaxData="ajaxData"
       :ajaxNameFn="ajaxNameFn"
-    />
+    >
+      <websiteSideBar
+        slot="left"
+        ref="websiteSideBar"
+      >
+      </websiteSideBar>
+    </articleList>
     <websiteFooter ref="websiteFooter" />
   </div>
 </template>

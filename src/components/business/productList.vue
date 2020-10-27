@@ -8,7 +8,7 @@
         v-for="(item, index) in list"
         :key="index"
       >
-        <a :href="`/detail.html?modelType=${ item.modelType}&articleId=${ item.id}`">
+        <a :href="`detail.html?modelType=${ item.modelType}&articleId=${ item.id}`">
           <img
             class="product-list-picture"
             :src="item.image"

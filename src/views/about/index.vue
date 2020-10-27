@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <websiteHeader />
+     <websiteHeader ref="websiteHeader" />
     <div class="about-main">
       <div class=" container">
 
