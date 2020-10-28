@@ -3,7 +3,9 @@
     <!--begin container-->
     <div class="container">
       <!--begin row-->
-      <h3 class="pb-5">产品特色</h3>
+      <h3 class="pb-5 qyq-title">
+        产品<span class="qyq-title-default">特色</span>
+      </h3>
       <div class="row">
         <!--begin col-sm-4-->
         <div
@@ -64,8 +66,8 @@ export default {
   font-size: 14px;
   line-height: 1.5;
   color: #666;
-  h4{
-    color:#000;
+  h4 {
+    color: #000;
   }
 }
 .services-pic {

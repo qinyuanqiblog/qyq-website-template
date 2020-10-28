@@ -1,5 +1,6 @@
 <template>
   <b-container class="product-list mt-lg-5 mb-5">
+    <h3 class="text-center mb-5">最新<span class="qyq-title-default">资讯</span></h3>
     <div class="row">
       <div
         :class="{

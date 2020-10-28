@@ -137,8 +137,8 @@ export default {
       type: Object,
       default() {
         return {
-          title: '新闻中心',
-          breadcrumb: '新闻中心',
+          title: '新闻列表',
+          breadcrumb: '新闻列表',
         }
       },
     },

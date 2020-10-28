@@ -19,16 +19,17 @@
       <b-row>
         <b-col class="faith-text">售前有预案，售中有效率，售后有跟踪</b-col>
         <b-col class="d-flex justify-content-end">
-          <span
-            @click="showContactDialog('phone')"
+          <a
             class="faith-button faith-button__yellow"
+            :href="`tencent://message/?Menu=yes&uin=${config.qqNumber}`"
+            target="_blank"
           >
             在线咨询
             <img
               class="faith-icon"
               src="~public/images/mes.png"
             />
-          </span>
+          </a>
         </b-col>
       </b-row>
     </b-container>
@@ -40,7 +41,9 @@ export default {
   name: 'faithIntroduce',
   components: {},
   data() {
-    return {}
+    return {
+      config: {},
+    }
   },
   created() {},
   methods: {
@@ -53,12 +56,23 @@ export default {
 
 <style lang="scss" scoped>
 .faith {
-  background-image: url('~public/images/faith/faith.png');
-  background-repeat: no-repeat;
-  background-size: cover;
+  position: relative;
   height: 280px;
   color: #fff;
   overflow: hidden;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url('~public/images/faith/faith.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(10px);
+    transform: scale(1.2);
+  }
   &-item {
     margin-top: 80px;
     margin-bottom: 20px;
@@ -81,6 +95,7 @@ export default {
     border-radius: 30px;
     &__yellow {
       background-color: #f5d200;
+      color: #fff;
     }
   }
   &-icon {

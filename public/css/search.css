@@ -12,6 +12,13 @@
 .swipe__none .carousel-indicators{
   display: none;
 }
+.qyq-title{
+  color:#000;
+}
+.qyq-title-default{
+  margin-left: 5px;;
+  color:red;
+}
 /* 自己写的样式结束 */
 .rowlist {
     height: 60px;

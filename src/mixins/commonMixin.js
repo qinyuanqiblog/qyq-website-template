@@ -20,6 +20,7 @@ export default {
         websiteFooter:{
           address:'南宁市西乡塘区永宁村委会里坡',
           email: '820532952@qq.com',
+          qqNumber: '820532952',
         }
       }
     }
@@ -44,6 +45,9 @@ export default {
         }
         if( this.$refs.searchBox){
           this.$refs.searchBox.list = (res.info.keyword &&info.keyword.split('|').splice(0, 4)) || []
+        }
+        if( this.$refs.faithIntroduce){
+          this.$refs.faithIntroduce.config = this.websiteConfig.websiteFooter
         }
         if(this.$refs.aboutUs){
           this.$refs.aboutUs.brand = {

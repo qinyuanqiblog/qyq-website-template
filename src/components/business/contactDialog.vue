@@ -66,6 +66,18 @@
         class="message w_message"
         style=""
       >
+        <b-row class="my-1">
+          <b-col sm="2">
+            <label for="input-small">Small:</label>
+          </b-col>
+          <b-col sm="10">
+            <b-form-input
+              id="input-small"
+              size="sm"
+              placeholder="Enter your name"
+            ></b-form-input>
+          </b-col>
+        </b-row>
         <div class="index_message">
           <span class="m_label d_label">请在此输入留言内容，我们会尽快与您联系。</span>
           <textarea
@@ -267,7 +279,7 @@ export default {
 }
 
 #m_div {
-  display: none;
+  display:none;
   width: 222px;
   position: fixed;
   right: 2px;

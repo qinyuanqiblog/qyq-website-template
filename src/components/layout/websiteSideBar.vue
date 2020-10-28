@@ -5,7 +5,7 @@
       :key="index"
       :class="{
         'div1': item.showType === 'menu',
-        'div3': item.showType === 'list',
+        'div1 div3': item.showType === 'list',
       }"
     >
       <template v-if="item.showType === 'menu'">
@@ -42,8 +42,12 @@
         </ul>
       </template>
       <template v-if="item.showType === 'list'">
+        <div class="casetit">
+          <slot name="title">
+            <h3>{{ item.title }}<b>NEWS CENTER</b></h3>
+          </slot>
+        </div>
         <div class="div3-box">
-          <h2>{{ item.title }}</h2>
           <ul class="ul3">
             <li
               v-for="(childItem, childIndex) in item.childrenList"
@@ -86,6 +90,7 @@ export default {
 <style lang="scss" scoped>
 .casepage .case-left .div1 {
   background: #fff;
+  margin-bottom:30px;
 }
 .casepage .case-left .div2,
 .casepage .case-left .div3 {

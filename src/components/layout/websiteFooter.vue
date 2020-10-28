@@ -103,7 +103,7 @@
                 icon="telephone-fill"
               ></b-icon>
               <div class="d-an"><a
-                  href="http://www.gxyhfz.com/lxwm/"
+                  :href="`tel:${baseInfo.phone}`"
                   target=""
                 >一键联系我们</a></div>
               <h3>{{ baseInfo.phone }}</h3>

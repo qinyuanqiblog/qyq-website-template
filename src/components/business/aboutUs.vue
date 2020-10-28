@@ -2,7 +2,7 @@
   <div>
     <section class="case pt-5 pb-5">
       <b-container>
-        <h3 class="text-center">产品案例</h3>
+        <h3 class="text-center">产品<span class="qyq-title-default">案例</span></h3>
         <b-row>
           <b-col cols="3">
             <div class="case-item">
@@ -19,7 +19,7 @@
     </section>
     <section class="brand">
       <b-container>
-        <h3 class="text-center mb-5">品牌文化</h3>
+        <h3 class="text-center mb-5">品牌<span class="qyq-title-default">文化</span></h3>
         <b-row>
           <b-col>
             <img

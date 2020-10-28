@@ -121,7 +121,7 @@ export default {
   margin-bottom: 20px;
   font-size: 12px;
   &-phone {
-    color: #da251d;
+    color: $themeColor;
   }
 }
 .qyq-navbar {
@@ -136,7 +136,7 @@ export default {
       top: 68px;
       box-shadow: none;
       text-transform: capitalize;
-      border-top: solid 2px #ff5555;
+      border-top: solid 2px $themeColor;
       left: 50%;
       transform: translate(-50%);
       margin: 0;
@@ -144,15 +144,18 @@ export default {
       z-index: 10;
       &-link {
         display: block;
-        width: 118px;
+        width: 150px;
         margin: 5px;
-        padding: 7px 15px;
+        height:46px;
+        line-height: 46px;
         color: #777;
         text-shadow: none;
         border-radius: 3px;
         transition: all 0.3s ease-in-out;
+        text-align: center;
+        overflow: hidden;
         &:hover {
-          background: #ff5555;
+          background: $themeColor;
           color: #fff;
         }
       }
@@ -174,7 +177,7 @@ export default {
           display: block;
         }
         .navbar-main-item-link {
-          background: #ff5555;
+          background: $themeColor;
           color: #fff;
         }
       }

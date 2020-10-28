@@ -124,8 +124,8 @@ export default {
 }
 .about {
   &-main {
-    border-bottom: solid 2px #ff5555;
-    border-top: solid 2px #ff5555;
+    border-bottom: solid 2px $themeColor;
+    border-top: solid 2px $themeColor;
     padding: 40px 0;
     margin: 40px 0;
   }
@@ -145,8 +145,8 @@ export default {
   padding: 9px 22px;
   font-family: inherit;
   color: #fff !important;
-  border-color: #ff5555 !important;
-  background-color: #ff5555 !important;
+  border-color: $themeColor !important;
+  background-color: $themeColor !important;
 }
 .btn:focus,
 .btn.focus {

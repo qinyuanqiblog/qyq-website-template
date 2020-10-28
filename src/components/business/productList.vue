@@ -1,9 +1,10 @@
 <template>
   <b-container class="product-list mt-lg-5 mb-5">
-    <h3 class="text-center mb-5">产品展示</h3>
+
+    <h3 class="text-center mb-5">产品<span class="qyq-title-default">展示</span></h3>
     <b-row>
       <b-col
-      cols="4"
+        cols="4"
         class="mb-3 product-list-item"
         v-for="(item, index) in list"
         :key="index"
@@ -54,6 +55,9 @@ export default {
 
 <style lang="scss" scoped>
 .product-list {
+  img {
+    background-color: #444;
+  }
   &-item {
     padding-left: 0;
   }
