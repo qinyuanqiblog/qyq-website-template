@@ -1,5 +1,8 @@
 module.exports = {
   root: true,
+  globals: {
+    BMapGL: true
+  },
   env: {
     node: true,
   },

@@ -1,7 +1,7 @@
 <template>
   <div>
     <websiteHeader ref="websiteHeader" />
-    <articleList
+    <websiteArticleList
       :ajaxData="ajaxData"
       :ajaxNameFn="ajaxNameFn"
       :successHandle="successHandle"
@@ -10,24 +10,18 @@
         slot="left"
         ref="websiteSideBar"
       >
-        <h3 slot="title">新闻中心<b>PRODUCT CENTER</b></h3>
       </websiteSideBar>
-    </articleList>
+    </websiteArticleList>
     <websiteFooter ref="websiteFooter" />
   </div>
 </template>
 
 <script>
 import { systemApi } from '@/api'
-import { getQuery } from '@/utils'
-import { articleList } from '@/components'
 import { commonMixin } from '@/mixins'
 export default {
   name: 'searchIndex',
   mixins: [commonMixin],
-  components: {
-    articleList,
-  },
   data() {
     return {
       list: [],
@@ -40,7 +34,7 @@ export default {
   },
   methods: {
     init() {
-      const json = getQuery(null)
+      const json = this.$getQuery(null)
       const keyword = decodeURIComponent(json.keyword)
       this.keyword = keyword
       this.ajaxData = {

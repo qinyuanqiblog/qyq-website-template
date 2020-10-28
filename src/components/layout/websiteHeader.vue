@@ -6,7 +6,7 @@
     >
       <b-container>
         <b-row>
-          <b-col>您好，欢迎光临{{ companyInfo.name }}官网</b-col>
+          <b-col>您好，欢迎光临<span class="text-danger">{{ companyInfo.name }}</span>官网</b-col>
           <b-col class="text-right">在线电话电话：
             <span class="nav-top-phone">{{ companyInfo.phone }}</span>
           </b-col>
@@ -68,7 +68,6 @@
       <b-carousel-slide
         v-for="(item, index) in bannerList"
         :key="index"
-        :caption="item.name"
       >
         <img
           slot="img"

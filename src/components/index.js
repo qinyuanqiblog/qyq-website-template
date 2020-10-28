@@ -5,7 +5,6 @@ import productIntroduce from './business/productIntroduce'
 import productList from './business/productList'
 import aboutUs from './business/aboutUs'
 import faithIntroduce from './business/faithIntroduce'
-import articleList from './business/articleList'
 
 export {
   contactSidebar,
@@ -15,5 +14,4 @@ export {
   productList,
   aboutUs,
   faithIntroduce,
-  articleList,
 }

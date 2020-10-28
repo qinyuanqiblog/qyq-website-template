@@ -12,7 +12,7 @@
           <div class="mainbox">
             <div class="breadcrumb d-flex justify-content-between">
               <div>
-                <h3>新闻中心<b></b></h3>
+                <h3>{{ config.title }}<b></b></h3>
               </div>
               <div>
                 <a href="index.html">
@@ -23,78 +23,81 @@
                   网站首页
                 </a>
                 &gt;
-                <span>新闻中心</span>
+                <span>{{config.breadcrumb}}</span>
               </div>
             </div>
-            <!-- 有数据的时候又分为产品和新闻 -->
-            <template v-if="list.length">
-              <template v-if="showType === 'news'">
-                <div class="newp-list">
-                  <ul>
-                    <li
+
+            <slot name="right">
+              <!-- 有数据的时候又分为产品和新闻 -->
+              <template v-if="list.length">
+                <template v-if="showType === 'news'">
+                  <div class="newp-list">
+                    <ul>
+                      <li
+                        v-for="(item, index) in list"
+                        :key="index"
+                      >
+                        <a :href="`detail.html?modelType=${item.modelType}&articleId=${item.id}`">
+                          <b-row align-v="center">
+                            <b-col
+                              cols="2"
+                              class="time"
+                            >
+                              <strong>{{ item._day }}</strong>
+                              <span>{{ item._month | monthFilter }}月</span>
+                            </b-col>
+                            <b-col>
+                              <figcaption>
+                                <h2>{{ item.title }}</h2>
+                                <div
+                                  class="item-describes"
+                                  v-html="item.content"
+                                ></div>
+                              </figcaption>
+                            </b-col>
+                          </b-row>
+
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </template>
+                <template v-if="showType === 'product'">
+                  <div class="row projects-list">
+                    <div
                       v-for="(item, index) in list"
                       :key="index"
+                      class="col-sm-3 col-xs-12 item"
                     >
-                      <a :href="`detail.html?modelType=${item.modelType}&articleId=${item.id}`">
-                        <b-row align-v="center">
-                          <b-col
-                            cols="2"
-                            class="time"
-                          >
-                            <strong>{{ item._day }}</strong>
-                            <span>{{ item._month | monthFilter }}月</span>
-                          </b-col>
-                          <b-col>
-                            <figcaption>
-                              <h2>{{ item.title }}</h2>
-                              <div
-                                class="item-describes"
-                                v-html="item.content"
-                              ></div>
-                            </figcaption>
-                          </b-col>
-                        </b-row>
-
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </template>
-              <template v-if="showType === 'product'">
-                <div class="row projects-list">
-                  <div
-                    v-for="(item, index) in list"
-                    :key="index"
-                    class="col-sm-3 col-xs-12 item"
-                  >
-                    <a
-                      :href="`product.html?menuId=${item.id}&modelType=${item.modelType}`"
-                      class="image-popup"
-                    >
-                      <img
-                        class="gallery-image"
-                        :src="item.image"
+                      <a
+                        :href="`product.html?menuId=${item.id}&modelType=${item.modelType}`"
+                        class="image-popup"
                       >
-                      <div class="item-text">{{ item.title }}</div>
-                    </a>
+                        <img
+                          class="gallery-image"
+                          :src="item.image"
+                        >
+                        <div class="item-text">{{ item.title }}</div>
+                      </a>
+                    </div>
                   </div>
-                </div>
+                </template>
               </template>
-            </template>
-            <!-- 没有的时候给个提示 -->
-            <div v-if="!list.length">
-              没有更多数据了
-            </div>
-            <!-- 分页 -->
-            <div class="pager">
-              <b-pagination
-                v-show="list.length"
-                @change="onPagination"
-                v-model="currentPage"
-                :total-rows="totalRows"
-                :per-page="perPage"
-              ></b-pagination>
-            </div>
+              <!-- 没有的时候给个提示 -->
+              <div v-if="!list.length">
+                没有更多数据了
+              </div>
+              <!-- 分页 -->
+              <div class="pager">
+                <b-pagination
+                  v-show="list.length"
+                  @change="onPagination"
+                  v-model="currentPage"
+                  :total-rows="totalRows"
+                  :per-page="perPage"
+                ></b-pagination>
+              </div>
+            </slot>
           </div>
         </b-col>
       </b-row>
@@ -104,7 +107,7 @@
 
 <script>
 export default {
-  name: 'newsIndex',
+  name: 'websiteArticleList',
   props: {
     ajaxData: {
       type: Object,
@@ -113,9 +116,9 @@ export default {
       },
     },
     ajaxNameFn: {
-      type: Function,
+      type: [String, Function],
       default() {
-        return function() {}
+        return ''
       },
     },
     successHandle: {
@@ -134,13 +137,8 @@ export default {
       type: Object,
       default() {
         return {
-          title: {
-            name: '新闻中心',
-            text: 'NEWS CENTER',
-          },
-          breadcrumb:{
-
-          }
+          title: '新闻中心',
+          breadcrumb: '新闻中心',
         }
       },
     },
@@ -209,6 +207,9 @@ export default {
       this.getArticleList()
     },
     getArticleList() {
+      if (!this.ajaxNameFn) {
+        return false
+      }
       const ajaxData = {
         pageNum: this.currentPage,
         pageSize: this.perPage,
@@ -256,6 +257,8 @@ export default {
   padding: 45px 0;
 }
 .casepage .case-left {
+  position: relative;
+  z-index: 2;
   // width: 220px;
 }
 .casepage .case-left .div1 {
@@ -626,6 +629,7 @@ export default {
 .projects-list {
   .item {
     margin-bottom: 20px;
+    border: 1px solid #ccc;
     &-text {
       text-align: center;
       margin-top: 10px;
@@ -634,7 +638,7 @@ export default {
   .gallery-image {
     width: 100%;
     height: 150px;
-    object-fit: cover;
+    object-fit: contain;
   }
 }
 </style>

@@ -24,20 +24,20 @@
               <i v-if="childItem.haveChild !== '0'"></i>
               {{ childItem.name }}
             </a>
-            <ul class="ul1-child">
-              <li
+            <div
+              v-if="childItem.newsMenu"
+              class="ul1-child"
+            >
+              <a
                 v-for="(secondItem, secondIndex) in childItem.newsMenu"
                 :key="secondIndex"
+                class="ul1-child-link"
+                :href="`product.html?modelType=${ secondItem.modelType}&menuId=${ secondItem.id}`"
               >
-                <a
-                  class="ul1-child-link"
-                  :href="`product.html?modelType=${ secondItem.modelType}&menuId=${ secondItem.id}`"
-                >
-                  <i v-if="secondItem.haveChild !== '0'"></i>
-                  {{ secondItem.name }}
-                </a>
-              </li>
-            </ul>
+                <i v-if="secondItem.haveChild !== '0'"></i>
+                {{ secondItem.name }}
+              </a>
+            </div>
           </li>
         </ul>
       </template>
@@ -134,6 +134,8 @@ export default {
 }
 .casepage .ul1 li {
   transition: all 0.36s;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 .casepage .ul1 li a {
   display: block;
@@ -154,21 +156,20 @@ export default {
   background-size: 100% 100%;
 }
 .casepage .ul1 {
-  padding-left: 30px;
-  padding-right: 30px;
   padding-top: 20px;
   padding-bottom: 20px;
 }
 .casepage .ul1 li:hover {
-  transform: translateX(10px);
+  // transform: translateX(10px);
 }
 .casepage .ul1 li:hover a {
   color: #de0024;
 }
 .ul1-item {
   position: relative;
+  color: #fff;
   &:hover {
-    color:red;
+    color: #de0024;
     .ul1-child {
       display: block;
     }
@@ -176,20 +177,29 @@ export default {
 }
 .ul1-child {
   display: none;
+  border: 2px solid #de0024;
   position: absolute;
-  margin-left: 200px;
-  // right: -200px;
+  margin-left: 225px;
+  top: 50%;
+  transform: translate(0, -50%);
   background-color: #fff;
+
   &-link {
-    width: 118px;
+    &:not(:last-child) {
+      border-bottom: 1px dashed red;
+    }
+
+    display: block;
+    width: 120px;
+    text-align: center;
     margin: 5px;
-    padding: 7px 15px;
     color: #777;
     text-shadow: none;
     border-radius: 3px;
     transition: all 0.3s ease-in-out;
+
     &:hover {
-      background: #ff5555;
+      background: #ccc;
       color: #fff;
     }
   }

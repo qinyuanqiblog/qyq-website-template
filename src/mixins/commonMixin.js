@@ -2,8 +2,15 @@ import { systemApi } from '@/api'
 export default {
   data() {
     return {
+      baiduConfig:{
+        ak:'BkqwvFyXiHg7S9Gc3GAF1lCkrHhAHXYH',
+        center:{lng: 0, lat: 0},
+        zoom:15,
+      },
       insidePageData:{},
-      companyInfo: window.sessionStorage.companyInfo || {},
+      companyInfo: {
+        contactus:''
+      },
       websiteConfig:{
         aboutUs:{
           brand:{
@@ -30,6 +37,8 @@ export default {
         const info = res.info || {}
         info.email = this.websiteConfig.websiteFooter.email
         info.address = this.websiteConfig.websiteFooter.address
+        document.title = info.name
+
         if(this.$refs.websiteHeader){
           this.$refs.websiteHeader.companyInfo = info
         }
@@ -48,8 +57,10 @@ export default {
         if(this.$refs.websiteNews){
           this.$refs.websiteNews.contact = res || []
         }
-        this.companyInfo = res
-        window.sessionStorage.companyInfo = JSON.stringify(info)
+        if(this.$refs.contactDialog){
+          this.$refs.contactDialog.qrcode = info.qrcode
+        }
+        this.companyInfo = info
       })
     },
     getInsidePageData() {
@@ -73,5 +84,12 @@ export default {
 
       })
     },
+    baiduReady () {
+      // this.baiduConfig.center.lng = this.companyInfo.longitude
+      // this.baiduConfig.center.lat = this.companyInfo.latitude
+      this.baiduConfig.center.lng = 116.404
+      this.baiduConfig.center.lat = 39.915
+      // this.zoom = 15
+    }
   },
 }

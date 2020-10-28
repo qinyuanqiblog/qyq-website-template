@@ -7,7 +7,13 @@
           <span
             @click="showContactDialog()"
             class="faith-button"
-          >我要咨询</span>
+          >
+            我要咨询
+            <img
+              class="faith-icon"
+              src="~public/images/ser.png"
+            />
+          </span>
         </b-col>
       </b-row>
       <b-row>
@@ -15,8 +21,14 @@
         <b-col class="d-flex justify-content-end">
           <span
             @click="showContactDialog('phone')"
-            class="faith-button"
-          >在线咨询</span>
+            class="faith-button faith-button__yellow"
+          >
+            在线咨询
+            <img
+              class="faith-icon"
+              src="~public/images/mes.png"
+            />
+          </span>
         </b-col>
       </b-row>
     </b-container>
@@ -54,7 +66,7 @@ export default {
   }
   &-text {
     font-size: 30px;
-    color: red;
+    color: #fff;
   }
   &-button {
     display: flex;
@@ -65,8 +77,17 @@ export default {
     font-size: 20px;
     cursor: pointer;
 
-    background-color: red;
+    background-color: #de0024;
     border-radius: 30px;
+    &__yellow {
+      background-color: #f5d200;
+    }
+  }
+  &-icon {
+    width: 31px;
+    height: 28px;
+    margin-left: 10px;
+    object-fit: contain;
   }
 }
 </style>

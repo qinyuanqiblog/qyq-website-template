@@ -3,6 +3,7 @@ import App from './index.vue'
 import { BootstrapVue, BootstrapVueIcons, VBHoverPlugin, VBToggle } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import { getQuery } from '@/utils'
 
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
@@ -25,6 +26,7 @@ requireComponent.keys().forEach(fileName => {
   )
 })
 
+Vue.prototype.$getQuery = getQuery
 
 Vue.config.productionTip = false
 

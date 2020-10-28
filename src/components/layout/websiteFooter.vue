@@ -1,24 +1,98 @@
 
 <template>
   <div>
-    <div class="youlian">
+    <section>
       <b-container>
-        <div class="clearfix">
-          <div class="fl div1 clearfix">
-            <span class="fl">友情链接：</span>
-            <p class="fl">
-              <a
-                v-for="(item, index) in friendData.friendlink"
-                :key="index"
-                :href="item.linkAddr"
-                target="_blank"
-              >{{ item.name }}</a>
-            </p>
+        <div class="row pt-4 pb-4">
+          <div class="col-md-12 col-xs-12  padnone  column ">
+            <div class="ly_nr ">
+              <div class="consult-title">
+                <h3>NOW CONSULT</h3>
+                <h5>现在咨询</h5>
+                <p>（售后客服会在2小时内联系你）</p>
+              </div>
+              <div class="message">
+                <div id="mess_main">
+                  <div class="mess_list">
+                    <div class="mess_title fl">您的姓名：</div>
+                    <div class="mess_input fr">
+                      <input
+                        type="text"
+                        name="name"
+                        id="hname"
+                        size="4"
+                        v-model="form.name"
+                        class="form-control"
+                      >
+                    </div>
+                  </div>
+                  <div class="mess_list">
+                    <div class="mess_title fl">您的电话：</div>
+                    <div class="mess_input fr">
+                      <input
+                        type="text"
+                        name="mobile"
+                        id="hmobile"
+                        v-model="form.phone"
+                        class="form-control"
+                      >
+                    </div>
+                  </div>
+                  <div class="mess_list">
+                    <div class="mess_title fl">您的需求：</div>
+                    <div class="mess_input fr">
+                      <input
+                        type="text"
+                        name="xuqiu"
+                        id="hxuqiu"
+                        v-model="form.content"
+                        class="form-control"
+                      >
+                    </div>
+                  </div>
+                  <div
+                    class="mess_list"
+                    style="border:none;"
+                  >
+                    <div class="mess_submit">
+                      <input
+                        name="sub"
+                        type="button"
+                        class="btn btn-sub"
+                        id="homesub"
+                        value="提交"
+                        @click="submit()"
+                      >
+                    </div>
+                  </div>
+                  <div class="message_bg"></div>
+                </div>
+              </div>
+
+            </div>
           </div>
+
         </div>
       </b-container>
-    </div>
+    </section>
     <div class="footer-box">
+      <div class="youlian">
+        <b-container>
+          <div class="clearfix">
+            <div class="fl div1 clearfix">
+              <span class="fl">友情链接：</span>
+              <p class="fl">
+                <a
+                  v-for="(item, index) in friendData.friendlink"
+                  :key="index"
+                  :href="item.linkAddr"
+                  target="_blank"
+                >{{ item.name }}</a>
+              </p>
+            </div>
+          </div>
+        </b-container>
+      </div>
       <div class="f_one">
         <!--布局框架 4-4-4 代码开始-->
         <div class="container">
@@ -114,6 +188,11 @@ export default {
     return {
       friendData: {},
       baseInfo: {},
+      form: {
+        name: '',
+        phone: '',
+        content: '',
+      },
     }
   },
   created() {
@@ -123,6 +202,21 @@ export default {
     init() {
       systemApi.friendlinkList().then((res = {}) => {
         this.friendData = res
+      })
+    },
+    submit() {
+      systemApi.addMessage(this.form).then(() => {
+        this.$bvToast.toast('提交成功，稍后会有客服联系您，请您耐心等待', {
+          title: `提示`,
+          toaster: 'b-toaster-top-center',
+          solid: true,
+          variant: 'success',
+        })
+        this.form = {
+          name: '',
+          phone: '',
+          content: '',
+        }
       })
     },
   },
@@ -217,7 +311,7 @@ export default {
     color: #fff;
   }
 }
-.fa-icon{
+.fa-icon {
   margin-right: 10px;
 }
 .d-an {
@@ -277,7 +371,8 @@ export default {
 }
 
 .youlian {
-  padding: 20px 0 20px 0;
+  // padding: 10px 0 ;
+  border-bottom: 1px solid #444;
 }
 .youlian .div1 {
   margin-top: 10px;
@@ -286,13 +381,13 @@ export default {
   position: relative;
 }
 .youlian span {
-  color: #000;
+  color: #fff;
   font-size: 18px;
 }
 .youlian p a {
   display: inline-block;
   width: 120px;
-  color: #333;
+  color: #fff;
   font-size: 14px;
   transition: all 0.36s;
   text-align: center;

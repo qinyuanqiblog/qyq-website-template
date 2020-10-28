@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- 手机 -->
+    <!-- 手机  他们说不要了 -->
     <section>
       <a
         href="javascript:void(0)"
@@ -50,6 +50,74 @@
         </div>
       </div>
     </section>
+    <!--  -->
+    <div id="m_div">
+      <div class="w_title">
+        <div id="m_top"></div>
+        <div id="m_mid"></div>
+        <div id="m_bot">欢迎给我们留言</div>
+        <a
+          href="javascript:void(0);"
+          class="m_close"
+          title="最大化"
+        ></a>
+      </div>
+      <div
+        class="message w_message"
+        style=""
+      >
+        <div class="index_message">
+          <span class="m_label d_label">请在此输入留言内容，我们会尽快与您联系。</span>
+          <textarea
+            id="icontent"
+            rows="2"
+            cols="80"
+            class="m_input"
+          ></textarea>
+        </div>
+        <div class="name_input clearfix">
+          <div class="input_left">姓名</div>
+          <div class="input_right">
+            <input
+              id="iname"
+              type="text"
+              class="m_input"
+            >
+          </div>
+        </div>
+        <div class="name_input clearfix">
+          <div class="input_left">电话</div>
+          <div class="input_right">
+            <input
+              id="imobile"
+              type="text"
+              class="m_input"
+            >
+          </div>
+        </div>
+        <div id="code">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="验证码"
+            id="icode"
+          >
+          <img
+            src="/index/guestbook/checkverify.html"
+            onclick="javascript:this.src='/index/guestbook/checkverify.html?tm='+Math.random();"
+            id="checkcode"
+          >
+        </div>
+        <div class="m_under">
+          <input
+            type="button"
+            class="msgbtn"
+            id="footsub"
+            value="发送"
+          >
+        </div>
+      </div>
+    </div>
     <!-- 首页弹框 -->
     <section
       v-show="show"
@@ -137,7 +205,7 @@
             <p>填写手机号码，我们会马上联系您!</p>
           </div>
         </li>
-        <li class="customer-sideewm"><i class="bgs3"></i>扫一扫<div class="sjzd son"><img src="http://img.gxlesou.com/1/20200830/5e44e3a64cb0751476b73c512c9322b7.jpg"></div>
+        <li class="customer-sideewm"><i class="bgs3"></i>扫一扫<div class="sjzd son"><img :src="qrcode"></div>
         </li>
       </ul>
     </section>
@@ -154,6 +222,7 @@ export default {
     return {
       show: false,
       showPhoneBar: false,
+      qrcode: '',
       form: {
         name: '',
         phone: '',
@@ -168,6 +237,7 @@ export default {
         this.$bvToast.toast('提交成功，稍后会有客服联系您，请您耐心等待', {
           title: `提示`,
           solid: true,
+          toaster: 'b-toaster-top-center',
           variant: 'success',
         })
         this.closeDialog()
@@ -194,5 +264,182 @@ export default {
   bottom: 20px;
   left: 0;
   z-index: 2;
+}
+
+#m_div {
+  display: none;
+  width: 222px;
+  position: fixed;
+  right: 2px;
+  bottom: 0px;
+  padding-bottom: 1px;
+  z-index: 99999;
+  background: none;
+}
+
+.d_label {
+  line-height: 18px;
+  padding-top: 8px;
+  width: 160px;
+}
+
+.w_message {
+  border: 1px solid #a00000;
+  padding: 7px;
+  padding-top: 3px;
+  height: 235px;
+  padding-bottom: 27px;
+  background: #f3f3f3;
+}
+
+.w_message #iname {
+  height: 20px;
+  line-height: 20px;
+  border: none !important;
+}
+
+.w_message #icontact {
+  width: 142px;
+  height: 20px;
+  line-height: 20px;
+  border: none !important;
+}
+
+.w_message #icontent {
+  width: 176px;
+  height: 65px;
+  resize: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 189px;
+}
+
+.w_message #icheckcode {
+  width: 82px;
+  height: 30px;
+  line-height: 22px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+#message_main {
+  display: table-cell;
+}
+
+.w_message #message_main tr {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  line-height: 28px;
+}
+
+.w_message #message_main tr th {
+  height: 28px;
+  line-height: 28px;
+  width: 37px;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.w_message #code {
+  padding-top: 0px;
+  margin-top: 5px;
+}
+
+.w_title {
+  background: none;
+  color: #fff;
+  position: relative;
+  cursor: pointer;
+  height: 33px;
+  width: 222px;
+  overflow: hidden;
+}
+
+.w_message #message_main .m_input {
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.w_message .msgbtn {
+  width: 93px;
+  height: 29px;
+  line-height: 20px;
+  margin-top: 3px;
+  border: none;
+  font-family: '宋体', arial;
+  font-size: 12px;
+  margin-left: 54px;
+  font-family: '微软雅黑';
+  color: #fff;
+  background: #a00000;
+}
+
+.w_message .msgbtn_hover {
+  background: #cb5961;
+  color: #fff;
+  border: 1px solid #cb5961;
+}
+
+.m_close {
+  // background: url(../images_public/messbtn.png) left top no-repeat;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  cursor: pointer;
+  overflow: hidden;
+  width: 19px;
+  height: 20px;
+  right: 12px;
+  top: 8px;
+  cursor: pointer;
+}
+
+.m_open {
+  // background: url(../images_public/messbtn1.png) left top no-repeat;
+}
+
+.w_message .m_under {
+  position: absolute;
+  width: 227px;
+  height: 37px;
+  line-height: 41px;
+  left: 0;
+  bottom: 1px;
+}
+
+.w_message .support {
+  color: #000;
+  width: 100px;
+  position: absolute;
+  bottom: 1px;
+  right: 8px;
+  font-size: 12px;
+}
+
+#m_top {
+  height: 1px;
+  font-size: 0px;
+  line-height: 1px;
+  margin: 0 2px;
+  background: #cb5961;
+}
+
+#m_mid {
+  height: 1px;
+  font-size: 0px;
+  line-height: 1px;
+  margin: 0 1px;
+  background: #a00000;
+}
+
+#m_bot {
+  height: 31px;
+  line-height: 31px;
+  padding-left: 9px;
+  font-family: '微软雅黑';
+  font-size: 13px;
+  background: #a00000;
 }
 </style>

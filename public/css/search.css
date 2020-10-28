@@ -483,6 +483,7 @@ nav.navbar.bootsnav ul.nav > li.dropdown > a.dropdown-toggle:after {
 }
 
 .mess_list .mess_submit {
+    margin-left: 10px;
     padding: 2% 0 0 20%;
     display: inline-block;
     width: 100%;

@@ -1,33 +1,31 @@
 <template>
   <div>
     <websiteHeader ref="websiteHeader" />
-    <articleList
+    <websiteArticleList
       :ajaxData="ajaxData"
       :ajaxNameFn="ajaxNameFn"
       showType="product"
+      :config="{
+        title:'产品中心',
+        breadcrumb:'产品中心',
+      }"
     >
       <websiteSideBar
         slot="left"
         ref="websiteSideBar"
       >
-        <h3 slot="title">产品中心<b>PRODUCT CENTER</b></h3>
       </websiteSideBar>
-    </articleList>
+    </websiteArticleList>
     <websiteFooter ref="websiteFooter" />
   </div>
 </template>
 
 <script>
 import { systemApi } from '@/api'
-import { articleList } from '@/components'
-import { getQuery } from '@/utils'
 import { commonMixin } from '@/mixins'
 export default {
   name: 'productIndex',
   mixins: [commonMixin],
-  components: {
-    articleList,
-  },
   data() {
     return {
       list: [],
@@ -38,7 +36,7 @@ export default {
   },
   methods: {
     init() {
-      const json = getQuery(null)
+      const json = this.$getQuery(null)
       const { menuId = '10186', modelType = '3' } = json || {}
       this.ajaxData = {
         menuId,

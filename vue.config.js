@@ -45,11 +45,17 @@ module.exports = {
     pages: htmls,
     // publicPath: '/0001',
     publicPath: './',
-    outputDir: 'dist', //  打包后的文件夹名称，默认dist
+    outputDir: 'social', //  打包后的文件夹名称，默认dist
     assetsDir: 'static',
+    configureWebpack:{
+      externals: {
+        "BMap": "BMap"
+      }
+    },
     chainWebpack: config => {
       config.resolve.alias
         .set('public', path.join(__dirname, 'public'))
+        .set('assets', path.join(__dirname, '/src/assets'))
         .set('assets', path.join(__dirname, '/src/assets'))
     },
     css: {

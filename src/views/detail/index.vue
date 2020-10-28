@@ -1,6 +1,6 @@
 <template>
   <div>
-     <websiteHeader ref="websiteHeader" />
+    <websiteHeader ref="websiteHeader" />
     <div class="casepage">
       <b-container>
         <b-row>
@@ -59,11 +59,10 @@
 
 <script>
 import { systemApi } from '@/api'
-import { getQuery } from '@/utils'
 import { commonMixin } from '@/mixins'
 export default {
   name: 'indexDetail',
-   mixins: [commonMixin],
+  mixins: [commonMixin],
   data() {
     return {
       detailData: {
@@ -81,7 +80,7 @@ export default {
       this.getDetailInfo()
     },
     getDetailInfo() {
-      const { articleId, modelType } = getQuery(null)
+      const { articleId, modelType } = this.$getQuery(null)
       const ajaxData = {
         articleId,
         modelType,
