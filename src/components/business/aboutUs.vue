@@ -21,7 +21,7 @@
       <b-container>
         <h3 class="text-center mb-5">品牌<span class="qyq-title-default">文化</span></h3>
         <b-row>
-          <b-col>
+          <b-col class="brand-bg">
             <img
               class="brand-picture"
               src="~public/images/brand-logo.png"

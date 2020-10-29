@@ -56,4 +56,5 @@ export default {
 .text {
   text-indent: 2em;
 }
+@import url(~public/scss/media-750.scss);
 </style>

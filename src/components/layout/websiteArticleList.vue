@@ -10,7 +10,7 @@
         </b-col>
         <b-col class="case-right ml-1">
           <div class="mainbox">
-            <div class="breadcrumb d-flex justify-content-between">
+            <div class="breadcrumb justify-content-between">
               <div>
                 <h3>{{ config.title }}<b></b></h3>
               </div>
@@ -377,6 +377,7 @@ export default {
   padding: 20px 30px;
 }
 .breadcrumb {
+  display: flex;
   border-bottom: 1px solid #f5f5f5;
   position: relative;
   height: 50px;

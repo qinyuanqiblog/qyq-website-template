@@ -1,0 +1,31 @@
+@media only screen and (max-width: 750px) {
+  .qyq-navbar .navbar-main {
+    display: block !important;
+  }
+  .line,
+  .line-sm,
+  .faith,
+  .brand-bg,
+  .process-list,
+  .customer-side,
+  .casepage .case-left,
+  .casepage .breadcrumb,
+  .casepage .header,
+  .newp-list .time,
+  .f_one h3{
+    display: none !important;
+  }
+  .f_one .txt1{
+    display: flex;
+    justify-content: center;
+  }
+
+  .youlian p a{
+    display: block !important;
+  }
+  .casepage .mainbox,
+  .newp-list figcaption{
+    padding:0 !important;
+  }
+
+}

@@ -1,17 +1,24 @@
 <template>
   <b-container class="search-box">
-    <b-row>
+    <b-row align-v="center">
       <b-col>
         <span class="font-weight-bold">热门关键词：</span>
+      </b-col>
+      <b-col
+        lg="auto"
+        :md="2"
+        v-for="(item, index) in list"
+        :key="index"
+      >
         <a
           class="ml-1 mr-2"
-          v-for="(item, index) in list"
-          :key="index"
           :href="`search.html?keyword=${encodeURIComponent(item)}`"
         >{{ item }}</a>
       </b-col>
-      <b-col class="d-flex">
-        <div class="search-bar ml-auto">
+      <b-col
+        class="d-flex"
+      >
+        <div class="search-bar">
           <input
             v-model="keyword"
             type="text"
@@ -42,6 +49,9 @@ export default {
   created() {},
   methods: {
     searchFn() {
+      if (!this.keyword) {
+        return false
+      }
       window.location.href = `search.html?keyword=${encodeURIComponent(this.keyword)}`
     },
   },

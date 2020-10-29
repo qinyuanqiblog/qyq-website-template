@@ -6,21 +6,24 @@
       <h3 class="pb-5 qyq-title">
         产品<span class="qyq-title-default">特色</span>
       </h3>
-      <div class="row">
+      <b-row>
         <!--begin col-sm-4-->
-        <div
+        <b-col
           v-for="(item, index) in list"
           :key="index"
-          class="col-sm-4 features-item"
-        ><img
+          class="features-item"
+          :lg="4"
+          :md="4"
+        >
+          <img
             :src="item.logoUrl"
             class="services-pic"
             alt="产品介绍图片"
           >
           <h4 class="mt-4 mb-4">{{ item.title }}</h4>
           <p>{{ item.desc }}</p>
-        </div>
-      </div>
+        </b-col>
+      </b-row>
       <!--end row-->
     </div>
     <!--end container-->

@@ -4,7 +4,8 @@
     <h3 class="text-center mb-5">产品<span class="qyq-title-default">展示</span></h3>
     <b-row>
       <b-col
-        cols="4"
+        :md="4"
+        sm="6"
         class="mb-3 product-list-item"
         v-for="(item, index) in list"
         :key="index"

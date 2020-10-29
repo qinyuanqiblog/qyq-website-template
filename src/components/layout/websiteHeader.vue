@@ -218,18 +218,4 @@ img {
     }
   }
 }
-@media only screen and (max-width: 750px) {
-  body {
-    background-color: red;
-  }
-  .qyq-navbar .navbar-main {
-    display: block;
-  }
-  .line{
-    display: none;
-  }
-  .line-sm{
-    display: block;
-  }
-}
 </style>

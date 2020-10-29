@@ -1,5 +1,5 @@
 <template>
-   <section class="lc_main">
+   <section class="lc_main process-list">
       <b-container>
         <div class="row clearfix">
           <div class="col-md-12 column">

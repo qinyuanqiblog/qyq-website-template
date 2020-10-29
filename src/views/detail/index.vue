@@ -87,7 +87,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-
+@import url(~public/scss/media-750.scss);
 .detailp-cont {
   padding-top: 30px;
   line-height: 2;

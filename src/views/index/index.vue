@@ -63,6 +63,6 @@ export default {
   },
 }
 </script>
-<style lang="scss" scoped>
-
+<style lang="scss">
+@import url(~public/scss/media-750.scss);
 </style>

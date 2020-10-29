@@ -118,6 +118,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+@import url(~public/scss/media-750.scss);
 #baidu-map {
   width: 100%;
   // height: 300px;
