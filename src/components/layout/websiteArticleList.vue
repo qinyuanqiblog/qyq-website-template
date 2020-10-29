@@ -18,7 +18,7 @@
                 <a href="index.html">
                   <img
                     src="~public/images/home.png"
-                    alt=""
+                    alt="网站首页背景图"
                   >
                   网站首页
                 </a>
@@ -31,7 +31,9 @@
               <!-- 有数据的时候又分为产品和新闻 -->
               <template v-if="list.length">
                 <template v-if="showType === 'news'">
+                  <slot name="right-header"></slot>
                   <div class="newp-list">
+                    <slot name="right-top"></slot>
                     <ul>
                       <li
                         v-for="(item, index) in list"
@@ -70,12 +72,13 @@
                       class="col-sm-3 col-xs-12 item"
                     >
                       <a
-                        :href="`product.html?menuId=${item.id}&modelType=${item.modelType}`"
+                        :href="`detail.html?articleId=${item.id}&modelType=${item.modelType}`"
                         class="image-popup"
                       >
                         <img
                           class="gallery-image"
                           :src="item.image"
+                          alt="产品图片"
                         >
                         <div class="item-text">{{ item.title }}</div>
                       </a>
@@ -84,7 +87,7 @@
                 </template>
               </template>
               <!-- 没有的时候给个提示 -->
-              <div v-if="!list.length">
+              <div v-else>
                 没有更多数据了
               </div>
               <!-- 分页 -->
@@ -544,80 +547,6 @@ export default {
 }
 .newp-list li:hover h2 {
   color: #de0024;
-}
-
-.detailp-cont {
-  padding-top: 30px;
-}
-.news-detail h2 {
-  font-size: 22px;
-  font-weight: bold;
-  color: #000;
-  text-align: center;
-}
-.news-detail .fabu {
-  text-align: center;
-  border-bottom: 1px solid #f5f5f5;
-  padding-bottom: 20px;
-}
-.news-detail .fabu span {
-  display: inline-block;
-  padding: 10px;
-  font-size: 14px;
-  color: #666;
-}
-.news-detail p {
-  line-height: 36px;
-  margin: 10px 0;
-  text-indent: 1em;
-  font-size: 14px;
-  color: #333;
-}
-.news-detail p img {
-  margin: auto;
-  display: block;
-  max-width: 100%;
-}
-.fenpian {
-  margin-top: 25px;
-  border-top: 1px solid #f9f9f9;
-  padding-top: 20px;
-  position: relative;
-}
-.fenpian span {
-  font-size: 14px;
-  color: #000 !important;
-  display: inline-block;
-  float: left;
-  margin: 0 15px 0 0 !important;
-  padding: 0 !important;
-  vertical-align: middle;
-}
-.fenpian p {
-  float: left;
-}
-.fenpian > div {
-  padding: 10px 0;
-}
-.fenpian p a {
-  font-size: 14px;
-  color: #555;
-  display: block;
-  line-height: 1;
-  transition: all 0.6s;
-}
-.fenpian div:hover a {
-  color: #de0024;
-}
-.fenpian .fanhui {
-  display: block;
-  position: absolute;
-  right: 10px;
-  background: #de0024;
-  color: #fff;
-  padding: 10px 25px;
-  border-radius: 10px;
-  top: 35px;
 }
 .item-describes {
   line-height: 2;

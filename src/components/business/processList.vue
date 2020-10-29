@@ -12,28 +12,28 @@
         </div>
         <div class="process">
           <ul>
-            <li class="process-x"> <img src="http://www.gxyhfz.com/template/894_tplstyle_816_794/images/process-1.png">
+            <li class="process-x"> <img src="http://www.gxyhfz.com/template/894_tplstyle_816_794/images/process-1.png" alt="预约背景图片">
               <p>预约</p>
             </li>
-            <li class="process-x"> <img src="http://www.gxyhfz.com/template/894_tplstyle_816_794/images/process-2.png">
+            <li class="process-x"> <img src="http://www.gxyhfz.com/template/894_tplstyle_816_794/images/process-2.png" alt="沟通需求图片">
               <p>沟通需求</p>
             </li>
-            <li class="process-x"> <img src="http://www.gxyhfz.com/template/894_tplstyle_816_794/images/process-3.png">
-              <p>选款式面料</p>
+            <li class="process-x"> <img src="http://www.gxyhfz.com/template/894_tplstyle_816_794/images/process-3.png" alt="选材料图片">
+              <p>选材料</p>
             </li>
-            <li class="process-x"> <img src="http://www.gxyhfz.com/template/894_tplstyle_816_794/images/process-4.png">
+            <li class="process-x"> <img src="http://www.gxyhfz.com/template/894_tplstyle_816_794/images/process-4.png" alt="签订合同图片">
               <p>签订合同</p>
             </li>
-            <li class="process-x"> <img src="http://www.gxyhfz.com/template/894_tplstyle_816_794/images/process-5.png">
-              <p>上门量体</p>
+            <li class="process-x"> <img src="http://www.gxyhfz.com/template/894_tplstyle_816_794/images/process-5.png" alt="选尺寸图片">
+              <p>选尺寸</p>
             </li>
-            <li class="process-x"> <img src="http://www.gxyhfz.com/template/894_tplstyle_816_794/images/process-6.png">
+            <li class="process-x"> <img src="http://www.gxyhfz.com/template/894_tplstyle_816_794/images/process-6.png" alt="批量生产图片">
               <p>批量生产</p>
             </li>
-            <li class="process-x"> <img src="http://www.gxyhfz.com/template/894_tplstyle_816_794/images/process-7.png">
+            <li class="process-x"> <img src="http://www.gxyhfz.com/template/894_tplstyle_816_794/images/process-7.png" alt="验货收款图片">
               <p>验货收款</p>
             </li>
-            <li class="process-right"> <img src="http://www.gxyhfz.com/template/894_tplstyle_816_794/images/process-8.png">
+            <li class="process-right"> <img src="http://www.gxyhfz.com/template/894_tplstyle_816_794/images/process-8.png" alt="售后服务图片">
               <p>售后服务</p>
             </li>
           </ul>

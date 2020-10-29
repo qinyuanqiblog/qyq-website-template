@@ -4,17 +4,20 @@
     <searchBox ref="searchBox" />
     <productIntroduce />
     <productList ref="productList" />
-    <faithIntroduce ref="faithIntroduce" @onShowContactDialog="onShowContactDialog" />
+    <faithIntroduce
+      ref="faithIntroduce"
+      @onShowContactDialog="onShowContactDialog"
+    />
     <aboutUs ref="aboutUs" />
     <websiteNews ref="websiteNews" />
-    <processList/>
+    <processList />
     <websiteFooter ref="websiteFooter" />
     <contactDialog ref="contactDialog" />
   </div>
 </template>
 
 <script>
-import { productIntroduce, productList, aboutUs, faithIntroduce, contactDialog ,processList} from '@/components'
+import { productIntroduce, productList, aboutUs, faithIntroduce, contactDialog, processList } from '@/components'
 import { systemApi } from '@/api'
 import { commonMixin } from '@/mixins'
 export default {
@@ -61,7 +64,5 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-body{
-  background-color:yellow;
-}
+
 </style>

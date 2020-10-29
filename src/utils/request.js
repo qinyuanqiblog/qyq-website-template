@@ -71,7 +71,6 @@ service.interceptors.response.use(
     if (parseInt(res.code) !== 0) {
       alert(response.data.msg)
       const { config = {} } = response || {}
-      debugger
       const error = {
         data: response.data,
         status: response.status,

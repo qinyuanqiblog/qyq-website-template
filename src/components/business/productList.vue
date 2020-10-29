@@ -13,7 +13,7 @@
           <img
             class="product-list-picture"
             :src="item.image"
-            alt=""
+            alt="产品列表图片"
           >
           <div class="text-center mt-2">{{ item.title }}</div>
         </a>
@@ -27,7 +27,7 @@
       <img
         class="big-picture"
         :src="current.image"
-        alt=""
+        alt="查看大图"
       >
     </b-modal>
   </b-container>

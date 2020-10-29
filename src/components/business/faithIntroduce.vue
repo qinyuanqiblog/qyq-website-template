@@ -12,6 +12,7 @@
             <img
               class="faith-icon"
               src="~public/images/ser.png"
+              alt="咨询背景图片"
             />
           </span>
         </b-col>
@@ -28,6 +29,7 @@
             <img
               class="faith-icon"
               src="~public/images/mes.png"
+              alt="在线咨询背景图片"
             />
           </a>
         </b-col>

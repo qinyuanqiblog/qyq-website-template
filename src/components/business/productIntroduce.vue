@@ -15,6 +15,7 @@
         ><img
             :src="item.logoUrl"
             class="services-pic"
+            alt="产品介绍图片"
           >
           <h4 class="mt-4 mb-4">{{ item.title }}</h4>
           <p>{{ item.desc }}</p>

@@ -22,13 +22,10 @@
           <div class="fd_box01">
             <div class="fd_box02">
               <div class="fd_bgc"></div>
-              <div class="fd_gb"><a
-                  href="javascript:void(0)"
-                  class="keifu_close"
-                ><img
+              <div class="fd_gb"><img
                     @click="showPhoneBar = false"
                     src="https://g.gxlesou.com/static/getcustomer/images/gb.png"
-                  ></a></div>
+                  ></div>
               <div class="fd_tu">
                 <div class="fd_img"><img src="https://g.gxlesou.com/static/getcustomer/images/pic1.png"></div>
                 <p>无论何时何地，我们都会<span>立即安排</span>公司专员<span>免费</span>一对一与您沟通</p>

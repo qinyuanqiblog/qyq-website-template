@@ -38,6 +38,7 @@ export default {
         const info = res.info || {}
         info.email = this.websiteConfig.websiteFooter.email
         info.address = this.websiteConfig.websiteFooter.address
+        // document.title = 'txt'
         document.title = info.name
 
         if(this.$refs.websiteHeader){

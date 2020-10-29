@@ -59,9 +59,12 @@
         </div>
       </template>
     </div>
-    <div class="div2">
+    <div class="div1 div2">
+      <div class="casetit">
+        <h3>联系我们<b>CONTACT US</b></h3>
+      </div>
       <div class="div2-box">
-        <h2>联系我们</h2>
+
         <div
           class="div2-box-item"
           v-for="(item, index) in contactUsData"
@@ -90,7 +93,7 @@ export default {
 <style lang="scss" scoped>
 .casepage .case-left .div1 {
   background: #fff;
-  margin-bottom:30px;
+  margin-bottom: 30px;
 }
 .casepage .case-left .div2,
 .casepage .case-left .div3 {

@@ -6,8 +6,22 @@
     >
       <b-container>
         <b-row>
-          <b-col>您好，欢迎光临<span class="text-danger">{{ companyInfo.name }}</span>官网</b-col>
-          <b-col class="text-right">在线电话电话：
+          <b-col
+            lg="6"
+            md="12"
+          >您好，欢迎光临<span class="text-danger">{{ companyInfo.name }}</span>官网</b-col>
+          <b-col
+            lg="6"
+            md="12"
+            class="text-right line"
+          >在线电话电话：
+            <span class="nav-top-phone">{{ companyInfo.phone }}</span>
+          </b-col>
+          <b-col
+            lg="6"
+            md="12"
+            class="line-sm line"
+          >在线电话电话：
             <span class="nav-top-phone">{{ companyInfo.phone }}</span>
           </b-col>
         </b-row>
@@ -17,6 +31,14 @@
       <b-container class="navbar-container">
         <b-navbar toggleable="lg">
           <b-navbar-brand href="#">{{  companyInfo.name }}</b-navbar-brand>
+          <!-- <b-navbar-brand href="#">
+            <img
+              src="https://placekitten.com/g/30/30"
+              class="d-inline-block align-top"
+              alt="Kitten"
+            >
+            {{  companyInfo.name }}
+          </b-navbar-brand> -->
 
           <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -73,7 +95,7 @@
           slot="img"
           class="swipe-picture"
           :src="item.image"
-          alt=""
+          alt="轮播图"
         >
       </b-carousel-slide>
     </b-carousel>
@@ -89,7 +111,7 @@ export default {
     return {
       menuInfo: [],
       bannerList: [],
-      companyInfo:  {},
+      companyInfo: {},
     }
   },
   created() {
@@ -115,6 +137,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+img {
+  background-color: #444;
+}
+.line {
+}
+.line-sm{
+  display: none;
+}
 .nav-top {
   padding: 10px 0;
   border-bottom: 1px solid #eee;
@@ -146,7 +176,7 @@ export default {
         display: block;
         width: 150px;
         margin: 5px;
-        height:46px;
+        height: 46px;
         line-height: 46px;
         color: #777;
         text-shadow: none;
@@ -186,6 +216,20 @@ export default {
         text-decoration: none;
       }
     }
+  }
+}
+@media only screen and (max-width: 750px) {
+  body {
+    background-color: red;
+  }
+  .qyq-navbar .navbar-main {
+    display: block;
+  }
+  .line{
+    display: none;
+  }
+  .line-sm{
+    display: block;
   }
 }
 </style>

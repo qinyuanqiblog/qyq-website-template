@@ -45,7 +45,7 @@ module.exports = {
     pages: htmls,
     // publicPath: '/0001',
     publicPath: './',
-    outputDir: 'social', //  打包后的文件夹名称，默认dist
+    outputDir: 'dist', //  打包后的文件夹名称，默认dist
     assetsDir: 'static',
     configureWebpack:{
       externals: {

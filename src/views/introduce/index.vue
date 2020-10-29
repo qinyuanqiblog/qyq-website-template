@@ -25,7 +25,7 @@
 import { systemApi } from '@/api'
 import { commonMixin } from '@/mixins'
 export default {
-  name: 'jobIndex',
+  name: 'introduceIndex',
   mixins: [commonMixin],
   data() {
     return {
