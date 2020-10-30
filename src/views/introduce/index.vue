@@ -3,17 +3,17 @@
     <websiteHeader ref="websiteHeader" />
     <websiteArticleList
       showType="product"
-      :config="{
-        title:'招贤纳士',
-        breadcrumb:'招贤纳士',
-      }"
+      :config="config"
     >
       <websiteSideBar
         slot="left"
         ref="websiteSideBar"
       >
       </websiteSideBar>
-      <div slot="right" v-html="content">
+      <div
+        slot="right"
+        v-html="content"
+      >
       </div>
     </websiteArticleList>
 
@@ -29,6 +29,7 @@ export default {
   mixins: [commonMixin],
   data() {
     return {
+      config: {},
       content: '',
     }
   },
@@ -40,12 +41,19 @@ export default {
       this.getInfo()
     },
     getInfo() {
+      const json = this.$getQuery(null)
+      const { menuId = '', modelType = '' } = json || {}
       systemApi
         .articleList({
-          menuId: 10182,
-          modelType: 1,
+          menuId,
+          modelType,
         })
         .then(res => {
+          const title = (res.rows && res.rows[0].title) || ''
+          this.config = {
+            title: title,
+            breadcrumb: title,
+          }
           this.content = (res.rows && res.rows[0].content) || ''
         })
     },

@@ -5,24 +5,28 @@
       class="nav-top"
     >
       <b-container>
-        <b-row>
+        <b-row class="nav-top-header" align-v="center">
           <b-col
             lg="6"
             md="12"
-          >您好，欢迎光临<span class="text-danger">{{ companyInfo.name }}</span>官网</b-col>
+          >
+            <h6>您好，欢迎光临<span class="text-danger">{{ companyInfo.name }}</span>官网</h6>
+          </b-col>
           <b-col
             lg="6"
             md="12"
-            class="text-right line"
-          >在线电话电话：
-            <span class="nav-top-phone">{{ companyInfo.phone }}</span>
+            class="line"
+          >
+            <div class="online">在线电话：
+              <h3 class="nav-top-phone">{{ companyInfo.phone }}</h3>
+            </div>
           </b-col>
           <b-col
             lg="6"
             md="12"
             class="line-sm line"
-          >在线电话电话：
-            <span class="nav-top-phone">{{ companyInfo.phone }}</span>
+          >在线电话：
+            <h3 class="nav-top-phone">{{ companyInfo.phone }}</h3>
           </b-col>
         </b-row>
       </b-container>
@@ -30,7 +34,7 @@
     <div class="qyq-navbar">
       <b-container class="navbar-container">
         <b-navbar toggleable="lg">
-          <b-navbar-brand href="#">{{  companyInfo.name }}</b-navbar-brand>
+          <b-navbar-brand href="#"><h1>{{  companyInfo.name }}</h1></b-navbar-brand>
           <!-- <b-navbar-brand href="#">
             <img
               src="https://placekitten.com/g/30/30"
@@ -141,9 +145,15 @@ img {
   background-color: #444;
 }
 .line {
+  .online{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
 }
-.line-sm{
+.line-sm {
   display: none;
+  padding-left: 70px;
 }
 .nav-top {
   padding: 10px 0;
@@ -217,5 +227,46 @@ img {
       }
     }
   }
+}
+.nav-top-header {
+  font-size: 16px;
+}
+
+.pull_all {
+  padding-top: 0px;
+  height: 120px;
+}
+.pull_all img {
+  float: left;
+}
+.pull_all p {
+  color: #333;
+  font-size: 16px;
+  line-height: 30px;
+  margin-top: 30px;
+  letter-spacing: 1px;
+  display: block;
+}
+.pull_all p span {
+  color: #88d236;
+  font-weight: bold;
+}
+.pull_all .imseg {
+  margin: 8px 0 0 20px;
+}
+.in_all span {
+  font-size: 25px;
+  color: #d70a00;
+  letter-spacing: 1px;
+  display: block;
+  font-weight: bold;
+}
+.in_all p {
+  color: #333;
+  font-size: 15px;
+  margin: 0;
+  line-height: 32px;
+  margin-top: 5px;
+  padding-right: 25px;
 }
 </style>

@@ -23,9 +23,9 @@
             <div class="fd_box02">
               <div class="fd_bgc"></div>
               <div class="fd_gb"><img
-                    @click="showPhoneBar = false"
-                    src="https://g.gxlesou.com/static/getcustomer/images/gb.png"
-                  ></div>
+                  @click="showPhoneBar = false"
+                  src="https://g.gxlesou.com/static/getcustomer/images/gb.png"
+                ></div>
               <div class="fd_tu">
                 <div class="fd_img"><img src="https://g.gxlesou.com/static/getcustomer/images/pic1.png"></div>
                 <p>无论何时何地，我们都会<span>立即安排</span>公司专员<span>免费</span>一对一与您沟通</p>
@@ -48,7 +48,10 @@
       </div>
     </section>
     <!--  -->
-    <div id="m_div">
+    <div
+      v-show="showMessageDialog"
+      id="m_div"
+    >
       <div class="w_title">
         <div id="m_top"></div>
         <div id="m_mid"></div>
@@ -63,69 +66,46 @@
         class="message w_message"
         style=""
       >
-        <b-row class="my-1">
-          <b-col sm="2">
-            <label for="input-small">Small:</label>
-          </b-col>
-          <b-col sm="10">
-            <b-form-input
-              id="input-small"
-              size="sm"
-              placeholder="Enter your name"
-            ></b-form-input>
-          </b-col>
-        </b-row>
-        <div class="index_message">
-          <span class="m_label d_label">请在此输入留言内容，我们会尽快与您联系。</span>
-          <textarea
-            id="icontent"
-            rows="2"
-            cols="80"
-            class="m_input"
-          ></textarea>
+        <div class="w_message-item mb-4">
+          <b-icon
+            class="fa-icon"
+            icon="person-fill"
+          ></b-icon>
+          <b-form-input
+            v-model="form.name"
+            placeholder="您的姓名"
+          ></b-form-input>
         </div>
-        <div class="name_input clearfix">
-          <div class="input_left">姓名</div>
-          <div class="input_right">
-            <input
-              id="iname"
-              type="text"
-              class="m_input"
-            >
-          </div>
+        <div class="w_message-item mb-4">
+          <b-icon
+            class="fa-icon"
+            icon="phone-fill"
+          ></b-icon>
+          <b-form-input
+            v-model="form.phone"
+            placeholder="您的手机号"
+            maxlength="11"
+          ></b-form-input>
         </div>
-        <div class="name_input clearfix">
-          <div class="input_left">电话</div>
-          <div class="input_right">
-            <input
-              id="imobile"
-              type="text"
-              class="m_input"
-            >
-          </div>
-        </div>
-        <div id="code">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="验证码"
-            id="icode"
-          >
-          <img
-            src="/index/guestbook/checkverify.html"
-            onclick="javascript:this.src='/index/guestbook/checkverify.html?tm='+Math.random();"
-            id="checkcode"
-          >
-        </div>
-        <div class="m_under">
-          <input
-            type="button"
-            class="msgbtn"
-            id="footsub"
-            value="发送"
-          >
+        <b-form-textarea
+          v-model="form.content"
+          placeholder="请简单说下您的需求，我们会第一时间给您回复。"
+          rows="3"
+          max-rows="6"
+        ></b-form-textarea>
+        <div class="handle-area">
+          <b-button
+            class="handle-area-first"
+            variant="outline-white"
+            @click="closeMessageDialog()"
+          >关闭</b-button>
+          <b-button
+            variant="danger"
+            @click="submit()"
+          >提交</b-button>
         </div>
       </div>
+
     </div>
     <!-- 首页弹框 -->
     <section
@@ -133,7 +113,7 @@
       class="cd-popup3 is-visible3"
     >
       <div class="cd-popup-container3">
-        <div class="cd_img"><img src="https://g.gxlesou.com/static/getcustomer/images/bj1.jpg"></div>
+        <div class="cd_img"><img src="~public/images/concat-us-bg.jpg"></div>
         <div class="cd_you">
           <h4>请您留言咨询</h4>
           <h3>我们会尽快联系您</h3>
@@ -192,8 +172,26 @@
     <!-- 侧栏 -->
     <section class="customer-side">
       <ul>
-        <li class="cd-popup-trigger3"><i class="bgs1"></i>24小时客服<br>在线咨询</li>
-        <li class="customer-sideetel"><i class="bgs2"></i>立即咨询<div
+        <li class="cd-popup-trigger3 customer-sideetel">
+          <i class="bgs1"></i>24小时客服<br>在线咨询
+          <div
+            class="ljzx son"
+            id="zx_formbox"
+          >
+            <div class="zx_box">
+              <div class="zx_box_l">
+                <input
+                  style="font-size:30px;font-weight:bold;color:#c7000a;width:auto;"
+                  type="text"
+                  id="zx_text"
+                  v-model="config.phone"
+                >
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="customer-sideetel"><i class="bgs2"></i>立即咨询
+          <div
             class="ljzx son"
             id="zx_formbox"
           >
@@ -214,7 +212,7 @@
             <p>填写手机号码，我们会马上联系您!</p>
           </div>
         </li>
-        <li class="customer-sideewm"><i class="bgs3"></i>扫一扫<div class="sjzd son"><img :src="qrcode"></div>
+        <li class="customer-sideewm"><i class="bgs3"></i>扫一扫<div class="sjzd son"><img :src="config.qrcode"></div>
         </li>
       </ul>
     </section>
@@ -230,8 +228,9 @@ export default {
   data() {
     return {
       show: false,
+      showMessageDialog: false,
       showPhoneBar: false,
-      qrcode: '',
+      config: {},
       form: {
         name: '',
         phone: '',
@@ -239,7 +238,13 @@ export default {
       },
     }
   },
-  created() {},
+  created() {
+    if (!window.sessionStorage.firstFlag) {
+      this.show = true
+      this.showMessageDialog = true
+      window.sessionStorage.firstFlag = 1
+    }
+  },
   methods: {
     submit() {
       systemApi.addMessage(this.form).then(() => {
@@ -249,6 +254,7 @@ export default {
           toaster: 'b-toaster-top-center',
           variant: 'success',
         })
+        this.closeMessageDialog()
         this.closeDialog()
       })
     },
@@ -258,6 +264,16 @@ export default {
         name: '',
         phone: '',
         content: '',
+      }
+    },
+    closeMessageDialog() {
+      this.showMessageDialog = false
+    },
+    handleHover(isHovered) {
+      if (isHovered) {
+        this.showMessageDialog = true
+      } else {
+        this.showMessageDialog = false
       }
     },
     toggle() {
@@ -276,7 +292,6 @@ export default {
 }
 
 #m_div {
-  display:none;
   width: 222px;
   position: fixed;
   right: 2px;
@@ -295,10 +310,32 @@ export default {
 .w_message {
   border: 1px solid #a00000;
   padding: 7px;
-  padding-top: 3px;
-  height: 235px;
-  padding-bottom: 27px;
-  background: #f3f3f3;
+  padding: 20px 10px;
+  background: #ededed;
+  &-item {
+    position: relative;
+    .fa-icon {
+      position: absolute;
+      left: 10px;
+      top: 13px;
+      width: 14px;
+      height: 14px;
+      font-size: 16px;
+    }
+    .form-control {
+      padding-left: 30px;
+    }
+  }
+  .handle-area {
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 0 20px;
+    &-first {
+      background-color: #fff;
+    }
+  }
 }
 
 .w_message #iname {

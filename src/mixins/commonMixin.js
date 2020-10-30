@@ -18,9 +18,10 @@ export default {
           }
         },
         websiteFooter:{
-          address:'南宁市西乡塘区永宁村委会里坡',
-          email: '820532952@qq.com',
-          qqNumber: '820532952',
+          address:`南宁市兴宁区昆仑大道2号南宁花鸟市场
+          B区玉A区10-11-12号<br/>
+          厂址一:南宁林科院邓氏工艺厂旁边66号<br/>
+          厂址二:江门市新会福滨古典红木家具厂明朝大道128号`,
         }
       }
     }
@@ -36,10 +37,9 @@ export default {
     getBaseInfo() {
       systemApi.info().then((res = {}) => {
         const info = res.info || {}
-        info.email = this.websiteConfig.websiteFooter.email
         info.address = this.websiteConfig.websiteFooter.address
-        // document.title = 'txt'
-        document.title = info.name
+        info.address = this.websiteConfig.websiteFooter.address
+        info.address = this.websiteConfig.websiteFooter.address
 
         if(this.$refs.websiteHeader){
           this.$refs.websiteHeader.companyInfo = info
@@ -48,7 +48,7 @@ export default {
           this.$refs.searchBox.list = (res.info.keyword &&info.keyword.split('|').splice(0, 4)) || []
         }
         if( this.$refs.faithIntroduce){
-          this.$refs.faithIntroduce.config = this.websiteConfig.websiteFooter
+          this.$refs.faithIntroduce.config = info
         }
         if(this.$refs.aboutUs){
           this.$refs.aboutUs.brand = {
@@ -63,9 +63,21 @@ export default {
           this.$refs.websiteNews.contact = res || []
         }
         if(this.$refs.contactDialog){
-          this.$refs.contactDialog.qrcode = info.qrcode
+          this.$refs.contactDialog.config = info
         }
         this.companyInfo = info
+        // 创建meta
+        const headEl = document.querySelector('head')
+        const viewportEl = document.querySelector('#viewport')
+        const keywordEl = document.createElement('meta')
+        keywordEl.name = 'keywords'
+        keywordEl.content = info.seoKeywords
+        const descEl = document.createElement('meta')
+        descEl.name = 'description'
+        descEl.content = info.seoDescription
+        document.title = info.seoTitle || info.name
+        headEl.insertBefore(keywordEl, viewportEl)
+        headEl.insertBefore(descEl, viewportEl)
       })
     },
     getInsidePageData() {
@@ -90,10 +102,10 @@ export default {
       })
     },
     baiduReady () {
-      // this.baiduConfig.center.lng = this.companyInfo.longitude
-      // this.baiduConfig.center.lat = this.companyInfo.latitude
-      this.baiduConfig.center.lng = 116.404
-      this.baiduConfig.center.lat = 39.915
+      this.baiduConfig.center.lng = this.companyInfo.longitude
+      this.baiduConfig.center.lat = this.companyInfo.latitude
+      // this.baiduConfig.center.lng = 116.404
+      // this.baiduConfig.center.lat = 39.915
       // this.zoom = 15
     }
   },

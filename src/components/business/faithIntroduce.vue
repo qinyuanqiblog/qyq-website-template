@@ -22,7 +22,7 @@
         <b-col class="d-flex justify-content-end">
           <a
             class="faith-button faith-button__yellow"
-            :href="`tencent://message/?Menu=yes&uin=${config.qqNumber}`"
+            :href="`tencent://message/?Menu=yes&uin=${config.qq}`"
             target="_blank"
           >
             在线咨询

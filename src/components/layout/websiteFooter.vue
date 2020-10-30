@@ -129,14 +129,14 @@
                     class="fa-icon"
                     icon="bag-fill"
                   ></b-icon>
-                  地址：{{ baseInfo.address }}
+                  地址：<span v-html="baseInfo.address"></span>
                 </p>
                 <p>
                   <b-icon
                     class="fa-icon bi-envelope b-icon bi"
                     icon="wallet-fill"
                   ></b-icon>
-                  邮箱：{{ baseInfo.email }}
+                  邮箱：{{ baseInfo.qq }}@qq.com
                 </p>
               </div>
             </div>
@@ -168,7 +168,7 @@
               <p class="copyright">Copyright ©{{ baseInfo.officialWebsite }} {{ baseInfo.name }}</p>
               <p>文章素材及部分图片来源于网络，版本归原来作者所有，如有侵权，请联系删除。
               </p>
-              <p>技术支持：悦耀网络</p>
+              <!-- <p>技术支持：悦耀网络</p> -->
             </div>
           </div>
         </div>

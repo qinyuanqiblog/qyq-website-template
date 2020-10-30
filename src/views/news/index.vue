@@ -34,7 +34,7 @@ export default {
   methods: {
     init() {
       const json = this.$getQuery(null)
-      const { menuId = '10158', modelType = '2' } = json || {}
+      const { menuId = '', modelType = '' } = json || {}
       this.ajaxData = {
         menuId,
         modelType,
