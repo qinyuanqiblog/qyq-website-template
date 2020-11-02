@@ -60,7 +60,7 @@ export default {
     background-color: #444;
   }
   &-item {
-    padding-left: 0;
+    // padding-left: 0;
   }
   &-picture {
     width: 100%;

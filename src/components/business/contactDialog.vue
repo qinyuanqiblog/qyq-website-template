@@ -239,7 +239,7 @@ export default {
     }
   },
   created() {
-    if (!window.sessionStorage.firstFlag) {
+    if (!window.sessionStorage.firstFlag && window.innerWidth >= 750) {
       this.show = true
       this.showMessageDialog = true
       window.sessionStorage.firstFlag = 1

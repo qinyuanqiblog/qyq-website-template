@@ -97,8 +97,11 @@ export default {
           })
           this.$refs.websiteSideBar.list = list
           this.$refs.websiteSideBar.contactUsData = res.contactUsData.split('\n')
+    
         }
-
+        if(this.$refs.websiteFooter){
+          this.$refs.websiteFooter.insidePageData= res
+        }
       })
     },
     baiduReady () {

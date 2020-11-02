@@ -175,6 +175,24 @@
       </div>
 
     </div>
+    <!-- 底部nav -->
+    <div class="footer">
+      <a href="index.html">
+      <b-icon
+        class="fa-phone"
+        icon="house-fill"
+      ></b-icon>&nbsp;&nbsp;&nbsp;首页</a>
+      <a :href="`product.html?modelType=${ insidePageData.productMenuData && insidePageData.productMenuData.newsMenu[0].modelType}&menuId=${ insidePageData.productMenuData &&insidePageData.productMenuData.newsMenu[0].id}`">
+      <b-icon
+        class="fa-phone"
+        icon="image-fill"
+      ></b-icon>&nbsp;&nbsp;&nbsp;产品中心</a>
+      <a :href="`tel:${baseInfo.phone}`">
+      <b-icon
+        class="fa-phone"
+        icon="telephone-fill"
+      ></b-icon>&nbsp;&nbsp;&nbsp;电话</a>
+    </div>
   </div>
 </template>
 
@@ -188,6 +206,8 @@ export default {
     return {
       friendData: {},
       baseInfo: {},
+      insidePageData: {
+      },
       form: {
         name: '',
         phone: '',
@@ -441,4 +461,10 @@ export default {
   height: auto;
   display: block;
 }
+  /*手机底部菜单*/
+.footer {display:none;background: #303030;width: 100%;margin-top: 6px;background-size: 9px 128px;position: fixed;z-index: 110;bottom: 0;left: 0;  line-height:45px;}
+.footer a {-webkit-box-flex: 1;display: -webkit-box;color: #fff; display:inline-block; width:32%;font: 100 16px/35px "微软雅黑";height: 35px; line-height:35px; text-align:center;}
+.footer a i { padding-right:5px;}
+.hr { height:45px;}
+
 </style>

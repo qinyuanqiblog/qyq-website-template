@@ -1,5 +1,6 @@
 @media only screen and (max-width: 750px) {
-  .qyq-navbar .navbar-main {
+  .qyq-navbar .navbar-main,
+  .footer {
     display: block !important;
   }
   .line,
@@ -12,6 +13,9 @@
   .casepage .breadcrumb,
   .casepage .header,
   .newp-list .time,
+  .search-box,
+  .youlian,
+  .footer-box,
   .f_one h3{
     display: none !important;
   }
@@ -19,13 +23,18 @@
     display: flex;
     justify-content: center;
   }
-
-  .youlian p a{
-    display: block !important;
+  .product-list{
+    text-align: center;
+  }
+  .product-list h3{
+      margin:20px !important;
   }
   .casepage .mainbox,
   .newp-list figcaption{
     padding:0 !important;
+  }
+  .padnone {
+    padding-bottom:40px;
   }
 
 }
