@@ -2,7 +2,12 @@
   <b-container class="search-box">
     <b-row align-v="center">
       <b-col>
-        <span class="font-weight-bold">热门关键词：</span>
+        <img
+          class="keyword-bg"
+          src="~public/images/clock.png"
+          alt="关键词背景图"
+        >
+        <span class="font-weight-bold keyword">热门关键词：</span>
       </b-col>
       <b-col
         lg="auto"
@@ -15,9 +20,7 @@
           :href="`search.html?keyword=${encodeURIComponent(item)}`"
         >{{ item }}</a>
       </b-col>
-      <b-col
-        class="d-flex"
-      >
+      <b-col class="d-flex">
         <div class="search-bar">
           <input
             v-model="keyword"
@@ -91,5 +94,13 @@ export default {
     background-color: red;
     font-size: 14px;
   }
+}
+.keyword-bg {
+  width: 25px;
+  height: 30px;
+  object-fit: cover;
+  margin-right: 10px;
+  position: relative;
+  top:-5px;
 }
 </style>

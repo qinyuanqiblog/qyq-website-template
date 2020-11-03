@@ -961,7 +961,7 @@ border-color: #ddd;
  border: 0;
  width: 100%;
  height: 50px;
- background: #5882ED;
+ /* background: #5882ED; */
  color: #fff;
  font-size: 18px;
  margin-top:10px;

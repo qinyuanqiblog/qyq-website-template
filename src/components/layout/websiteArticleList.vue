@@ -559,7 +559,7 @@ export default {
 .projects-list {
   .item {
     margin-bottom: 20px;
-    border: 1px solid #ccc;
+    // border: 1px solid #ccc;
     &-text {
       text-align: center;
       margin-top: 10px;
