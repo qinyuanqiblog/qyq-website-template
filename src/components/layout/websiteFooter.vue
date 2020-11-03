@@ -182,7 +182,7 @@
         class="fa-phone"
         icon="house-fill"
       ></b-icon>&nbsp;&nbsp;&nbsp;首页</a>
-      <a :href="`product.html?modelType=${ insidePageData.productMenuData && insidePageData.productMenuData.newsMenu[0].modelType}&menuId=${ insidePageData.productMenuData &&insidePageData.productMenuData.newsMenu[0].id}`">
+      <a :href="productUrl">
       <b-icon
         class="fa-phone"
         icon="image-fill"
@@ -206,8 +206,7 @@ export default {
     return {
       friendData: {},
       baseInfo: {},
-      insidePageData: {
-      },
+      productUrl:'',
       form: {
         name: '',
         phone: '',

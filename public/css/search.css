@@ -19,6 +19,9 @@
   margin-left: 5px;;
   color:red;
 }
+.color-theme{
+  color:#ff5555;
+}
 /* 自己写的样式结束 */
 .rowlist {
     height: 60px;

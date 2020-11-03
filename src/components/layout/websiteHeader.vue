@@ -5,12 +5,15 @@
       class="nav-top"
     >
       <b-container>
-        <b-row class="nav-top-header" align-v="center">
+        <b-row
+          class="nav-top-header"
+          align-v="center"
+        >
           <b-col
             lg="6"
             md="12"
           >
-            <h6>您好，欢迎光临<span class="text-danger">{{ companyInfo.name }}</span>官网</h6>
+            <h6>您好，欢迎光临<span class="color-theme">{{ companyInfo.name }}</span>官网</h6>
           </b-col>
           <b-col
             lg="6"
@@ -34,7 +37,9 @@
     <div class="qyq-navbar">
       <b-container class="navbar-container">
         <b-navbar toggleable="lg">
-          <b-navbar-brand href="#"><h1>{{  companyInfo.name }}</h1></b-navbar-brand>
+          <b-navbar-brand href="#">
+            <h1>{{  companyInfo.name }}</h1>
+          </b-navbar-brand>
           <!-- <b-navbar-brand href="#">
             <img
               src="https://placekitten.com/g/30/30"
@@ -118,7 +123,7 @@ export default {
       companyInfo: {},
     }
   },
-  created() {
+  mounted() {
     this.init()
   },
   methods: {
@@ -127,8 +132,14 @@ export default {
       this.getBannerList()
     },
     getMenu() {
-      systemApi.menuTree().then((res = {}) => {
+      systemApi.menuTree().then((res = []) => {
         this.menuInfo = res
+        console.log('$parent', this.$parent)
+        const websiteFooter = this.$parent.$refs.websiteFooter
+        if (websiteFooter) {
+          let newArray = res.filter(v => v.isProductCenter === '1')
+          websiteFooter.productUrl = (newArray[0] && newArray[0].href) || 'index.html'
+        }
       })
     },
     getBannerList() {
@@ -145,7 +156,7 @@ img {
   background-color: #444;
 }
 .line {
-  .online{
+  .online {
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -164,6 +175,7 @@ img {
     color: $themeColor;
   }
 }
+
 .qyq-navbar {
   .navbar {
     padding: 0;
@@ -226,6 +238,9 @@ img {
         text-decoration: none;
       }
     }
+  }
+  .name {
+    color: #ff5555;
   }
 }
 .nav-top-header {

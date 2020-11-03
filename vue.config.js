@@ -49,7 +49,8 @@ module.exports = {
     assetsDir: 'static',
     configureWebpack:{
       externals: {
-        "BMap": "BMap"
+        // "vue": "Vue",
+        // "axios": "axios"
       }
     },
     chainWebpack: config => {

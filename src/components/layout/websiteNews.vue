@@ -40,7 +40,7 @@
               class="d-flex justify-content-between"
             >
               <a :href="`detail.html?modelType=${childItem.modelType}&articleId=${childItem.id}`">{{ childItem.title }}</a>
-              <span class="text-right">{{ childItem.createTime }}</span>
+              <span class="text-right createTime">{{ childItem.createTime }}</span>
             </li>
           </ul>
           <!--新闻样式代码结束-->
