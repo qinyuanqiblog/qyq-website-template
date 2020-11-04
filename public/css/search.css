@@ -4,8 +4,8 @@
 }
 .swipe-picture {
   width: 100%;
-  height: 500px;
-  object-fit: cover;
+  /* height: 500px;
+  object-fit: cover; */
 }
 .swipe__none .carousel-control-prev,
 .swipe__none .carousel-control-next,
