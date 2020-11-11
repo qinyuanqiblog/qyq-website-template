@@ -1,36 +1,38 @@
 {
-  "name": "qyq-website-template",
-  "version": "0.1.0",
+  "name": "nuxt-demo",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "lint": "vue-cli-service lint",
-    "report": "vue-cli-service build --report",
-    "build": "vue-cli-service build &&  node deploy.js dev"
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate &&  node deploy.js dev",
+    "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint": "yarn lint:js"
   },
   "dependencies": {
-    "axios": "^0.20.0",
-    "bootstrap": "^4.5.2",
-    "bootstrap-vue": "^2.17.3",
+    "@nuxtjs/axios": "^5.12.2",
+    "bootstrap-vue": "^2.19.0",
     "core-js": "^3.6.5",
-    "vue": "^2.6.12",
-    "vue-baidu-map": "^0.21.22"
+    "nuxt": "^2.14.6",
+    "vue-baidu-map": "^0.21.22",
+    "vuex-persistedstate": "^4.0.0-beta.1"
   },
   "devDependencies": {
     "chalk": "^4.0.0",
-   "compressing": "^1.5.1",
-   "node-ssh": "^10.0.2",
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "@vue/eslint-config-prettier": "^6.0.0",
+    "compressing": "^1.5.1",
+    "node-ssh": "^10.0.2",
+    "@nuxtjs/eslint-config": "^3.1.0",
+    "@nuxtjs/eslint-module": "^2.0.0",
+    "@nuxtjs/proxy": "^2.0.1",
+    "@nuxtjs/style-resources": "^1.0.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-prettier": "^3.1.3",
-    "eslint-plugin-vue": "^6.2.2",
-    "prettier": "^1.19.1",
-    "sass": "^1.26.5",
-    "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-nuxt": "^1.0.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.1.2",
+    "sass": "^1.29.0",
+    "sass-loader": "^10.0.5"
   }
 }
