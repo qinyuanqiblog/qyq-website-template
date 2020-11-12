@@ -1,4 +1,6 @@
-# nuxt-demo
+# qyq-website-template
+
+## 使用nuxt构建官网，方便seo
 
 ## Build Setup
 
