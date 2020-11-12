@@ -17,7 +17,7 @@
                 <h3>{{ config.title }}<b></b></h3>
               </div>
               <div>
-                <a href="index">
+                <a href="index.html">
                   <img
                     src="~assets/images/home.png"
                     alt="网站首页背景图"
@@ -41,7 +41,7 @@
                         v-for="(item, index) in list"
                         :key="index"
                       >
-                        <a :href="`detail?modelType=${item.modelType}&articleId=${item.id}`">
+                        <a :href="`detail.html?modelType=${item.modelType}&articleId=${item.id}`">
                           <b-row align-v="center">
                             <b-col
                               cols="2"
@@ -74,7 +74,7 @@
                       class="col-sm-3 col-xs-12 item"
                     >
                       <a
-                        :href="`detail?articleId=${item.id}&modelType=${item.modelType}`"
+                        :href="`detail.html?articleId=${item.id}&modelType=${item.modelType}`"
                         class="image-popup"
                       >
                         <img
@@ -295,7 +295,7 @@ export default {
   position: absolute;
   left: 0;
   bottom: 0;
-  background: #de0024;
+  background: $themeColor;
   height: 1px;
   width: 70px;
 }
@@ -317,7 +317,7 @@ export default {
 }
 .breadcrumb div.fr a:hover,
 .breadcrumb div.fr a.on {
-  color: #de0024;
+  color: $themeColor;
 }
 .caesp-list ul {
   padding-top: 25px;
@@ -359,7 +359,7 @@ export default {
   transition: all 0.36s;
 }
 .caesp-list li:hover span {
-  background: #de0024;
+  background: $themeColor;
   width: 60px;
 }
 .caesp-list li:hover figure img {
@@ -382,7 +382,7 @@ export default {
 .newp-list .time {
   width: 60px;
   height: 60px; /*border-left: 1px solid #F5F5F5; border-right: 1px solid #F5F5F5;*/
-  background: #de0024;
+  background: $themeColor;
   // position: absolute;
 }
 .newp-list strong {
@@ -445,7 +445,7 @@ export default {
   transform: translateX(10px);
 }
 .newp-list li:hover h2 {
-  color: #de0024;
+  color: $themeColor;
 }
 .item-describes {
   line-height: 2;

@@ -21,7 +21,7 @@
           v-for="(item, index) in searchInfo.products"
           :key="index"
         >
-          <a :href="`detail?modelType=${ item.modelType}&articleId=${ item.id}`">
+          <a :href="`detail.html?modelType=${ item.modelType}&articleId=${ item.id }`">
             <img
               width="100%"
               :src="item.image"

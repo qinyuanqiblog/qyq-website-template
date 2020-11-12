@@ -27,31 +27,27 @@ export default {
     store.commit('SET_BANNER_LIST', bannerList.banners)
     store.commit('SET_BASE_INFO', info)
     store.commit('SET_COMMON_DATA', commonData)
-     // todo 待迁移  创建meta
-    //  const headEl = document.querySelector('head')
-    //  const viewportEl = document.querySelector('#viewport')
-    //  const keywordEl = document.createElement('meta')
-    //  keywordEl.name = 'keywords'
-    //  keywordEl.content = info.seoKeywords
-    //  const descEl = document.createElement('meta')
-    //  descEl.name = 'description'
-    //  descEl.content = info.seoDescription
-    //  document.title = info.seoTitle || info.name
-    //  headEl.insertBefore(keywordEl, viewportEl)
-    //  headEl.insertBefore(descEl, viewportEl)
-  },
-  head: {
-    title: 'my website title',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      {
-        hid: 'description',
-        name: 'description',
-        content: 'my website description'
+
+    this.head = function() {
+      return {
+        title: info.seoTitle || info.name,
+        meta: [
+          { charset: 'utf-8' },
+          { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+          {
+            hid: 'keywords',
+            name: 'keywords',
+            content: info.seoKeywords
+          },
+          {
+            hid: 'description',
+            name: 'description',
+            content: info.seoDescription
+          }
+        ],
+        link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
       }
-    ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    }
   },
   data() {
     return {

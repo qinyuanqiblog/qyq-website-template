@@ -177,7 +177,7 @@
     </div>
     <!-- 底部nav -->
     <div class="footer">
-      <a href="index">
+      <a href="index.html">
         <b-icon
           class="fa-phone"
           icon="house-fill"
@@ -419,7 +419,7 @@ export default {
   text-align: center;
 }
 .youlian p a:hover {
-  color: #de0024;
+  color: $themeColor;
   transform: translateX(5px);
 }
 .youlian .div2 ul {
@@ -439,7 +439,7 @@ export default {
   padding: 5px 0;
 }
 .youlian .div2 h3 {
-  background: #de0024;
+  background: $themeColor;
   height: 30px;
   width: 120px;
   color: #fff;

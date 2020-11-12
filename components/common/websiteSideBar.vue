@@ -20,7 +20,7 @@
             v-for="(childItem, childIndex) in item.childrenList"
             :key="childIndex"
           >
-            <a :href="`product?modelType=${ childItem.modelType}&menuId=${ childItem.id}`">
+            <a :href="`product.html?modelType=${ childItem.modelType}&menuId=${ childItem.id}`">
               <i v-if="childItem.haveChild !== '0'"></i>
               {{ childItem.name }}
             </a>
@@ -32,7 +32,7 @@
                 v-for="(secondItem, secondIndex) in childItem.newsMenu"
                 :key="secondIndex"
                 class="ul1-child-link"
-                :href="`product?modelType=${ secondItem.modelType}&menuId=${ secondItem.id}`"
+                :href="`product.html?modelType=${ secondItem.modelType}&menuId=${ secondItem.id}`"
               >
                 <i v-if="secondItem.haveChild !== '0'"></i>
                 {{ secondItem.name }}
@@ -53,7 +53,7 @@
               v-for="(childItem, childIndex) in item.childrenList"
               :key="childIndex"
             >
-              <a :href="`detail?modelType=${ childItem.modelType}&articleId=${ childItem.id}`"><i></i>{{ childItem.title }}</a>
+              <a :href="`detail.html?modelType=${ childItem.modelType}&articleId=${ childItem.id}`"><i></i>{{ childItem.title }}</a>
             </li>
           </ul>
         </div>
@@ -119,13 +119,13 @@ export default {
   height: 5px;
   width: 5px;
   border-radius: 100%;
-  background: #de0024;
+  background: $themeColor;
   vertical-align: middle;
   margin-right: 10px;
 }
 
 .casepage .casetit {
-  background: #de0024;
+  background: $themeColor;
   padding: 30px;
 }
 .casepage .casetit h3 {
@@ -172,13 +172,13 @@ export default {
   // transform: translateX(10px);
 }
 .casepage .ul1 li:hover a {
-  color: #de0024;
+  color: $themeColor;
 }
 .ul1-item {
   position: relative;
   color: #fff;
   &:hover {
-    color: #de0024;
+    color: $themeColor;
     .ul1-child {
       display: block;
     }
@@ -186,7 +186,7 @@ export default {
 }
 .ul1-child {
   display: none;
-  border: 2px solid #de0024;
+  border: 2px solid $themeColor;
   position: absolute;
   margin-left: 225px;
   top: 50%;
@@ -246,7 +246,7 @@ export default {
   margin-bottom: 10px;
 }
 .casepage .div3-box li:hover a {
-  color: #de0024;
+  color: $themeColor;
 }
 .casepage .div3-box li:hover {
   transform: translateX(5px);

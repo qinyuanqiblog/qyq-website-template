@@ -27,13 +27,13 @@
             v-if="detailData.up && detailData.up[0]"
             class="clearfix"
           ><span>上一篇：</span>
-            <p><a :href="`detail?modelType=${ detailData.up[0].modelType}&articleId=${ detailData.up[0].id}`">{{ detailData.up[0].title }}</a></p>
+            <p><a :href="`detail.html?modelType=${ detailData.up[0].modelType}&articleId=${ detailData.up[0].id}`">{{ detailData.up[0].title }}</a></p>
           </div>
           <div
             v-if="detailData.next && detailData.next.title"
             class="clearfix"
           ><span>下一篇：</span>
-            <p><a :href="`detail?modelType=${ detailData.next.modelType}&articleId=${ detailData.next.id}`">{{ detailData.next.title }}</a></p>
+            <p><a :href="`detail.html?modelType=${ detailData.next.modelType}&articleId=${ detailData.next.id}`">{{ detailData.next.title }}</a></p>
           </div>
           <!-- <a
                     href=""
@@ -144,13 +144,13 @@ export default {
   transition: all 0.6s;
 }
 .fenpian div:hover a {
-  color: #de0024;
+  color: $themeColor;
 }
 .fenpian .fanhui {
   display: block;
   position: absolute;
   right: 10px;
-  background: #de0024;
+  background: $themeColor;
   color: #fff;
   padding: 10px 25px;
   border-radius: 10px;

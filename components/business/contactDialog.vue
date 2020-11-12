@@ -181,7 +181,7 @@
             <div class="zx_box">
               <div class="zx_box_l">
                 <input
-                  style="font-size:30px;font-weight:bold;color:#c7000a;width:auto;"
+                class="zx_box_l-input"
                   type="text"
                   id="zx_text"
                   v-model="baseInfo.phone"
@@ -314,7 +314,7 @@ export default {
 }
 
 .w_message {
-  border: 1px solid #a00000;
+  border: 1px solid $themeColor;
   padding: 7px;
   padding: 20px 10px;
   background: #ededed;
@@ -425,13 +425,13 @@ export default {
   margin-left: 54px;
   font-family: '微软雅黑';
   color: #fff;
-  background: #a00000;
+  background: $themeColor;
 }
 
 .w_message .msgbtn_hover {
-  background: #cb5961;
+  background: $themeColor;
   color: #fff;
-  border: 1px solid #cb5961;
+  border: 1px solid $themeColor;
 }
 
 .m_close {
@@ -475,7 +475,7 @@ export default {
   font-size: 0px;
   line-height: 1px;
   margin: 0 2px;
-  background: #cb5961;
+  background: $themeColor;
 }
 
 #m_mid {
@@ -483,7 +483,7 @@ export default {
   font-size: 0px;
   line-height: 1px;
   margin: 0 1px;
-  background: #a00000;
+  background: $themeColor;
 }
 
 #m_bot {
@@ -492,6 +492,6 @@ export default {
   padding-left: 9px;
   font-family: '微软雅黑';
   font-size: 13px;
-  background: #a00000;
+  background: $themeColor;
 }
 </style>

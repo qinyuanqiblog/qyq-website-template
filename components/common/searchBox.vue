@@ -17,7 +17,7 @@
       >
         <a
           class="ml-1 mr-2"
-          :href="`search?keyword=${encodeURIComponent(item)}`"
+          :href="`search.html?keyword=${encodeURIComponent(item)}`"
         >{{ item }}</a>
       </b-col>
       <b-col class="d-flex">
@@ -59,10 +59,7 @@ export default {
         return false
       }
       if (process.client) {
-        // window.location.href = `search?keyword=${encodeURIComponent(
-        //   this.keyword
-        // )}`
-        this.$router.push(`search?keyword=${encodeURIComponent(this.keyword)}`)
+        this.$router.push(`search.html?keyword=${encodeURIComponent(this.keyword)}`)
       }
     },
   },
@@ -99,7 +96,7 @@ export default {
     height: 40px;
     // border-top-right-radius: 20px;
     // border-bottom-right-radius: 20px;
-    background-color: red;
+    background-color:$themeColor;
     font-size: 14px;
   }
 }
