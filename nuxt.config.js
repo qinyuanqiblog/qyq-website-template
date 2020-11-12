@@ -60,6 +60,37 @@ export default {
     'bootstrap-vue/nuxt',
     '@nuxtjs/style-resources',
   ],
+  // tree Shake 引入 bootstrapVue
+  // https://bootstrap-vue.org/docs/#nuxtjs-module
+  bootstrapVue: {
+    componentPlugins:[
+      'LayoutPlugin',
+      'ToastPlugin',
+
+
+      
+      'ModalPlugin',
+    ],
+    components: [
+      // 'BContainer',
+      // 'BRow',
+      // 'BCol',
+      'BFormInput',
+      'BButton',
+      'BTable',
+      'BModal',
+      'BCollapse',
+      'BNavbar',
+      'BNavbarNav',
+      'BNavbarBrand',
+      'BNavbarToggle',
+      'BCarousel',
+      'BCarouselSlide',
+      'BFormTextarea',
+      ],
+    directives: [],
+    icons: true,
+  },
   styleResources: {
     // your settings here
     scss: [

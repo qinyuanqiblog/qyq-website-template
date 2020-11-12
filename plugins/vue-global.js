@@ -1,9 +1,7 @@
 import Vue from 'vue'
-import bootstrapVueComponentsInstall from '~/components/bootstrapVueComponentsInstall'
 import myComponentsInstall from '~/components/myComponentsInstall'
 import { requireJsonModules } from '~/utils'
 // 注册全局组件
-Vue.use(bootstrapVueComponentsInstall)
 Vue.use(myComponentsInstall)
 // 注册全局api
 export default (context, inject) => {

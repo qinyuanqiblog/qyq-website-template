@@ -8,7 +8,8 @@
     "start": "nuxt start",
     "generate": "nuxt generate &&  node deploy.js dev",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lint": "yarn lint:js"
+    "lint": "yarn lint:js",
+    "analyze": "yarn nuxt build --analyze"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.2",
