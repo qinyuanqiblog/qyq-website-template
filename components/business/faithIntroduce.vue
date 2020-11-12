@@ -96,7 +96,7 @@ export default {
     font-size: 20px;
     cursor: pointer;
 
-    background-color: #de0024;
+    background-color: $themeColor;
     border-radius: 30px;
     &__yellow {
       background-color: #f5d200;

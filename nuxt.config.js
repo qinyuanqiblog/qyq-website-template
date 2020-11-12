@@ -1,19 +1,29 @@
+// 打包后的文件名，如果是一个服务下部署多个目录，则需要修改哦
+const generateDir ='dist'
+
 export default {
   mode: 'universal',
   // Global page headers (https://go.nuxtjs.dev/config-head)
-  // Global CSS (https://go.nuxtjs.dev/config-css)
   //
   router: {
-    base:  process.env.NODE_ENV === 'development' ? '/' : './'
+    base:  process.env.NODE_ENV === 'development' ? '/' : '/' + generateDir,
+    extendRoutes(routes, resolve) {
+      routes.push({
+        path: '/',
+        component: resolve(__dirname, 'pages/index.html.vue')
+      })
+    }
   },
   server: {
     port: 80,
     host: '0.0.0.0'
   },
-  css: [
-    '~assets/css/search.css',
-    '~assets/scss/media-750.scss',
+  // Global CSS (https://go.nuxtjs.dev/config-css)
 
+  css: [
+    '~assets/scss/search.scss',
+    '~assets/scss/websiteConfig.scss',
+    '~assets/scss/media-750.scss',
   ],
 
 
@@ -77,14 +87,14 @@ export default {
   build: {
     cssSourceMap:false,
     extractCSS: true,
-    // publicPath: '/qyqTest/'
+    // publicPath: 'static' // 默认文件夹叫_nuxt
   },
   target: 'static',
   static: {
     prefix: false
   },
   generate: {
-    // dir: 'gh_pages', // gh_pages/ instead of dist/
+    dir: generateDir, // gh_pages/ instead of dist/
     subFolders: false // HTML files are generated according to the route path
   }
 }

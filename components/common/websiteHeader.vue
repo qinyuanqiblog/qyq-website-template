@@ -37,8 +37,8 @@
     <div class="qyq-navbar">
       <b-container class="navbar-container">
         <b-navbar toggleable="lg">
-          <b-navbar-brand href="#">
-            <h1>{{  baseInfo.name }}</h1>
+          <b-navbar-brand href="index.html  ">
+            <h2 v-html="baseInfo.name"></h2>
           </b-navbar-brand>
           <!-- <b-navbar-brand href="#">
             <img
@@ -220,7 +220,7 @@ img {
     }
   }
   .name {
-    color: #ff5555;
+    color: $themeColor;
   }
 }
 .nav-top-header {
@@ -251,7 +251,7 @@ img {
 }
 .in_all span {
   font-size: 25px;
-  color: #d70a00;
+  color: $themeColor;
   letter-spacing: 1px;
   display: block;
   font-weight: bold;

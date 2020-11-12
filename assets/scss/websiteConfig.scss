@@ -1,0 +1,28 @@
+/* 自己写的样式开始 */
+.swipe {
+
+}
+.swipe-picture {
+  width: 100%;
+  /* height: 500px;
+  object-fit: cover; */
+}
+.swipe__none .carousel-control-prev,
+.swipe__none .carousel-control-next,
+.swipe__none .carousel-indicators{
+  display: none;
+}
+.qyq-title{
+  color:#000;
+}
+.qyq-title-default{
+  margin-left: 5px;;
+  color:$themeColor;
+}
+.color-theme{
+  color:$themeColor;
+}
+a:hover{
+  color:$themeColor;
+}
+/* 自己写的样式结束 */

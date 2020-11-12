@@ -97,7 +97,6 @@ export default {
     left: 0;
     z-index: -1;
     content: '';
-    // background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1602756906531&di=3d5e17a06b43dd48d9d2cb2f180738cc&imgtype=0&src=http%3A%2F%2F05imgmini.eastday.com%2Fmobile%2F20190704%2F20190704074010_0a2d3bf280b0a3df5ec289cbc8ab223c_1.jpeg);
     background-image: url(~assets/images/brand-logo.png);
     background-repeat: no-repeat;
     background-size: cover;

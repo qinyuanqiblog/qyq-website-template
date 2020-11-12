@@ -15,12 +15,12 @@
         <div class="lx_sub">
           <div class="zxtit01 ">
             <h2><a
-                href="news"
+                href="news.html"
                 title="公司新闻"
                 target="_blank"
               >{{ item.menuName }}</a></h2>
             <span class=" tar01 fr"><a
-                href="news"
+                href="news.html"
                 title="more"
                 target="_blank"
               >more&gt;&gt;</a></span>
@@ -39,7 +39,7 @@
               style="overflow:hidden"
               class="d-flex justify-content-between"
             >
-              <a :href="`detail?modelType=${childItem.modelType}&articleId=${childItem.id}`">{{ childItem.title }}</a>
+              <a :href="`detail.html?modelType=${childItem.modelType}&articleId=${childItem.id}`">{{ childItem.title }}</a>
               <span class="text-right createTime">{{ childItem.createTime }}</span>
             </li>
           </ul>
@@ -47,7 +47,7 @@
           <div class="n_more">
             <!--更多链接代码开始-->
             <a
-              href="news"
+              href="news.html"
               target=""
             >查看更多 +</a>
             <!--更多链接代码结束-->
