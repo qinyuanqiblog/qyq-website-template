@@ -25,6 +25,7 @@
             <img
               class="brand-picture"
               src="~/assets/images/brand-logo.png"
+              alt="品牌背景图"
             />
           </b-col>
           <b-col class="brand-content">

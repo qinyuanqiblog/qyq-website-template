@@ -1,5 +1,8 @@
+// import { formatDate } from './utils'
+
 // 打包后的文件名，如果是一个服务下部署多个目录，则需要修改哦
-const generateDir ='dist'
+const generateDir = 'dist'
+const lastmod = '2020-10-11'
 
 export default {
   mode: 'universal',
@@ -18,6 +21,7 @@ export default {
     port: 80,
     host: '0.0.0.0'
   },
+  middleware: "skeleton",
   // Global CSS (https://go.nuxtjs.dev/config-css)
 
   css: [
@@ -55,6 +59,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/sitemap',
     // With options
     '@nuxtjs/proxy',
     'bootstrap-vue/nuxt',
@@ -66,9 +71,6 @@ export default {
     componentPlugins:[
       'LayoutPlugin',
       'ToastPlugin',
-
-
-      
       'ModalPlugin',
     ],
     components: [
@@ -90,6 +92,18 @@ export default {
       ],
     directives: [],
     icons: true,
+  },
+  sitemap:{
+    hostname: 'http://211.149.157.233:9090/',
+    lastmod,
+    defaults: {
+      // 更新频率
+      changefreq: 'daily',
+      // 权重
+      priority: 0.5,
+      // 上次修改时间
+      lastmod,
+    },
   },
   styleResources: {
     // your settings here

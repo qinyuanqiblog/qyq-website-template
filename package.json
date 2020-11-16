@@ -20,18 +20,19 @@
     "vuex-persistedstate": "^4.0.0-beta.1"
   },
   "devDependencies": {
-    "chalk": "^4.0.0",
-    "compressing": "^1.5.1",
-    "node-ssh": "^10.0.2",
+    "@nuxtjs/sitemap": "^2.4.0",
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/proxy": "^2.0.1",
     "@nuxtjs/style-resources": "^1.0.0",
     "babel-eslint": "^10.1.0",
+    "chalk": "^4.0.0",
+    "compressing": "^1.5.1",
     "eslint": "^7.10.0",
     "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-nuxt": "^1.0.0",
     "eslint-plugin-prettier": "^3.1.4",
+    "node-ssh": "^10.0.2",
     "prettier": "^2.1.2",
     "sass": "^1.29.0",
     "sass-loader": "^10.0.5"
