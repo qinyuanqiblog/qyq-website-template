@@ -230,7 +230,7 @@ export default {
 .casepage .div2-box .phone {
   font-size: 24px;
   font-weight: bold;
-  color: #dc3545;
+  color: $themeColor;
 }
 .casepage .div2-box p {
   font-size: 14px;

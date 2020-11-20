@@ -1,7 +1,8 @@
 // import { formatDate } from './utils'
 
 // 打包后的文件名，如果是一个服务下部署多个目录，则需要修改哦
-const generateDir = 'dist'
+import vueEnv from './vue-env'
+const generateDir = vueEnv.generateDir
 const lastmod = '2020-10-11'
 
 export default {
@@ -89,6 +90,7 @@ export default {
       'BCarousel',
       'BCarouselSlide',
       'BFormTextarea',
+      'BPagination',
       ],
     directives: [],
     icons: true,

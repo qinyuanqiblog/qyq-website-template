@@ -100,7 +100,7 @@
             @click="closeMessageDialog()"
           >关闭</b-button>
           <b-button
-            variant="danger"
+            class="handle-area-button"
             @click="submit()"
           >提交</b-button>
         </div>
@@ -340,6 +340,10 @@ export default {
     padding: 0 20px;
     &-first {
       background-color: #fff;
+    }
+    &-button{
+      background-color: $themeColor;
+      border: none;
     }
   }
 }
