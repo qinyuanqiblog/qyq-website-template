@@ -27,13 +27,13 @@
             v-if="detailData.up && detailData.up[0]"
             class="clearfix"
           ><span>上一篇：</span>
-            <p><a :href="`detail.html?modelType=${ detailData.up[0].modelType}&articleId=${ detailData.up[0].id}`">{{ detailData.up[0].title }}</a></p>
+            <p><a :href="`detail?modelType=${ detailData.up[0].modelType}&articleId=${ detailData.up[0].id}`">{{ detailData.up[0].title }}</a></p>
           </div>
           <div
             v-if="detailData.next && detailData.next.title"
             class="clearfix"
           ><span>下一篇：</span>
-            <p><a :href="`detail.html?modelType=${ detailData.next.modelType}&articleId=${ detailData.next.id}`">{{ detailData.next.title }}</a></p>
+            <p><a :href="`detail?modelType=${ detailData.next.modelType}&articleId=${ detailData.next.id}`">{{ detailData.next.title }}</a></p>
           </div>
           <!-- <a
                     href=""

@@ -70,6 +70,9 @@ typings/
 
 # Nuxt generate
 dist
+0001-fbjj
+deploy.js
+
 
 # vuepress build output
 .vuepress/dist

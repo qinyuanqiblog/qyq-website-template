@@ -49,7 +49,7 @@ export const getters = {
   },
   productUrl(state){
     let newArray = state.menuList.filter((v) => v.isProductCenter === '1')
-    return  (newArray[0] && newArray[0].href) || 'index.html'
+    return  (newArray[0] && newArray[0].href) || 'index'
   }
 }
 

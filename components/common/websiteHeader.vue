@@ -37,7 +37,7 @@
     <div class="qyq-navbar">
       <b-container class="navbar-container">
         <b-navbar toggleable="lg">
-          <b-navbar-brand href="index.html  ">
+          <b-navbar-brand href="index">
             <h2 v-html="baseInfo.name"></h2>
           </b-navbar-brand>
           <!-- <b-navbar-brand href="#">

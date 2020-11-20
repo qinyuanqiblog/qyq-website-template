@@ -177,7 +177,7 @@
     </div>
     <!-- 底部nav -->
     <div class="footer">
-      <a href="index.html">
+      <a href="index">
         <b-icon
           class="fa-phone"
           icon="house-fill"
@@ -201,7 +201,7 @@
 
 <script>
 // import VueQrcode from 'vue-qrcode'
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 export default {
   name: 'websiteFooter',
   // components: {VueQrcode},
@@ -209,11 +209,11 @@ export default {
     ...mapState({
       baseInfo: (state) => state.baseInfo,
     }),
+    ...mapGetters(['productUrl']),
   },
   data() {
     return {
       friendData: {},
-      productUrl: '',
       form: {
         name: '',
         phone: '',

@@ -17,7 +17,7 @@
       >
         <a
           class="ml-1 mr-2"
-          :href="`search.html?keyword=${encodeURIComponent(item)}`"
+          :href="`search?keyword=${encodeURIComponent(item)}`"
         >{{ item }}</a>
       </b-col>
       <b-col class="d-flex">
@@ -59,7 +59,7 @@ export default {
         return false
       }
       if (process.client) {
-        this.$router.push(`search.html?keyword=${encodeURIComponent(this.keyword)}`)
+        this.$router.push(`search?keyword=${encodeURIComponent(this.keyword)}`)
       }
     },
   },

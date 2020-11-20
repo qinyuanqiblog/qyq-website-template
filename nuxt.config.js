@@ -14,7 +14,7 @@ export default {
     extendRoutes(routes, resolve) {
       routes.push({
         path: '/',
-        component: resolve(__dirname, 'pages/index.html.vue')
+        component: resolve(__dirname, 'pages/index')
       })
     }
   },
@@ -142,6 +142,6 @@ export default {
   },
   generate: {
     dir: generateDir, // gh_pages/ instead of dist/
-    subFolders: false // HTML files are generated according to the route path
+    subFolders: true // HTML files are generated according to the route path
   }
 }

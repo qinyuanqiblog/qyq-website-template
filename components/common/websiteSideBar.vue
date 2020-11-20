@@ -20,7 +20,7 @@
             v-for="(childItem, childIndex) in item.childrenList"
             :key="childIndex"
           >
-            <a :href="`product.html?modelType=${ childItem.modelType}&menuId=${ childItem.id}`">
+            <a :href="`product?modelType=${ childItem.modelType}&menuId=${ childItem.id}`">
               <i v-if="childItem.haveChild !== '0'"></i>
               {{ childItem.name }}
             </a>
@@ -32,7 +32,7 @@
                 v-for="(secondItem, secondIndex) in childItem.newsMenu"
                 :key="secondIndex"
                 class="ul1-child-link"
-                :href="`product.html?modelType=${ secondItem.modelType}&menuId=${ secondItem.id}`"
+                :href="`product?modelType=${ secondItem.modelType}&menuId=${ secondItem.id}`"
               >
                 <i v-if="secondItem.haveChild !== '0'"></i>
                 {{ secondItem.name }}
@@ -53,7 +53,7 @@
               v-for="(childItem, childIndex) in item.childrenList"
               :key="childIndex"
             >
-              <a :href="`detail.html?modelType=${ childItem.modelType}&articleId=${ childItem.id}`"><i></i>{{ childItem.title }}</a>
+              <a :href="`detail?modelType=${ childItem.modelType}&articleId=${ childItem.id}`"><i></i>{{ childItem.title }}</a>
             </li>
           </ul>
         </div>

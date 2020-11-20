@@ -17,7 +17,7 @@
                 <h3>{{ config.title }}<b></b></h3>
               </div>
               <div>
-                <a href="index.html">
+                <a href="index">
                   <img
                     src="~assets/images/home.png"
                     alt="网站首页背景图"
@@ -41,7 +41,7 @@
                         v-for="(item, index) in list"
                         :key="index"
                       >
-                        <a :href="`detail.html?modelType=${item.modelType}&articleId=${item.id}`">
+                        <a :href="`detail?modelType=${item.modelType}&articleId=${item.id}`">
                           <b-row align-v="center">
                             <b-col
                               cols="2"
@@ -74,7 +74,7 @@
                       class="col-sm-3 col-xs-12 item"
                     >
                       <a
-                        :href="`detail.html?articleId=${item.id}&modelType=${item.modelType}`"
+                        :href="`detail?articleId=${item.id}&modelType=${item.modelType}`"
                         class="image-popup"
                       >
                         <img

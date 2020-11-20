@@ -77,7 +77,9 @@ export default ({
             return $axios({
                 url: `${defaultPrefix}/news/api/insidePageData`,
                 method: 'get',
-                params,
+                params: Object.assign({
+                  userId
+              }, params),
             })
         },
         // 获取菜单
