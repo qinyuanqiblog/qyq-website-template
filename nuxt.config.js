@@ -136,7 +136,7 @@ export default {
     extractCSS: true,
     // publicPath: 'static' // 默认文件夹叫_nuxt
   },
-  target: 'static',
+  // target: 'static',
   static: {
     prefix: false
   },

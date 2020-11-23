@@ -15,11 +15,6 @@
           </div>
           <div>
             <div v-html="detailData.currentArticle.content"> </div>
-
-            <p><img
-                src="img/banner.png"
-                alt="banner"
-              ></p>
           </div>
         </div>
         <div class="fenpian">

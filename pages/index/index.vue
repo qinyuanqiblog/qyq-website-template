@@ -45,9 +45,13 @@ export default {
   data() {
     return {}
   },
-  async asyncData({ app, store }) {
-    const res = await app.$systemApi.index()
-    store.commit('SET_INDEX_PAGE_DATA', res)
+  // async asyncData({ app, store }) {
+  //   const res = await app.$systemApi.index()
+  //   store.commit('SET_INDEX_PAGE_DATA', res)
+  // },
+  async created() {
+    const res = await this.$systemApi.index()
+    this.$store.commit('SET_INDEX_PAGE_DATA', res)
   },
   methods: {
     init() {

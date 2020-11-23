@@ -1,20 +1,25 @@
 import websiteConfig from '../vue-env'
 export default {
-  async fetch({ app, store }) {
+  async fetch({ app }) {
     const array = [
-      app.$systemApi.menuTree(),
-      app.$systemApi.bannerList(),
+      // app.$systemApi.menuTree(),
+      // app.$systemApi.bannerList(),
       app.$systemApi.info(),
-      app.$systemApi.insidePageData(),
+      // app.$systemApi.insidePageData(),
     ]
-    let [menuTree, bannerList, baseInfo, commonData ] = await Promise.all(array)
+    let [
+      // menuTree,
+      //  bannerList,
+        baseInfo,
+      //  commonData
+      ] = await Promise.all(array)
     const info = baseInfo.info || {}
     info.address = websiteConfig.websiteFooter.address
-    info.brandContent = websiteConfig.aboutUs.brand.content
-    store.commit('SET_MENU_LIST', menuTree)
-    store.commit('SET_BANNER_LIST', bannerList.banners)
-    store.commit('SET_BASE_INFO', info)
-    store.commit('SET_COMMON_DATA', commonData)
+    // info.brandContent = websiteConfig.aboutUs.brand.content
+    // store.commit('SET_MENU_LIST', menuTree)
+    // store.commit('SET_BANNER_LIST', bannerList.banners)
+    // store.commit('SET_BASE_INFO', info)
+    // store.commit('SET_COMMON_DATA', commonData)
 
     // 设置meta
     this.head = function() {
@@ -52,7 +57,22 @@ export default {
       },
     }
   },
-  mounted() {
+  async created() {
+    const array = [
+      this.$systemApi.menuTree(),
+      this.$systemApi.bannerList(),
+      this.$systemApi.info(),
+      this.$systemApi.insidePageData(),
+    ]
+    let [menuTree, bannerList, baseInfo, commonData ] = await Promise.all(array)
+    const info = baseInfo.info || {}
+    info.address = websiteConfig.websiteFooter.address
+    info.brandContent = websiteConfig.aboutUs.brand.content
+    this.info = info
+    this.$store.commit('SET_MENU_LIST', menuTree)
+    this.$store.commit('SET_BANNER_LIST', bannerList.banners)
+    this.$store.commit('SET_BASE_INFO', info)
+    this.$store.commit('SET_COMMON_DATA', commonData)
   },
   methods: {
 

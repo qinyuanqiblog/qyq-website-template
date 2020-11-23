@@ -268,6 +268,7 @@ export default {
   // width: 220px;
 }
 .casepage .case-right {
+  overflow:hidden;
   background: #fff;
   // width: 600px;
 }
