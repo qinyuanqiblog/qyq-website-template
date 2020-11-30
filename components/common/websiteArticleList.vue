@@ -200,7 +200,7 @@ export default {
     return {
       list: [],
       totalRows: 10,
-      perPage: 10,
+      perPage: 12,
       currentPage: 1,
     }
   },

@@ -1,4 +1,4 @@
-product<template>
+<template>
   <div>
     <websiteHeader />
     <websiteArticleList
