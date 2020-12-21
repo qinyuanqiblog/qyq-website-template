@@ -169,6 +169,7 @@
               <p>文章素材及部分图片来源于网络，版本归原来作者所有，如有侵权，请联系删除。
               </p>
               <!-- <p>技术支持：悦耀网络</p> -->
+              <p> <a href="beian.miit.gov.cn">备案号:桂ICP备2020008811号-1</a></p>
             </div>
           </div>
         </div>
@@ -207,7 +208,7 @@ export default {
   // components: {VueQrcode},
   computed: {
     ...mapState({
-      baseInfo: (state) => state.baseInfo,
+      baseInfo: state => state.baseInfo,
     }),
     ...mapGetters(['productUrl']),
   },
