@@ -290,6 +290,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// TODO 傻逼项目客户要隐藏，通用的记得干掉
+.cd-popup-close{
+  display: none;
+}
 .icon_keifu {
   position: fixed;
   bottom: 20px;
